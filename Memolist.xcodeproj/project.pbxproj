@@ -7,14 +7,61 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DE692D171D71AA540070B45E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D161D71AA540070B45E /* AppDelegate.swift */; };
-		DE692D191D71AA540070B45E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D181D71AA540070B45E /* ViewController.swift */; };
-		DE692D1C1D71AA540070B45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692D1A1D71AA540070B45E /* Main.storyboard */; };
+		DE339A731D745A41004E7932 /* Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A721D745A41004E7932 /* Add.pdf */; };
+		DE339A761D745A8A004E7932 /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A741D745A8A004E7932 /* Minus.pdf */; };
+		DE339A771D745A8A004E7932 /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A751D745A8A004E7932 /* Plus.pdf */; };
 		DE692D1F1D71AA540070B45E /* Memolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE692D1D1D71AA540070B45E /* Memolist.xcdatamodeld */; };
 		DE692D211D71AA540070B45E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE692D201D71AA540070B45E /* Assets.xcassets */; };
 		DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692D221D71AA540070B45E /* LaunchScreen.storyboard */; };
 		DE692D2F1D71AA540070B45E /* MemolistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D2E1D71AA540070B45E /* MemolistTests.swift */; };
 		DE692D3A1D71AA540070B45E /* MemolistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D391D71AA540070B45E /* MemolistUITests.swift */; };
+		DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D541D71ACBA0070B45E /* AppDelegate.swift */; };
+		DE692D571D71ACBA0070B45E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D551D71ACBA0070B45E /* ViewController.swift */; };
+		DE692D5B1D71AD180070B45E /* AllPageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D581D71AD180070B45E /* AllPageEditorViewController.swift */; };
+		DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D591D71AD180070B45E /* ColorSelectorViewController.swift */; };
+		DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D5A1D71AD180070B45E /* PageEditorViewController.swift */; };
+		DE692D621D71AD950070B45E /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D5E1D71AD950070B45E /* EditorViewController.swift */; };
+		DE692D631D71AD950070B45E /* ItemColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D5F1D71AD950070B45E /* ItemColorSelectorViewController.swift */; };
+		DE692D641D71AD950070B45E /* WidgetEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D601D71AD950070B45E /* WidgetEditorViewController.swift */; };
+		DE692D651D71AD950070B45E /* WidgetSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D611D71AD950070B45E /* WidgetSelectorViewController.swift */; };
+		DE692D6C1D71ADFB0070B45E /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D671D71ADFB0070B45E /* ListItem.swift */; };
+		DE692D6D1D71ADFB0070B45E /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D681D71ADFB0070B45E /* ListTableViewCell.swift */; };
+		DE692D6E1D71ADFB0070B45E /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D691D71ADFB0070B45E /* ListTableViewCell.xib */; };
+		DE692D6F1D71ADFB0070B45E /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D6A1D71ADFB0070B45E /* ListTableViewController.swift */; };
+		DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D6B1D71ADFB0070B45E /* ListTableViewController.xib */; };
+		DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D721D71AE600070B45E /* CAPSPageMenu.swift */; };
+		DE692D781D71AE600070B45E /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D731D71AE600070B45E /* ColorController.swift */; };
+		DE692D791D71AE600070B45E /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D741D71AE600070B45E /* ItemController.swift */; };
+		DE692D7A1D71AE600070B45E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D751D71AE600070B45E /* Page.swift */; };
+		DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D761D71AE600070B45E /* ScheduleItem.swift */; };
+		DE692D801D71AE9B0070B45E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7D1D71AE9B0070B45E /* Counter.swift */; };
+		DE692D811D71AE9B0070B45E /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7E1D71AE9B0070B45E /* Label.swift */; };
+		DE692D821D71AE9B0070B45E /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7F1D71AE9B0070B45E /* Widget.swift */; };
+		DE692D861D71AEEE0070B45E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D841D71AEEE0070B45E /* LabelCell.swift */; };
+		DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D851D71AEEE0070B45E /* LabelCell.xib */; };
+		DE692D951D71AF390070B45E /* ColorLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */; };
+		DE692D961D71AF390070B45E /* ColorLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */; };
+		DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D8B1D71AF390070B45E /* ColorSelectTableViewCell.swift */; };
+		DE692D981D71AF390070B45E /* ColorSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D8C1D71AF390070B45E /* ColorSelectTableViewCell.xib */; };
+		DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D8D1D71AF390070B45E /* DatePickerCell.swift */; };
+		DE692D9A1D71AF390070B45E /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D8E1D71AF390070B45E /* DatePickerCell.xib */; };
+		DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */; };
+		DE692D9C1D71AF390070B45E /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D901D71AF390070B45E /* LabelTableViewCell.xib */; };
+		DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */; };
+		DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */; };
+		DE692D9F1D71AF390070B45E /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */; };
+		DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */; };
+		DE692DA81D71AFA70070B45E /* Check.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA31D71AFA70070B45E /* Check.pdf */; };
+		DE692DA91D71AFA70070B45E /* Close.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA41D71AFA70070B45E /* Close.pdf */; };
+		DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA51D71AFA70070B45E /* Edit.pdf */; };
+		DE692DAB1D71AFA70070B45E /* List.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA61D71AFA70070B45E /* List.pdf */; };
+		DE692DAD1D71AFBD0070B45E /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAC1D71AFBD0070B45E /* Icon */; };
+		DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAE1D71AFCF0070B45E /* Main.storyboard */; };
+		DE692E311D7319030070B45E /* LabelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E301D7319030070B45E /* LabelEditor.swift */; };
+		DE692E341D732C2E0070B45E /* MemoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E331D732C2E0070B45E /* MemoEditor.swift */; };
+		DE692E361D7332B00070B45E /* MemoWidgetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E351D7332B00070B45E /* MemoWidgetEditor.swift */; };
+		DE692E391D73EA9F0070B45E /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E371D73EA9F0070B45E /* CounterCell.swift */; };
+		DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692E381D73EA9F0070B45E /* CounterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +82,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE339A721D745A41004E7932 /* Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Add.pdf; sourceTree = "<group>"; };
+		DE339A741D745A8A004E7932 /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
+		DE339A751D745A8A004E7932 /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
 		DE692D131D71AA540070B45E /* Memolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE692D161D71AA540070B45E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DE692D181D71AA540070B45E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DE692D1B1D71AA540070B45E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DE692D1E1D71AA540070B45E /* Memolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memolist.xcdatamodel; sourceTree = "<group>"; };
 		DE692D201D71AA540070B45E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE692D231D71AA540070B45E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +96,55 @@
 		DE692D351D71AA540070B45E /* MemolistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemolistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE692D391D71AA540070B45E /* MemolistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemolistUITests.swift; sourceTree = "<group>"; };
 		DE692D3B1D71AA540070B45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE692D471D71AB240070B45E /* Memolist-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Memolist-Bridging-Header.h"; sourceTree = "<group>"; };
+		DE692D541D71ACBA0070B45E /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DE692D551D71ACBA0070B45E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DE692D581D71AD180070B45E /* AllPageEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllPageEditorViewController.swift; sourceTree = "<group>"; };
+		DE692D591D71AD180070B45E /* ColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectorViewController.swift; sourceTree = "<group>"; };
+		DE692D5A1D71AD180070B45E /* PageEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageEditorViewController.swift; sourceTree = "<group>"; };
+		DE692D5E1D71AD950070B45E /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		DE692D5F1D71AD950070B45E /* ItemColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemColorSelectorViewController.swift; sourceTree = "<group>"; };
+		DE692D601D71AD950070B45E /* WidgetEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetEditorViewController.swift; sourceTree = "<group>"; };
+		DE692D611D71AD950070B45E /* WidgetSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetSelectorViewController.swift; sourceTree = "<group>"; };
+		DE692D671D71ADFB0070B45E /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		DE692D681D71ADFB0070B45E /* ListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D691D71ADFB0070B45E /* ListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		DE692D6A1D71ADFB0070B45E /* ListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
+		DE692D6B1D71ADFB0070B45E /* ListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
+		DE692D721D71AE600070B45E /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
+		DE692D731D71AE600070B45E /* ColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
+		DE692D741D71AE600070B45E /* ItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
+		DE692D751D71AE600070B45E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
+		DE692D761D71AE600070B45E /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
+		DE692D7D1D71AE9B0070B45E /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DE692D7E1D71AE9B0070B45E /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		DE692D7F1D71AE9B0070B45E /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
+		DE692D841D71AEEE0070B45E /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
+		DE692D851D71AEEE0070B45E /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
+		DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLabelTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorLabelTableViewCell.xib; sourceTree = "<group>"; };
+		DE692D8B1D71AF390070B45E /* ColorSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D8C1D71AF390070B45E /* ColorSelectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorSelectTableViewCell.xib; sourceTree = "<group>"; };
+		DE692D8D1D71AF390070B45E /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		DE692D8E1D71AF390070B45E /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D901D71AF390070B45E /* LabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
+		DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
+		DE692DA31D71AFA70070B45E /* Check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check.pdf; sourceTree = "<group>"; };
+		DE692DA41D71AFA70070B45E /* Close.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Close.pdf; sourceTree = "<group>"; };
+		DE692DA51D71AFA70070B45E /* Edit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Edit.pdf; sourceTree = "<group>"; };
+		DE692DA61D71AFA70070B45E /* List.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = List.pdf; sourceTree = "<group>"; };
+		DE692DAC1D71AFBD0070B45E /* Icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icon; sourceTree = "<group>"; };
+		DE692DAE1D71AFCF0070B45E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DE692DB11D71B4950070B45E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		DE692E301D7319030070B45E /* LabelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEditor.swift; sourceTree = "<group>"; };
+		DE692E331D732C2E0070B45E /* MemoEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditor.swift; sourceTree = "<group>"; };
+		DE692E351D7332B00070B45E /* MemoWidgetEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoWidgetEditor.swift; sourceTree = "<group>"; };
+		DE692E371D73EA9F0070B45E /* CounterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
+		DE692E381D73EA9F0070B45E /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +195,24 @@
 		DE692D151D71AA540070B45E /* Memolist */ = {
 			isa = PBXGroup;
 			children = (
-				DE692D161D71AA540070B45E /* AppDelegate.swift */,
-				DE692D181D71AA540070B45E /* ViewController.swift */,
-				DE692D1A1D71AA540070B45E /* Main.storyboard */,
+				DE692D541D71ACBA0070B45E /* AppDelegate.swift */,
+				DE692D551D71ACBA0070B45E /* ViewController.swift */,
+				DE692DAE1D71AFCF0070B45E /* Main.storyboard */,
+				DE692D4C1D71AB3C0070B45E /* PageEditorControllers */,
+				DE692D531D71ABC40070B45E /* ItemEditViewControllers */,
+				DE692E321D732A070070B45E /* MemoEditorControllers */,
+				DE692D661D71ADC00070B45E /* ListTableViewController */,
+				DE692D711D71AE180070B45E /* Classes */,
+				DE692D7C1D71AE800070B45E /* WidgetClasses */,
+				DE692D831D71AEAD0070B45E /* WidgetCells */,
+				DE692D881D71AF010070B45E /* CustomCells */,
+				DE692DA11D71AF8E0070B45E /* Image */,
+				DE692DAC1D71AFBD0070B45E /* Icon */,
 				DE692D201D71AA540070B45E /* Assets.xcassets */,
 				DE692D221D71AA540070B45E /* LaunchScreen.storyboard */,
 				DE692D251D71AA540070B45E /* Info.plist */,
 				DE692D1D1D71AA540070B45E /* Memolist.xcdatamodeld */,
+				DE692D471D71AB240070B45E /* Memolist-Bridging-Header.h */,
 			);
 			path = Memolist;
 			sourceTree = "<group>";
@@ -126,6 +233,115 @@
 				DE692D3B1D71AA540070B45E /* Info.plist */,
 			);
 			path = MemolistUITests;
+			sourceTree = "<group>";
+		};
+		DE692D4C1D71AB3C0070B45E /* PageEditorControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D581D71AD180070B45E /* AllPageEditorViewController.swift */,
+				DE692D5A1D71AD180070B45E /* PageEditorViewController.swift */,
+				DE692D591D71AD180070B45E /* ColorSelectorViewController.swift */,
+			);
+			name = PageEditorControllers;
+			sourceTree = "<group>";
+		};
+		DE692D531D71ABC40070B45E /* ItemEditViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D5E1D71AD950070B45E /* EditorViewController.swift */,
+				DE692D5F1D71AD950070B45E /* ItemColorSelectorViewController.swift */,
+				DE692D601D71AD950070B45E /* WidgetEditorViewController.swift */,
+				DE692D611D71AD950070B45E /* WidgetSelectorViewController.swift */,
+			);
+			name = ItemEditViewControllers;
+			sourceTree = "<group>";
+		};
+		DE692D661D71ADC00070B45E /* ListTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D6A1D71ADFB0070B45E /* ListTableViewController.swift */,
+				DE692D6B1D71ADFB0070B45E /* ListTableViewController.xib */,
+				DE692D681D71ADFB0070B45E /* ListTableViewCell.swift */,
+				DE692D691D71ADFB0070B45E /* ListTableViewCell.xib */,
+				DE692D671D71ADFB0070B45E /* ListItem.swift */,
+			);
+			name = ListTableViewController;
+			sourceTree = "<group>";
+		};
+		DE692D711D71AE180070B45E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D721D71AE600070B45E /* CAPSPageMenu.swift */,
+				DE692D761D71AE600070B45E /* ScheduleItem.swift */,
+				DE692D751D71AE600070B45E /* Page.swift */,
+				DE692D731D71AE600070B45E /* ColorController.swift */,
+				DE692D741D71AE600070B45E /* ItemController.swift */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DE692D7C1D71AE800070B45E /* WidgetClasses */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D7F1D71AE9B0070B45E /* Widget.swift */,
+				DE692D7E1D71AE9B0070B45E /* Label.swift */,
+				DE692E301D7319030070B45E /* LabelEditor.swift */,
+				DE692D7D1D71AE9B0070B45E /* Counter.swift */,
+			);
+			name = WidgetClasses;
+			sourceTree = "<group>";
+		};
+		DE692D831D71AEAD0070B45E /* WidgetCells */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D841D71AEEE0070B45E /* LabelCell.swift */,
+				DE692D851D71AEEE0070B45E /* LabelCell.xib */,
+				DE692E371D73EA9F0070B45E /* CounterCell.swift */,
+				DE692E381D73EA9F0070B45E /* CounterCell.xib */,
+			);
+			name = WidgetCells;
+			sourceTree = "<group>";
+		};
+		DE692D881D71AF010070B45E /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */,
+				DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */,
+				DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */,
+				DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */,
+				DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */,
+				DE692D901D71AF390070B45E /* LabelTableViewCell.xib */,
+				DE692D8D1D71AF390070B45E /* DatePickerCell.swift */,
+				DE692D8E1D71AF390070B45E /* DatePickerCell.xib */,
+				DE692D8B1D71AF390070B45E /* ColorSelectTableViewCell.swift */,
+				DE692D8C1D71AF390070B45E /* ColorSelectTableViewCell.xib */,
+				DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */,
+				DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */,
+			);
+			name = CustomCells;
+			sourceTree = "<group>";
+		};
+		DE692DA11D71AF8E0070B45E /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DE339A741D745A8A004E7932 /* Minus.pdf */,
+				DE339A751D745A8A004E7932 /* Plus.pdf */,
+				DE339A721D745A41004E7932 /* Add.pdf */,
+				DE692DA31D71AFA70070B45E /* Check.pdf */,
+				DE692DA41D71AFA70070B45E /* Close.pdf */,
+				DE692DA51D71AFA70070B45E /* Edit.pdf */,
+				DE692DA61D71AFA70070B45E /* List.pdf */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		DE692E321D732A070070B45E /* MemoEditorControllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE692E331D732C2E0070B45E /* MemoEditor.swift */,
+				DE692E351D7332B00070B45E /* MemoWidgetEditor.swift */,
+			);
+			name = MemoEditorControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +448,27 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE692D9A1D71AF390070B45E /* DatePickerCell.xib in Resources */,
+				DE692DA81D71AFA70070B45E /* Check.pdf in Resources */,
+				DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */,
+				DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */,
 				DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */,
+				DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */,
+				DE339A771D745A8A004E7932 /* Plus.pdf in Resources */,
+				DE692D6E1D71ADFB0070B45E /* ListTableViewCell.xib in Resources */,
+				DE692DA91D71AFA70070B45E /* Close.pdf in Resources */,
+				DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */,
+				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
-				DE692D1C1D71AA540070B45E /* Main.storyboard in Resources */,
+				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
+				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
+				DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */,
+				DE692D9C1D71AF390070B45E /* LabelTableViewCell.xib in Resources */,
+				DE692D961D71AF390070B45E /* ColorLabelTableViewCell.xib in Resources */,
+				DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */,
+				DE339A761D745A8A004E7932 /* Minus.pdf in Resources */,
+				DE692D981D71AF390070B45E /* ColorSelectTableViewCell.xib in Resources */,
+				DE692DAB1D71AFA70070B45E /* List.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,9 +493,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE692D191D71AA540070B45E /* ViewController.swift in Sources */,
-				DE692D171D71AA540070B45E /* AppDelegate.swift in Sources */,
+				DE692D5B1D71AD180070B45E /* AllPageEditorViewController.swift in Sources */,
+				DE692D781D71AE600070B45E /* ColorController.swift in Sources */,
+				DE692E341D732C2E0070B45E /* MemoEditor.swift in Sources */,
+				DE692D791D71AE600070B45E /* ItemController.swift in Sources */,
+				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
+				DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */,
+				DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */,
+				DE692E361D7332B00070B45E /* MemoWidgetEditor.swift in Sources */,
+				DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */,
+				DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */,
+				DE692D7A1D71AE600070B45E /* Page.swift in Sources */,
+				DE692D571D71ACBA0070B45E /* ViewController.swift in Sources */,
+				DE692E391D73EA9F0070B45E /* CounterCell.swift in Sources */,
+				DE692D651D71AD950070B45E /* WidgetSelectorViewController.swift in Sources */,
+				DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */,
+				DE692D6C1D71ADFB0070B45E /* ListItem.swift in Sources */,
+				DE692D6F1D71ADFB0070B45E /* ListTableViewController.swift in Sources */,
+				DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */,
+				DE692D6D1D71ADFB0070B45E /* ListTableViewCell.swift in Sources */,
+				DE692D801D71AE9B0070B45E /* Counter.swift in Sources */,
+				DE692D641D71AD950070B45E /* WidgetEditorViewController.swift in Sources */,
+				DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */,
+				DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */,
+				DE692D861D71AEEE0070B45E /* LabelCell.swift in Sources */,
 				DE692D1F1D71AA540070B45E /* Memolist.xcdatamodeld in Sources */,
+				DE692D631D71AD950070B45E /* ItemColorSelectorViewController.swift in Sources */,
+				DE692E311D7319030070B45E /* LabelEditor.swift in Sources */,
+				DE692D9F1D71AF390070B45E /* TextFieldTableViewCell.swift in Sources */,
+				DE692D811D71AE9B0070B45E /* Label.swift in Sources */,
+				DE692D951D71AF390070B45E /* ColorLabelTableViewCell.swift in Sources */,
+				DE692D621D71AD950070B45E /* EditorViewController.swift in Sources */,
+				DE692D821D71AE9B0070B45E /* Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,18 +560,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		DE692D1A1D71AA540070B45E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DE692D1B1D71AA540070B45E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DE692D221D71AA540070B45E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				DE692D231D71AA540070B45E /* Base */,
+				DE692DB11D71B4950070B45E /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -403,10 +659,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Memolist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HaradaTaiki.Memolist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memolist/Memolist-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -414,10 +674,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Memolist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HaradaTaiki.Memolist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Memolist/Memolist-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -486,6 +749,7 @@
 				DE692D401D71AA540070B45E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE692D411D71AA540070B45E /* Build configuration list for PBXNativeTarget "MemolistTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +758,7 @@
 				DE692D431D71AA540070B45E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE692D441D71AA540070B45E /* Build configuration list for PBXNativeTarget "MemolistUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +767,7 @@
 				DE692D461D71AA540070B45E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
