@@ -135,7 +135,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func upDate(canEnable: Bool) {
-        addBarButton.enabled = canEnable
+        //addBarButton.enabled = canEnable
     }
     func initCell() {
         titleCellArray.removeAll()
@@ -146,7 +146,8 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
         titleCell.inputTextField.text = ItemController.instance.string
-        titleCell.placeholder = "タイトル"
+        titleCell.placeholder = "タイトル(必須)"
+        titleCell.maxLength = 15
         titleCell.delegate = self
         titleCellArray.append(titleCell)
         
@@ -166,9 +167,9 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         let titleCell = titleCellArray[0] as! TextFieldTableViewCell
         if let text = titleCell.inputTextField.text {
             if !text.isEmpty {
-                if text.characters.count > 12 {
-                    //タイトルが12文字以上だった場合アラートを表示
-                    let alert = UIAlertController(title: "タイトルが長過ぎます", message: "文字数を12文字以下にしてください", preferredStyle: .Alert)
+                if text.characters.count > 14 {
+                    //タイトルが15文字以上だった場合アラートを表示
+                    let alert = UIAlertController(title: "タイトルが長過ぎます", message: "文字数を14文字以下にしてください", preferredStyle: .Alert)
                     let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                     
                     alert.addAction(action)

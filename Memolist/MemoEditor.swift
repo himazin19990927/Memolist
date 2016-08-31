@@ -172,7 +172,7 @@ class MemoEditor: UIViewController, UITableViewDataSource , UITableViewDelegate,
     
     //テキストフィールドの入力が終わった時に呼ばれるデリゲートメソッド
     func upDate(canEnable: Bool) {
-        addBarButton.enabled = canEnable
+        //addBarButton.enabled = canEnable
     }
     
     //右のボタンが押された時に呼ばれる
@@ -180,28 +180,46 @@ class MemoEditor: UIViewController, UITableViewDataSource , UITableViewDelegate,
         let titleCell = titleCellArray[0] as! TextFieldTableViewCell
         
         if let titleText = titleCell.inputTextField.text {
-            //self.navigationController?.popToRootViewControllerAnimated(true)
             
-            if let scheduleItem = ItemController.instance.memo {
-                scheduleItem.title = titleText
-                scheduleItem.color = ItemController.instance.color!
-                scheduleItem.widgets = ItemController.instance.scheduleItem!.widgets
+            if !titleText.isEmpty {
+                if titleText.characters.count > 16 {
+                    //タイトルが16文字以上だった場合アラートを表示
+                    let alert = UIAlertController(title: "タイトルが長過ぎます", message: "文字数を16文字以下にしてください", preferredStyle: .Alert)
+                    let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    
+                    alert.addAction(action)
+                    
+                    presentViewController(alert, animated: true, completion: nil)
+                } else {
+                    if let scheduleItem = ItemController.instance.memo {
+                        scheduleItem.title = titleText
+                        scheduleItem.color = ItemController.instance.color!
+                        scheduleItem.widgets = ItemController.instance.scheduleItem!.widgets
+                    }
+                    
+                    for widget in ItemController.instance.deleteList {
+                        Widget.removeWidget(widget)
+                    }
+                    
+                    
+                    ItemController.instance.deleteList.removeAll()
+                    ItemController.instance.scheduleItem = nil
+                    ItemController.instance.memo = nil
+                    ItemController.instance.listTableView = nil
+                    ItemController.instance.color = nil
+                    ItemController.instance.string = nil
+                    
+                    dismissViewControllerAnimated(true, completion: nil)
+                }
+            } else {
+                //タイトルが入力されていない場合アラートを表示
+                let alert = UIAlertController(title: "未入力の項目", message: "タイトルを入力してください", preferredStyle: .Alert)
+                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 
+                alert.addAction(action)
+                
+                presentViewController(alert, animated: true, completion: nil)
             }
-            
-            for widget in ItemController.instance.deleteList {
-                Widget.removeWidget(widget)
-            }
-            
-            
-            ItemController.instance.deleteList.removeAll()
-            ItemController.instance.scheduleItem = nil
-            ItemController.instance.memo = nil
-            ItemController.instance.listTableView = nil
-            ItemController.instance.color = nil
-            ItemController.instance.string = nil
-            
-            dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -222,8 +240,9 @@ class MemoEditor: UIViewController, UITableViewDataSource , UITableViewDelegate,
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.placeholder = "タイトル"
+        titleCell.placeholder = "タイトル(必須)"
         titleCell.inputTextField.text = ItemController.instance.string
+        titleCell.maxLength = 16
         titleCell.delegate = self
         titleCellArray.append(titleCell)
         

@@ -23,7 +23,7 @@
                         </constraints>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1e-q9-2Lg">
-                        <rect key="frame" x="257" y="22.5" width="35" height="35"/>
+                        <rect key="frame" x="267" y="22.5" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="Hv2-2b-mLf"/>
                             <constraint firstAttribute="width" constant="35" id="iMg-PW-Ijr"/>
@@ -34,17 +34,28 @@
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-cO-ljI">
-                        <rect key="frame" x="38" y="8" width="209" height="63.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="38" y="8" width="184" height="63.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJ0-Th-y5H">
+                        <rect key="frame" x="232" y="22" width="35" height="35"/>
+                        <state key="normal" title="add" image="Add"/>
+                        <connections>
+                            <action selector="addItem" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ae2-TB-xB1"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="v1e-q9-2Lg" firstAttribute="width" secondItem="YJ0-Th-y5H" secondAttribute="width" id="5dF-8X-lvX"/>
+                    <constraint firstItem="v1e-q9-2Lg" firstAttribute="height" secondItem="YJ0-Th-y5H" secondAttribute="height" id="GM9-zp-pJt"/>
+                    <constraint firstItem="YJ0-Th-y5H" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MXb-Jf-Kd5"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Mk0-zo-YCw" secondAttribute="bottom" id="OvL-c0-bHx"/>
-                    <constraint firstItem="v1e-q9-2Lg" firstAttribute="leading" secondItem="aGw-cO-ljI" secondAttribute="trailing" constant="10" id="T51-DT-T0Z"/>
+                    <constraint firstItem="YJ0-Th-y5H" firstAttribute="leading" secondItem="aGw-cO-ljI" secondAttribute="trailing" constant="10" id="VwL-Nu-W59"/>
+                    <constraint firstItem="v1e-q9-2Lg" firstAttribute="leading" secondItem="YJ0-Th-y5H" secondAttribute="trailing" id="duT-iY-nlq"/>
                     <constraint firstItem="v1e-q9-2Lg" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hoc-4Z-p7T"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="v1e-q9-2Lg" secondAttribute="trailing" constant="20" id="iau-l2-nl4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="v1e-q9-2Lg" secondAttribute="trailing" constant="10" id="iau-l2-nl4"/>
                     <constraint firstItem="Mk0-zo-YCw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="lce-oZ-6xL"/>
                     <constraint firstItem="Mk0-zo-YCw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="mxj-pN-UFi"/>
                     <constraint firstItem="aGw-cO-ljI" firstAttribute="leading" secondItem="Mk0-zo-YCw" secondAttribute="trailing" constant="10" id="nuq-oj-KJB"/>
@@ -60,6 +71,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="Add" width="24" height="24"/>
         <image name="Edit" width="22" height="22"/>
     </resources>
 </document>

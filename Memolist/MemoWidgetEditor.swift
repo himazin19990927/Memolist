@@ -170,7 +170,37 @@ class MemoWidgetEditor: UIViewController, UITableViewDataSource, UITableViewDele
     
     //addボタンが押された時呼ばれる
     func addButtonClicked(sender: AnyObject) {
-        performSegueWithIdentifier("MoveToWidgetSelector", sender: nil)
+        let alert = UIAlertController(title: "アイテムの追加", message: nil, preferredStyle: .ActionSheet)
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        //check
+        let addLabel = UIAlertAction(title: "ラベル", style: .Default, handler: {
+            (action: UIAlertAction!) in
+            ItemController.instance.scheduleItem!.widgets.append(Label())
+            self.initCell()
+            self.tableView.reloadData()
+        })
+        alert.addAction(addLabel)
+        
+        let addToDo = UIAlertAction(title: "チェックボックス", style: .Default, handler: {
+            (action: UIAlertAction!) in
+            ItemController.instance.scheduleItem!.widgets.append(ToDo())
+            self.initCell()
+            self.tableView.reloadData()
+        })
+        alert.addAction(addToDo)
+        
+        let addCounter = UIAlertAction(title: "カウンター", style: .Default, handler: {
+            (action: UIAlertAction!) in
+            ItemController.instance.scheduleItem!.widgets.append(Counter())
+            self.initCell()
+            self.tableView.reloadData()
+        })
+        alert.addAction(addCounter)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
 }

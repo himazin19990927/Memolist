@@ -37,7 +37,7 @@ class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITa
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
         
-        doneBarButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(AllPageEditorViewController.doneButtonClicked(_:)))
+        doneBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(AllPageEditorViewController.doneButtonClicked(_:)))
         
         addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(AllPageEditorViewController.addButtonClicked(_:)))
         
@@ -73,6 +73,18 @@ class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITa
     override func viewWillAppear(animated: Bool) {
         initCell()
         tableView.reloadData()
+    }
+    
+    //headerのUIViewを設定
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        return view
+    }
+    
+    //headerの高さを設定
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
     }
     
     //セクションの数を設定

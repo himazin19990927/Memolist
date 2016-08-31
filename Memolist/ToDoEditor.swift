@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LabelEditorViewController: UIViewController, UITableViewDataSource , UITableViewDelegate,TextFieldCellDelegate, SwitchCellDelegate, DatePickerCellDelegate {
+class ToDoEditorViewController: UIViewController, UITableViewDataSource , UITableViewDelegate,TextFieldCellDelegate, SwitchCellDelegate, DatePickerCellDelegate {
     @IBOutlet var tableView: UITableView!
     
     var textFieldCellArray: [UITableViewCell] = []
@@ -26,7 +26,7 @@ class LabelEditorViewController: UIViewController, UITableViewDataSource , UITab
         tableView.delegate = self
         tableView.backgroundColor = ColorController.lightGrayColor()
         //NavigationBarの設定
-        self.title = "ラベルの設定"
+        self.title = "チェックボックスの設定"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -159,10 +159,9 @@ class LabelEditorViewController: UIViewController, UITableViewDataSource , UITab
         let textFieldCell = textFieldCellArray[0] as! TextFieldTableViewCell
         
         if let text = textFieldCell.inputTextField.text {
-            
-            if text.characters.count > 20 {
-                //タイトルが20文字以上だった場合アラートを表示
-                let alert = UIAlertController(title: "文字数が多すぎます", message: "文字数を20文字以下にしてください", preferredStyle: .Alert)
+            if text.characters.count > 17 {
+                //タイトルが17文字以上だった場合アラートを表示
+                let alert = UIAlertController(title: "文字数が多すぎます", message: "文字数を17文字以下にしてください", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
                 
                 alert.addAction(action)
@@ -170,19 +169,20 @@ class LabelEditorViewController: UIViewController, UITableViewDataSource , UITab
                 presentViewController(alert, animated: true, completion: nil)
 
             } else {
-                let label = ItemController.instance.item as! Label
-                label.text = text
+                let toDo = ItemController.instance.item as! ToDo
+                toDo.text = text
                 
                 if switchValue {
                     let datePickerCell = dateCellArray[1] as! DatePickerCell
-                    label.date = datePickerCell.datePicker.date
+                    toDo.date = datePickerCell.datePicker.date
                 } else {
-                    label.date = nil
+                    toDo.date = nil
                 }
                 
                 ItemController.instance.item = nil
                 navigationController?.popViewControllerAnimated(true)
             }
+            
         }
     }
     
@@ -197,9 +197,9 @@ class LabelEditorViewController: UIViewController, UITableViewDataSource , UITab
         //ラベルを設定するセル
         let textFieldCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
         textFieldCell.placeholder = "ラベル"
-        let label = ItemController.instance.item as! Label
-        textFieldCell.inputTextField.text = label.text
-        textFieldCell.maxLength = 20
+        let toDo = ItemController.instance.item as! ToDo
+        textFieldCell.inputTextField.text = toDo.text
+        textFieldCell.maxLength = 17
         textFieldCell.delegate = self
         textFieldCellArray.append(textFieldCell)
         
@@ -208,7 +208,7 @@ class LabelEditorViewController: UIViewController, UITableViewDataSource , UITab
         let switchCell = tableView.dequeueReusableCellWithIdentifier("SwitchTableViewCell") as! SwitchTableViewCell
         switchCell.titleLabel.text = "日付を表示"
         switchCell.delegate = self
-        if label.date == nil {
+        if toDo.date == nil {
             self.switchValue = false
             switchCell.inputSwitch.on = false
         } else {

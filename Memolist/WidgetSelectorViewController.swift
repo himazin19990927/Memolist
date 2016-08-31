@@ -74,6 +74,8 @@ class WidgetSelectorViewController: UIViewController, UITableViewDataSource, UIT
             case 0:
                 scheduleItem.widgets.append(Label())
             case 1:
+                scheduleItem.widgets.append(ToDo())
+            case 2:
                 scheduleItem.widgets.append(Counter())
             default:
                 break
@@ -113,6 +115,12 @@ class WidgetSelectorViewController: UIViewController, UITableViewDataSource, UIT
         widgetCellArray.append(labelCell)
         
         //row == 1
+        let toDoCell = tableView.dequeueReusableCellWithIdentifier("LabelTableViewCell") as! LabelTableViewCell
+        toDoCell.leftLabel.text = "チェックボックス"
+        toDoCell.accessoryType = .DisclosureIndicator
+        widgetCellArray.append(toDoCell)
+        
+        //row == 2
         let counterCell = tableView.dequeueReusableCellWithIdentifier("LabelTableViewCell") as! LabelTableViewCell
         counterCell.leftLabel.text = "カウンター"
         counterCell.accessoryType = .DisclosureIndicator

@@ -12,15 +12,15 @@ class CounterCell: UITableViewCell {
     @IBOutlet var label: UILabel!
     @IBOutlet var colorView: UIView!
     
-    @IBOutlet var plusButton: UIButton!
-    @IBOutlet var minusButton: UIButton!
+    @IBOutlet var plusImage: UIImageView!
+    @IBOutlet var minusImage: UIImageView!
     
     var open: Bool = false {
         willSet {
             label.hidden = !newValue
             colorView.hidden = !newValue
-            plusButton.hidden = !newValue
-            minusButton.hidden = !newValue
+            plusImage.hidden = !newValue
+            minusImage.hidden = !newValue
         }
     }
 
@@ -28,8 +28,8 @@ class CounterCell: UITableViewCell {
     var color: UIColor  {
         set {
             colorView.backgroundColor = newValue
-            plusButton.backgroundColor = newValue
-            minusButton.backgroundColor = newValue
+            plusImage.backgroundColor = newValue
+            minusImage.backgroundColor = newValue
         }
         
         get {
@@ -51,13 +51,11 @@ class CounterCell: UITableViewCell {
         self.accessoryType = .None
         self.selectionStyle = .None
         
-        self.plusButton.layer.cornerRadius = 25
-        self.minusButton.layer.cornerRadius = 25
+        label.textColor = ColorController.blackColor()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

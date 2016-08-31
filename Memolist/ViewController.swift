@@ -24,7 +24,6 @@ class ViewController: UIViewController, ListTableViewDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         self.navigationController?.navigationBar.barStyle = UIBarStyle.Default
-        //self.navigationController?.navigationBar.tintColor = UIColor.blueColor()
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: ColorController.blackColor()]
         
         //NavigationBarのボタンの設定
@@ -34,6 +33,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
         navigationItem.leftBarButtonItem = editButtonItem()
         
         addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(ViewController.addButtonClicked(_:)))
+        
         listBarButton = UIBarButtonItem(image: UIImage(named: "List"), style: .Done, target: self, action: #selector(ViewController.listButtonClicked(_:)))
         
         self.navigationItem.setRightBarButtonItems([addBarButton, listBarButton], animated: true)
@@ -147,7 +147,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
             .ViewBackgroundColor(ColorController.grayColor()),
             .SelectionIndicatorColor(ColorController.orangeColor()),
             .BottomMenuHairlineColor(ColorController.blueGrayColor()),
-            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
+            .MenuItemFont(UIFont(name: "HelveticaNeue", size: 12.0)!),
             .MenuHeight(40.0),
             .MenuItemWidth(90.0),
             .CenterMenuItems(true),
@@ -170,6 +170,9 @@ class ViewController: UIViewController, ListTableViewDelegate {
         switch widgetType {
         case .Label:
             performSegueWithIdentifier("MoveToLabelEditor", sender: nil)
+        case .ToDo:
+            
+            performSegueWithIdentifier("MoveToToDoEditor", sender: nil)
         case .Counter:
             break
         default:

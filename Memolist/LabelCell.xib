@@ -22,18 +22,18 @@
                             <constraint firstAttribute="width" constant="20" id="fQ9-8v-Sq5"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ああああああああああああ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHP-EZ-2vd">
-                        <rect key="frame" x="58" y="8" width="244" height="27"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12/31 12:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esa-J6-8fF">
-                        <rect key="frame" x="58" y="15" width="254" height="20"/>
+                        <rect key="frame" x="58" y="15.5" width="254" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="v1o-dP-OIv"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="あああああああああああああああああああああ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHP-EZ-2vd">
+                        <rect key="frame" x="58" y="8" width="244" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +45,7 @@
                     <constraint firstItem="eHP-EZ-2vd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="iZc-gC-LZv"/>
                     <constraint firstItem="XzR-rf-ZTq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="kHk-lC-JDp"/>
                     <constraint firstAttribute="bottomMargin" secondItem="esa-J6-8fF" secondAttribute="bottom" id="kXs-D6-Jnb"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="eHP-EZ-2vd" secondAttribute="bottom" constant="0.5" id="lVE-QY-vJ9"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="eHP-EZ-2vd" secondAttribute="bottom" constant="9.5" id="lVE-QY-vJ9"/>
                     <constraint firstItem="esa-J6-8fF" firstAttribute="leading" secondItem="XzR-rf-ZTq" secondAttribute="trailing" constant="10" id="n7Z-cJ-x5J"/>
                     <constraint firstItem="XzR-rf-ZTq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="rle-oR-ygq"/>
                     <constraint firstItem="XzR-rf-ZTq" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="vdL-NC-t7Y"/>

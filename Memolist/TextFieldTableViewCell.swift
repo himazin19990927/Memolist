@@ -14,7 +14,7 @@ protocol TextFieldCellDelegate {
 
 class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     var delegate: TextFieldCellDelegate!
-    var maxLength: Int = 12
+    var maxLength: Int = 10
     @IBOutlet var inputTextField: UITextField!
     
     var placeholder: String = "" {
@@ -48,23 +48,23 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let textFieldCount = textField.text!.characters.count
-        let stringCount = string.characters.count
-        
-        //textFieldの文字が1文字の時に消去されればボタンを押せなくする
-        if textFieldCount == 1 && stringCount == 0 {
-            delegate?.upDate(false)
-            return true
-        }
-        
-        if textFieldCount + stringCount <= maxLength {
-            delegate?.upDate(true)
-            return true
-        }
-        delegate?.upDate(true)
-        return false
-    }
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+//        let textFieldCount = textField.text!.characters.count
+//        let stringCount = string.characters.count
+//        
+//        //textFieldの文字が1文字の時に消去されればボタンを押せなくする
+//        if textFieldCount == 1 && stringCount == 0 {
+//            delegate?.upDate(false)
+//            return true
+//        }
+//        
+//        if textFieldCount + stringCount <= maxLength {
+//            delegate?.upDate(true)
+//            return true
+//        }
+//        delegate?.upDate(true)
+//        return false
+//    }
 }
 
 

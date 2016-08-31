@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DE339A731D745A41004E7932 /* Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A721D745A41004E7932 /* Add.pdf */; };
-		DE339A761D745A8A004E7932 /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A741D745A8A004E7932 /* Minus.pdf */; };
-		DE339A771D745A8A004E7932 /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A751D745A8A004E7932 /* Plus.pdf */; };
 		DE692D1F1D71AA540070B45E /* Memolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE692D1D1D71AA540070B45E /* Memolist.xcdatamodeld */; };
 		DE692D211D71AA540070B45E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE692D201D71AA540070B45E /* Assets.xcassets */; };
 		DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692D221D71AA540070B45E /* LaunchScreen.storyboard */; };
@@ -62,6 +60,13 @@
 		DE692E361D7332B00070B45E /* MemoWidgetEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E351D7332B00070B45E /* MemoWidgetEditor.swift */; };
 		DE692E391D73EA9F0070B45E /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E371D73EA9F0070B45E /* CounterCell.swift */; };
 		DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692E381D73EA9F0070B45E /* CounterCell.xib */; };
+		DEC5AD581D7487DA0063517D /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD571D7487DA0063517D /* ToDo.swift */; };
+		DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD591D74889F0063517D /* ToDoCell.swift */; };
+		DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5A1D74889F0063517D /* ToDoCell.xib */; };
+		DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */; };
+		DEC5AD601D752AB10063517D /* CheckBox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5F1D752AB10063517D /* CheckBox.pdf */; };
+		DEC5AD621D7535980063517D /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD611D7535980063517D /* Minus.pdf */; };
+		DEC5AD641D7535B10063517D /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD631D7535B10063517D /* Plus.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +88,6 @@
 
 /* Begin PBXFileReference section */
 		DE339A721D745A41004E7932 /* Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Add.pdf; sourceTree = "<group>"; };
-		DE339A741D745A8A004E7932 /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
-		DE339A751D745A8A004E7932 /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
 		DE692D131D71AA540070B45E /* Memolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE692D1E1D71AA540070B45E /* Memolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memolist.xcdatamodel; sourceTree = "<group>"; };
 		DE692D201D71AA540070B45E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +148,13 @@
 		DE692E351D7332B00070B45E /* MemoWidgetEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoWidgetEditor.swift; sourceTree = "<group>"; };
 		DE692E371D73EA9F0070B45E /* CounterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
 		DE692E381D73EA9F0070B45E /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
+		DEC5AD571D7487DA0063517D /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		DEC5AD591D74889F0063517D /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
+		DEC5AD5A1D74889F0063517D /* ToDoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
+		DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEditor.swift; sourceTree = "<group>"; };
+		DEC5AD5F1D752AB10063517D /* CheckBox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CheckBox.pdf; sourceTree = "<group>"; };
+		DEC5AD611D7535980063517D /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
+		DEC5AD631D7535B10063517D /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +296,8 @@
 				DE692D7F1D71AE9B0070B45E /* Widget.swift */,
 				DE692D7E1D71AE9B0070B45E /* Label.swift */,
 				DE692E301D7319030070B45E /* LabelEditor.swift */,
+				DEC5AD571D7487DA0063517D /* ToDo.swift */,
+				DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */,
 				DE692D7D1D71AE9B0070B45E /* Counter.swift */,
 			);
 			name = WidgetClasses;
@@ -296,6 +308,8 @@
 			children = (
 				DE692D841D71AEEE0070B45E /* LabelCell.swift */,
 				DE692D851D71AEEE0070B45E /* LabelCell.xib */,
+				DEC5AD591D74889F0063517D /* ToDoCell.swift */,
+				DEC5AD5A1D74889F0063517D /* ToDoCell.xib */,
 				DE692E371D73EA9F0070B45E /* CounterCell.swift */,
 				DE692E381D73EA9F0070B45E /* CounterCell.xib */,
 			);
@@ -324,8 +338,9 @@
 		DE692DA11D71AF8E0070B45E /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				DE339A741D745A8A004E7932 /* Minus.pdf */,
-				DE339A751D745A8A004E7932 /* Plus.pdf */,
+				DEC5AD631D7535B10063517D /* Plus.pdf */,
+				DEC5AD611D7535980063517D /* Minus.pdf */,
+				DEC5AD5F1D752AB10063517D /* CheckBox.pdf */,
 				DE339A721D745A41004E7932 /* Add.pdf */,
 				DE692DA31D71AFA70070B45E /* Check.pdf */,
 				DE692DA41D71AFA70070B45E /* Close.pdf */,
@@ -449,24 +464,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE692D9A1D71AF390070B45E /* DatePickerCell.xib in Resources */,
+				DEC5AD601D752AB10063517D /* CheckBox.pdf in Resources */,
 				DE692DA81D71AFA70070B45E /* Check.pdf in Resources */,
 				DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */,
 				DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */,
 				DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */,
+				DEC5AD641D7535B10063517D /* Plus.pdf in Resources */,
 				DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */,
-				DE339A771D745A8A004E7932 /* Plus.pdf in Resources */,
 				DE692D6E1D71ADFB0070B45E /* ListTableViewCell.xib in Resources */,
 				DE692DA91D71AFA70070B45E /* Close.pdf in Resources */,
 				DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */,
 				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
+				DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
+				DEC5AD621D7535980063517D /* Minus.pdf in Resources */,
 				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
 				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
 				DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */,
 				DE692D9C1D71AF390070B45E /* LabelTableViewCell.xib in Resources */,
 				DE692D961D71AF390070B45E /* ColorLabelTableViewCell.xib in Resources */,
 				DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */,
-				DE339A761D745A8A004E7932 /* Minus.pdf in Resources */,
 				DE692D981D71AF390070B45E /* ColorSelectTableViewCell.xib in Resources */,
 				DE692DAB1D71AFA70070B45E /* List.pdf in Resources */,
 			);
@@ -496,6 +513,7 @@
 				DE692D5B1D71AD180070B45E /* AllPageEditorViewController.swift in Sources */,
 				DE692D781D71AE600070B45E /* ColorController.swift in Sources */,
 				DE692E341D732C2E0070B45E /* MemoEditor.swift in Sources */,
+				DEC5AD581D7487DA0063517D /* ToDo.swift in Sources */,
 				DE692D791D71AE600070B45E /* ItemController.swift in Sources */,
 				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
 				DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */,
@@ -510,9 +528,11 @@
 				DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */,
 				DE692D6C1D71ADFB0070B45E /* ListItem.swift in Sources */,
 				DE692D6F1D71ADFB0070B45E /* ListTableViewController.swift in Sources */,
+				DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */,
 				DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */,
 				DE692D6D1D71ADFB0070B45E /* ListTableViewCell.swift in Sources */,
 				DE692D801D71AE9B0070B45E /* Counter.swift in Sources */,
+				DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */,
 				DE692D641D71AD950070B45E /* WidgetEditorViewController.swift in Sources */,
 				DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */,
 				DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */,

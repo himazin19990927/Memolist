@@ -58,6 +58,9 @@ class ScheduleItem {
                         case .Label:
                             let label = Label(itemId: itemIdArray[index])
                             widgets.append(label)
+                        case .ToDo:
+                            let toDo = ToDo(itemId: itemIdArray[index])
+                            widgets.append(toDo)
                         case .Counter:
                             let counter = Counter(itemId: itemIdArray[index])
                             widgets.append(counter)
@@ -92,6 +95,7 @@ class ScheduleItem {
         //Widgetがキャストしてから保存
         var itemIdArray: [Int] = []
         var itemTypeArray: [Int] = []
+        //check
         for widget in widgets {
             itemIdArray.append(widget.id)
             itemTypeArray.append(widget.widgetType.rawValue)
@@ -100,6 +104,9 @@ class ScheduleItem {
             case .Label:
                 let label = widget as! Label
                 label.save()
+            case .ToDo:
+                let toDo = widget as! ToDo
+                toDo.save()
             case .Counter:
                 let counter = widget as! Counter
                 counter.save()

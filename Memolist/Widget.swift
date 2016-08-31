@@ -11,6 +11,7 @@ import Foundation
 public enum WidgetType: Int {
     case None
     case Label
+    case ToDo
     case Counter
 }
 
@@ -20,7 +21,7 @@ class Widget {
     var id: Int
     var cellName: String = ""
     var widgetType: WidgetType = .None
-    var height: Float = 22.0
+    var height: Float = 0
     
     init() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -36,6 +37,9 @@ class Widget {
         case .Label:
             let label = widget as! Label
             label.removeObject()
+        case .ToDo:
+            let toDo = widget as! ToDo
+            toDo.removeObject()
         case .Counter:
             let counter = widget as! Counter
             counter.removeObject()

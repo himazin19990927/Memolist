@@ -40,7 +40,7 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
         self.tableView.registerNib(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "ListTableViewCell")
         self.tableView.registerNib(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
         self.tableView.registerNib(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "LabelCell")
-        self.tableView.registerNib(UINib(nibName: "DateLabelCell", bundle: nil), forCellReuseIdentifier: "DateLabelCell")
+        self.tableView.registerNib(UINib(nibName: "ToDoCell", bundle: nil), forCellReuseIdentifier: "ToDoCell")
         self.tableView.registerNib(UINib(nibName: "CounterCell", bundle: nil), forCellReuseIdentifier: "CounterCell")
         initCell()
     }
@@ -84,13 +84,15 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
         //cellを表示させない時は高さを0にし、hiddenをtrueにする
         if !page.items[indexPath.section].open || closeMemo {
             listItemArray[indexPath.section].cellArray[indexPath.row].hidden = true
-            
             //Check
             let widget = page.items[indexPath.section].widgets[indexPath.row - 1]
             switch widget.widgetType {
             case .Label:
                 let labelCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! LabelCell
                 labelCell.open = false
+            case .ToDo:
+                let toDo = listItemArray[indexPath.section].cellArray[indexPath.row] as! ToDoCell
+                toDo.open = false
             case .Counter:
                 let counterCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! CounterCell
                 counterCell.open = false
@@ -105,6 +107,9 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
             case .Label:
                 let labelCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! LabelCell
                 labelCell.open = true
+            case .ToDo:
+                let toDo = listItemArray[indexPath.section].cellArray[indexPath.row] as! ToDoCell
+                toDo.open = true
             case .Counter:
                 let counterCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! CounterCell
                 counterCell.open = true
@@ -173,23 +178,27 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
             if listItemArray[indexPath.section].cellArray.count > 1 {
                 tableView.beginUpdates()
                 if page.items[indexPath.section].open {
-                    let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
-                    listCell.titleLabel.textColor = ColorController.blackColor()
+                    //let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
+                    //listCell.titleLabel.textColor = ColorController.blackColor()
                     page.items[indexPath.section].open = false
                 } else {
-                    let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
-                    listCell.titleLabel.textColor = UIColor.redColor()
+                    //let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
+                    //listCell.titleLabel.textColor = UIColor.redColor()
                     page.items[indexPath.section].open = true
                     
                 }
                 tableView.endUpdates()
             }
         default:
+            //check
             let widget = page.items[indexPath.section].widgets[indexPath.row - 1]
             switch widget.widgetType {
             case .Label:
                 ItemController.instance.item = widget
                 delegate.editWidget(.Label)
+            case .ToDo:
+                ItemController.instance.item = widget
+                delegate.editWidget(.ToDo)
             default:
                 break
             }
@@ -199,12 +208,13 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     
     override func setEditing(editing: Bool, animated: Bool) {
         
-        super.setEditing(editing, animated: animated)
-        
-        tableView.beginUpdates()
-        closeMemo = editing
-        tableView.endUpdates()
-        tableView.editing = editing
+        if listItemArray.count > 0 {
+            super.setEditing(editing, animated: animated)
+            tableView.beginUpdates()
+            closeMemo = editing
+            tableView.endUpdates()
+            tableView.editing = editing
+        }
         
     }
     
@@ -223,6 +233,7 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     }
     
     func initCell() {
+        
         listItemArray.removeAll()
         for item in page.items {
             let listItem = ListItem()
@@ -233,11 +244,11 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
             listCell.selectionStyle = .None
             listCell.delegate = self
             
-            if item.open {
-                listCell.titleLabel.textColor = UIColor.redColor()
-            } else {
-                listCell.titleLabel.textColor = UIColor.blackColor()
-            }
+//            if item.open {
+//                listCell.titleLabel.textColor = UIColor.redColor()
+//            } else {
+//                listCell.titleLabel.textColor = UIColor.blackColor()
+//            }
             
             listItem.cellArray.append(listCell)
             
@@ -262,6 +273,25 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
                     }
                     
                     listItem.cellArray.append(labelCell)
+                case .ToDo:
+                    
+                    let toDo = widget as! ToDo
+                    let toDoCell = tableView.dequeueReusableCellWithIdentifier("ToDoCell") as! ToDoCell
+                    
+                    toDoCell.color = item.color
+                    toDoCell.check = toDo.check
+                    toDoCell.toDo = toDo
+                    toDoCell.label.text = toDo.text
+                    if let date = toDo.date {
+                        let formatter = NSDateFormatter()
+                        let format = "MM/dd HH:mm"
+                        formatter.dateFormat = format
+                        toDoCell.dateLabel.text = formatter.stringFromDate(date)
+                    } else {
+                        toDoCell.dateLabel.text = ""
+                    }
+                    listItem.cellArray.append(toDoCell)
+                    
                 case .Counter:
                     let counter = widget as! Counter
                     let counterCell = tableView.dequeueReusableCellWithIdentifier("CounterCell") as! CounterCell
@@ -287,6 +317,7 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
                     continue
                 }
                 
+                //check
                 let widget = page.items[section].widgets[row - 1]
                 switch widget.widgetType {
                 case .Label:
@@ -301,4 +332,34 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     func editMemo(item: ScheduleItem) {
         delegate.editMemo(item)
     }
+    
+    func reloadCell() {
+        initCell()
+        tableView.reloadData()
+    }
+    
+    func alert(viewControllerToPresent: UIViewController) {
+        self.presentViewController(viewControllerToPresent, animated: true, completion: nil)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

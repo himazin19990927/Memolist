@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var pageArray: [Page] = []
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loadAllPage()
         }
         
+        //戻るボタンの色を変更
+        UINavigationBar.appearance().tintColor = ColorController.blackColor()
         return true
     }
 
@@ -62,9 +64,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initPageArray() {
         pageArray.removeAll()
         let page1 = Page()
-        page1.title = "新しいリスト"
+        page1.title = "リスト1"
         page1.color = ColorController.blueColor()
+        
+        let memo1 = ScheduleItem()
+        memo1.color = ColorController.blueColor()
+        memo1.title = "メモは編集ボタンから消去"
+        page1.items.append(memo1)
+        
+        let memo2 = ScheduleItem()
+        memo2.color = ColorController.greenColor()
+        memo2.title = "ここをタップしてください"
+        memo2.open = true
+        
+        let label1 = Label()
+        label1.text = "プラスボタンからアイテムを追加"
+        memo2.widgets.append(label1)
+        let toDo1 = ToDo()
+        toDo1.text = "設定ボタンからメモを編集"
+        memo2.widgets.append(toDo1)
+        let counter1 = Counter()
+        memo2.widgets.append(counter1)
+        page1.items.append(memo2)
+        
         pageArray.append(page1)
+        
+        let page2 = Page()
+        page2.title = "リスト2"
+        page2.color = ColorController.greenColor()
+        
+        let memo3 = ScheduleItem()
+        memo3.title = "左のボタンからリストを編集"
+        memo3.color = ColorController.greenColor()
+        page2.items.append(memo3)
+        
+        let memo4 = ScheduleItem()
+        memo4.title = "右のボタンからメモを追加"
+        memo4.color = ColorController.redColor()
+        page2.items.append(memo4)
+        pageArray.append(page2)
     }
     
     func saveAllPage() {
