@@ -31,20 +31,28 @@ class Widget {
         userDefaults.setInteger(newId, forKey: "itemId")
     }
     
-    class func removeWidget(widget: Widget) {
-        //Check
-        switch widget.widgetType {
-        case .Label:
-            let label = widget as! Label
-            label.removeObject()
-        case .ToDo:
-            let toDo = widget as! ToDo
-            toDo.removeObject()
-        case .Counter:
-            let counter = widget as! Counter
-            counter.removeObject()
-        default:
-            break
-        }
+    func save() {
+        
+    }
+    
+    func removeObject() {
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

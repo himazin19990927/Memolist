@@ -198,7 +198,7 @@ class MemoEditor: UIViewController, UITableViewDataSource , UITableViewDelegate,
                     }
                     
                     for widget in ItemController.instance.deleteList {
-                        Widget.removeWidget(widget)
+                        widget.removeObject()
                     }
                     
                     

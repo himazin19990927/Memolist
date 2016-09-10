@@ -35,7 +35,7 @@ class ToDo: Widget {
         }
     }
     
-    func save() {
+    override func save() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         //必要??
@@ -50,7 +50,7 @@ class ToDo: Widget {
         userDefaults.setObject(check, forKey: "Item.\(self.id).check")
     }
     
-    func removeObject() {
+    override func removeObject() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         userDefaults.removeObjectForKey("Item.\(self.id).exist")

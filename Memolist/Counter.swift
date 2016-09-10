@@ -29,7 +29,7 @@ class Counter: Widget {
         }
     }
     
-    func save() {
+    override func save() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         //必要??
@@ -40,7 +40,7 @@ class Counter: Widget {
         userDefaults.setObject(count, forKey: "Item.\(self.id).count")
     }
     
-    func removeObject() {
+    override func removeObject() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         userDefaults.removeObjectForKey("Item.\(self.id).exist")

@@ -32,7 +32,7 @@ class Label: Widget {
         }
     }
     
-    func save() {
+    override func save() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         //必要??
@@ -45,7 +45,7 @@ class Label: Widget {
         userDefaults.setObject(text, forKey: "Item.\(self.id).text")
     }
     
-    func removeObject() {
+    override func removeObject() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         userDefaults.removeObjectForKey("Item.\(self.id).exist")

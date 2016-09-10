@@ -100,19 +100,7 @@ class ScheduleItem {
             itemIdArray.append(widget.id)
             itemTypeArray.append(widget.widgetType.rawValue)
             //Check
-            switch widget.widgetType {
-            case .Label:
-                let label = widget as! Label
-                label.save()
-            case .ToDo:
-                let toDo = widget as! ToDo
-                toDo.save()
-            case .Counter:
-                let counter = widget as! Counter
-                counter.save()
-            default:
-                break
-            }
+            widget.save()
         }
         
         userDefaults.setObject(itemIdArray, forKey: "Memo.\(self.id).itemIdArray")
@@ -132,7 +120,7 @@ class ScheduleItem {
         userDefaults.removeObjectForKey("Memo.\(self.id).color")
         
         for widget in widgets {
-            Widget.removeWidget(widget)
+            widget.removeObject()
         }
     }
 }

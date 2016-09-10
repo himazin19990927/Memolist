@@ -116,7 +116,8 @@ class WidgetEditorViewController: UIViewController, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let scheduleItem = ItemController.instance.scheduleItem
         
-        Widget.removeWidget(scheduleItem!.widgets[indexPath.row])
+        let widget = scheduleItem!.widgets[indexPath.row]
+        widget.removeObject()
         
         scheduleItem?.widgets.removeAtIndex(indexPath.row)
         widgetArray.removeAtIndex(indexPath.row)
