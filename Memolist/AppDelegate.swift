@@ -11,8 +11,8 @@ import UIKit
 @UIApplicationMain
 
 //pageId:pageの固有ID
-//memoId:scheduleItemの固有ID
-//itemId:widgetの固有ID
+//itemId:Itemの固有ID
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -67,42 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         page1.title = "リスト1"
         page1.color = ColorController.blueColor()
         
-        let memo1 = ScheduleItem()
-        memo1.color = ColorController.blueColor()
-        memo1.title = "メモは編集ボタンから消去"
+        let memo1 = Memo()
+        memo1.text = "hoge"
         page1.items.append(memo1)
-        
-        let memo2 = ScheduleItem()
-        memo2.color = ColorController.greenColor()
-        memo2.title = "ここをタップしてください"
-        memo2.open = true
-        
-        let label1 = Label()
-        label1.text = "プラスボタンからアイテムを追加"
-        memo2.widgets.append(label1)
-        let toDo1 = ToDo()
-        toDo1.text = "設定ボタンからメモを編集"
-        memo2.widgets.append(toDo1)
-        let counter1 = Counter()
-        memo2.widgets.append(counter1)
-        page1.items.append(memo2)
-        
         pageArray.append(page1)
-        
-        let page2 = Page()
-        page2.title = "リスト2"
-        page2.color = ColorController.greenColor()
-        
-        let memo3 = ScheduleItem()
-        memo3.title = "左のボタンからリストを編集"
-        memo3.color = ColorController.greenColor()
-        page2.items.append(memo3)
-        
-        let memo4 = ScheduleItem()
-        memo4.title = "右のボタンからメモを追加"
-        memo4.color = ColorController.redColor()
-        page2.items.append(memo4)
-        pageArray.append(page2)
     }
     
     func saveAllPage() {

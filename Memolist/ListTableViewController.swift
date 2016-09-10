@@ -13,11 +13,10 @@ protocol ListTableViewDelegate {
     func editMemo(memo: ScheduleItem)
 }
 
-class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
+class ListTableViewController: UITableViewController {
     var delegate: ListTableViewDelegate!
-    var listItemArray: [ListItem] = []
     
-    var closeMemo: Bool = false
+    var cellArray: [UITableViewCell] = []
     
     var page: Page = Page() {
         willSet {
@@ -37,12 +36,10 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
         
         //セルの初期化
         //Check
-        self.tableView.registerNib(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "ListTableViewCell")
-        self.tableView.registerNib(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
-        self.tableView.registerNib(UINib(nibName: "LabelCell", bundle: nil), forCellReuseIdentifier: "LabelCell")
-        self.tableView.registerNib(UINib(nibName: "ToDoCell", bundle: nil), forCellReuseIdentifier: "ToDoCell")
-        self.tableView.registerNib(UINib(nibName: "CounterCell", bundle: nil), forCellReuseIdentifier: "CounterCell")
+        self.tableView.registerNib(UINib(nibName: "MemoCell", bundle: nil), forCellReuseIdentifier: "MemoCell")
+        
         initCell()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -61,66 +58,24 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     //セクションの数を設定
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return listItemArray.count
+        return 1
     }
 
     //セクションごとのセルの数を設定
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return listItemArray[section].cellArray.count
+        return cellArray.count
     }
 
     //セルを設定
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return listItemArray[indexPath.section].cellArray[indexPath.row]
+        return cellArray[indexPath.row]
     }
     
     //セルの高さを設定
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 64.0
-        }
-        
-        //cellを表示させない時は高さを0にし、hiddenをtrueにする
-        if !page.items[indexPath.section].open || closeMemo {
-            listItemArray[indexPath.section].cellArray[indexPath.row].hidden = true
-            //Check
-            let widget = page.items[indexPath.section].widgets[indexPath.row - 1]
-            switch widget.widgetType {
-            case .Label:
-                let labelCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! LabelCell
-                labelCell.open = false
-            case .ToDo:
-                let toDo = listItemArray[indexPath.section].cellArray[indexPath.row] as! ToDoCell
-                toDo.open = false
-            case .Counter:
-                let counterCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! CounterCell
-                counterCell.open = false
-            default:
-                break
-            }
-            
-            return 0
-        } else {
-            let widget = page.items[indexPath.section].widgets[indexPath.row - 1]
-            switch widget.widgetType {
-            case .Label:
-                let labelCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! LabelCell
-                labelCell.open = true
-            case .ToDo:
-                let toDo = listItemArray[indexPath.section].cellArray[indexPath.row] as! ToDoCell
-                toDo.open = true
-            case .Counter:
-                let counterCell = listItemArray[indexPath.section].cellArray[indexPath.row] as! CounterCell
-                counterCell.open = true
-            default:
-                break
-            }
-
-            
-            listItemArray[indexPath.section].cellArray[indexPath.row].hidden = false
-            return CGFloat(widget.height)
-        }
+        let item = page.items[indexPath.row]
+        return CGFloat(item.height)
     }
     
     //セルが削除できるかどうか設定
@@ -133,35 +88,35 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     
     //セルが削除されるときに呼ばれる
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        page.items[indexPath.section].removeObject()
-        page.items.removeAtIndex(indexPath.section)
+        page.items[indexPath.row].removeItem()
+        page.items.removeAtIndex(indexPath.row)
         
-        listItemArray.removeAtIndex(indexPath.section)
-        tableView.deleteSections(NSIndexSet(index: indexPath.section), withRowAnimation: UITableViewRowAnimation.Fade)
-        
+        cellArray.removeAtIndex(indexPath.row)
+        tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     }
     
     //セルが並び替えられるかどうか設定
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if indexPath.row == 0 {
-            return true
-        } else {
-            return false
-        }
+        return true
     }
     
     //セルが移動された時に呼ばれる
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let target = listItemArray[sourceIndexPath.section]
-        listItemArray.removeAtIndex(sourceIndexPath.section)
-        listItemArray.insert(target, atIndex: destinationIndexPath.section)
+        let target = cellArray[sourceIndexPath.row]
+        cellArray.removeAtIndex(sourceIndexPath.row)
+        cellArray.insert(target, atIndex: destinationIndexPath.row)
+        
         
         //appDelegate側にも反映
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let pageIndex = ItemController.instance.viewController?.pageMenu?.currentPageIndex
-        let targetItem = appDelegate.pageArray[pageIndex!].items[sourceIndexPath.section]
-        appDelegate.pageArray[pageIndex!].items.removeAtIndex(sourceIndexPath.section)
-        appDelegate.pageArray[pageIndex!].items.insert(targetItem, atIndex: destinationIndexPath.section)
+        let targetItem = page.items[sourceIndexPath.row]
+        page.items.removeAtIndex(sourceIndexPath.row)
+        page.items.insert(targetItem, atIndex: destinationIndexPath.row)
+//        //appDelegate側にも反映
+//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//        let pageIndex = ItemController.instance.viewController?.pageMenu?.currentPageIndex
+//        let targetItem = appDelegate.pageArray[pageIndex!].items[sourceIndexPath.section]
+//        appDelegate.pageArray[pageIndex!].items.removeAtIndex(sourceIndexPath.section)
+//        appDelegate.pageArray[pageIndex!].items.insert(targetItem, atIndex: destinationIndexPath.section)
         
         initCell()
         tableView.reloadData()
@@ -172,47 +127,11 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     //セルが選択された時に呼ばれる
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        switch indexPath.row {
-        case 0:
-            //セルの中にアイテムがあるときだけ開く
-            if listItemArray[indexPath.section].cellArray.count > 1 {
-                tableView.beginUpdates()
-                if page.items[indexPath.section].open {
-                    //let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
-                    //listCell.titleLabel.textColor = ColorController.blackColor()
-                    page.items[indexPath.section].open = false
-                } else {
-                    //let listCell = listItemArray[indexPath.section].cellArray[0] as! ListTableViewCell
-                    //listCell.titleLabel.textColor = UIColor.redColor()
-                    page.items[indexPath.section].open = true
-                    
-                }
-                tableView.endUpdates()
-            }
-        default:
-            //check
-            let widget = page.items[indexPath.section].widgets[indexPath.row - 1]
-            switch widget.widgetType {
-            case .Label:
-                ItemController.instance.item = widget
-                delegate.editWidget(.Label)
-            case .ToDo:
-                ItemController.instance.item = widget
-                delegate.editWidget(.ToDo)
-            default:
-                break
-            }
-            break
-        }
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
-        
-        if listItemArray.count > 0 {
+        if cellArray.count > 0 {
             super.setEditing(editing, animated: animated)
-            tableView.beginUpdates()
-            closeMemo = editing
-            tableView.endUpdates()
             tableView.editing = editing
         }
         
@@ -220,113 +139,30 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     
     //セルが存在しない場合スクロールを禁止する
     func scrollEnabled() {
-        if page.items.isEmpty {
+        if cellArray.isEmpty {
             self.tableView.scrollEnabled = false
         } else {
             self.tableView.scrollEnabled = true
         }
     }
     
-    //ページ設定の更新
-    func reloadPage() {
-        self.title = page.title
-    }
-    
     func initCell() {
-        
-        listItemArray.removeAll()
+        cellArray.removeAll()
         for item in page.items {
-            let listItem = ListItem()
-            
-            //メモの最初のセルを追加
-            let listCell = tableView.dequeueReusableCellWithIdentifier("ListTableViewCell") as! ListTableViewCell
-            listCell.setItem(item)
-            listCell.selectionStyle = .None
-            listCell.delegate = self
-            
-//            if item.open {
-//                listCell.titleLabel.textColor = UIColor.redColor()
-//            } else {
-//                listCell.titleLabel.textColor = UIColor.blackColor()
-//            }
-            
-            listItem.cellArray.append(listCell)
-            
             //Check
-            for widget in item.widgets {
-                //ウィジェットのセルを追加
-                switch widget.widgetType {
-                case .Label:
-                    
-                    let label = widget as! Label
-                    let labelCell = tableView.dequeueReusableCellWithIdentifier("LabelCell") as! LabelCell
-                    
-                    labelCell.color = item.color
-                    labelCell.label.text = label.text
-                    if let date = label.date {
-                        let formatter = NSDateFormatter()
-                        let format = "MM/dd HH:mm"
-                        formatter.dateFormat = format
-                        labelCell.dateLabel.text = formatter.stringFromDate(date)
-                    } else {
-                        labelCell.dateLabel.text = ""
-                    }
-                    
-                    listItem.cellArray.append(labelCell)
-                case .ToDo:
-                    
-                    let toDo = widget as! ToDo
-                    let toDoCell = tableView.dequeueReusableCellWithIdentifier("ToDoCell") as! ToDoCell
-                    
-                    toDoCell.color = item.color
-                    toDoCell.check = toDo.check
-                    toDoCell.toDo = toDo
-                    toDoCell.label.text = toDo.text
-                    if let date = toDo.date {
-                        let formatter = NSDateFormatter()
-                        let format = "MM/dd HH:mm"
-                        formatter.dateFormat = format
-                        toDoCell.dateLabel.text = formatter.stringFromDate(date)
-                    } else {
-                        toDoCell.dateLabel.text = ""
-                    }
-                    listItem.cellArray.append(toDoCell)
-                    
-                case .Counter:
-                    let counter = widget as! Counter
-                    let counterCell = tableView.dequeueReusableCellWithIdentifier("CounterCell") as! CounterCell
-                    counterCell.counter = counter
-                    counterCell.color = item.color
-                    listItem.cellArray.append(counterCell)
-                default:
-                    break
-                }
+            switch item.itemType {
+            case .Memo:
+                let memoCell = tableView.dequeueReusableCellWithIdentifier("MemoCell") as! MemoCell
+                memoCell.item = item
+                cellArray.append(memoCell)
+            default:
+                break
             }
-            
-            listItemArray.append(listItem)
         }
-        
     }
     
     func saveWidget() {
-        for section in 0 ..< listItemArray.count {
-            for row in 0 ..< listItemArray[section].cellArray.count {
-                //ウィジェットを増やすとここを変える
-                if row == 0 {
-                    //rowがゼロのときはウィジェットではないのでスキップ
-                    continue
-                }
-                
-                //check
-                let widget = page.items[section].widgets[row - 1]
-                switch widget.widgetType {
-                case .Label:
-                    break
-                default:
-                    break
-                }
-            }
-        }
+        
     }
     
     func editMemo(item: ScheduleItem) {
@@ -340,6 +176,13 @@ class ListTableViewController: UITableViewController, ListTableViewCellDelegate{
     
     func alert(viewControllerToPresent: UIViewController) {
         self.presentViewController(viewControllerToPresent, animated: true, completion: nil)
+    }
+    
+    func addItem() {
+        //check
+        let alert = UIAlertController(title: "アイテムの追加", message: nil, preferredStyle: .ActionSheet)
+        
+        let addMemo = UIAlertAction(title: "メモ", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
     }
 }
 

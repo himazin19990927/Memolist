@@ -16,6 +16,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
     var listBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         //NavigationBarの設定
@@ -87,21 +88,8 @@ class ViewController: UIViewController, ListTableViewDelegate {
     
     //Addボタンが押された時呼ばれる
     func addButtonClicked(sender: AnyObject) {
-        //データの保存
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveAllPage()
-        
-        //ウィジェットの中身を保存
-        for view in controllerArray {
-            let viewController = view as! ListTableViewController
-            viewController.saveWidget()
-        }
-        
-        ItemController.instance.listTableView = controllerArray[(pageMenu?.currentPageIndex)!] as? ListTableViewController
-        ItemController.instance.scheduleItem = ScheduleItem()
-        ItemController.instance.string = ""
-        ItemController.instance.color = ItemController.instance.listTableView?.page.color
-        performSegueWithIdentifier("MoveToEditor", sender: nil)
+        let listTableViewController = controllerArray[(pageMenu?.currentPageIndex)!] as? ListTableViewController
+        listTableViewController?.addItem()
     }
     
     //Listボタンが押された時呼ばれる
@@ -121,6 +109,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
     
     //PageMenuを初期化する
     func initPageMenu() {
+        
         //現在表示されているpageMenuを消去
         if pageMenu != nil {
             pageMenu?.removeFromParentViewController()
@@ -132,6 +121,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
         let pageArray = appDelegate.pageArray
         
         var colorArray: [UIColor] = []
+        
         for page in pageArray {
             let viewController = ListTableViewController()
             
@@ -141,6 +131,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
             
             colorArray.append(page.color)
         }
+        
         //CAPSPageMenuの設定
         let parameters: [CAPSPageMenuOption] = [
             .ScrollMenuBackgroundColor(ColorController.whiteColor()),
@@ -156,6 +147,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters, pageColorOptions: colorArray)
         
         self.addChildViewController(pageMenu!)
+        
         self.view.addSubview(pageMenu!.view)
         pageMenu?.didMoveToParentViewController(self)
         

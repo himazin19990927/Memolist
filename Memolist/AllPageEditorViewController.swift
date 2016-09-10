@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
+class PageListEditorViewController: UIViewController ,UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
     var pageCellArray: [UITableViewCell] = []
@@ -37,9 +37,9 @@ class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITa
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
         
-        doneBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(AllPageEditorViewController.doneButtonClicked(_:)))
+        doneBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(PageListEditorViewController.doneButtonClicked(_:)))
         
-        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(AllPageEditorViewController.addButtonClicked(_:)))
+        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(PageListEditorViewController.addButtonClicked(_:)))
         
         self.navigationItem.rightBarButtonItem = doneBarButton
         self.navigationItem.setLeftBarButtonItems([editButtonItem(), addBarButton], animated: true)
@@ -98,11 +98,9 @@ class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITa
         
         if let viewController = ItemController.instance.viewController {
             let listTableViewController = viewController.controllerArray[indexPath.row] as? ListTableViewController
-            let itemController = ItemController.instance
-            
-            itemController.page = listTableViewController?.page
-            itemController.string = itemController.page?.title
-            itemController.color = itemController.page?.color.copy() as? UIColor
+            let page = listTableViewController?.page
+            PageController.instance.page = page
+            PageController.instance.page = Page(page: page!)
             performSegueWithIdentifier("MoveToPageEditor", sender: nil)
         }        
     }
@@ -135,7 +133,6 @@ class AllPageEditorViewController: UIViewController ,UITableViewDataSource, UITa
         if let index = pageCellArray.indexOf(targetCell) {
             pageCellArray.removeAtIndex(index)
             pageCellArray.insert(targetCell, atIndex: destinationIndexPath.row)
-            
             
             //appDelegate側にも反映
             let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate

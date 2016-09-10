@@ -71,7 +71,7 @@ class ColorSelectorViewController: UIViewController, UITableViewDataSource, UITa
             break
         default:
             let colorCell = colorCellArray[indexPath.section - 1] as! ColorSelectTableViewCell
-            ItemController.instance.color = colorCell.color
+            PageController.instance.pageBuf?.color = colorCell.color
             navigationController?.popViewControllerAnimated(true)
 
         }

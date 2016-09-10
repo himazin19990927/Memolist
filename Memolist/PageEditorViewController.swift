@@ -145,7 +145,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = ItemController.instance.string
+        titleCell.inputTextField.text = PageController.instance.page?.title
         titleCell.placeholder = "タイトル(必須)"
         titleCell.maxLength = 15
         titleCell.delegate = self
@@ -155,7 +155,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         let colorCell = tableView.dequeueReusableCellWithIdentifier("ColorLabelTableViewCell") as! ColorLabelTableViewCell
         colorCell.label!.text = "色"
         colorCell.accessoryType = .DisclosureIndicator
-        if let color = ItemController.instance.color {
+        if let color = PageController.instance.page?.color {
             colorCell.color = color
         }
         colorCellArray.append(colorCell)
@@ -177,14 +177,17 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
                     presentViewController(alert, animated: true, completion: nil)
                 } else {
                     //タイトルが正しく入力されていれば画面を遷移
-                    let itemController = ItemController.instance
                     
-                    itemController.page?.title = text
-                    if let color = itemController.color {
-                        itemController.page?.color = color
+                    //textを設定
+                    PageController.instance.page?.title = text
+                    
+                    //色を設定
+                    if let color = PageController.instance.pageBuf?.color {
+                        PageController.instance.page?.color = color
                     }
                     
-                    itemController.page = nil
+                    PageController.instance.page = nil
+                    PageController.instance.pageBuf = nil
                     
                     if let viewController = ItemController.instance.viewController {
                         viewController.initPageMenu()

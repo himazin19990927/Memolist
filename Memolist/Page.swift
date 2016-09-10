@@ -11,7 +11,7 @@ import UIKit
 
 class Page {
     var title: String = ""
-    var items: [ScheduleItem] = []
+    var items: [Item] = []
     var color: UIColor = UIColor.blackColor()
     private(set) var id: Int
     
@@ -45,25 +45,27 @@ class Page {
             
             //itemを初期化
             self.items.removeAll()
-            if let memoIdArray: [Int] = userDefaults.objectForKey("Page.\(self.id).memoIdArray") as? [Int] {
-                print("Page.\(self.id) has \(memoIdArray)")
-                for itemId in memoIdArray {
-                    let item = ScheduleItem(memoId: itemId)
+            if let itemIdArray: [Int] = userDefaults.objectForKey("Page.\(self.id).itemIdArray") as? [Int] {
+                for itemId in itemIdArray {
+                    let itemType = ItemType(rawValue: userDefaults.integerForKey("Item.\(itemId).itemType"))!
+                    //check
+                    let item: Item!
+                    switch itemType {
+                    case .None:
+                        item = Item(id: itemId)
+                    case .Memo:
+                        item = Memo(id: itemId)
+                    default:
+                        item = Item(id: itemId)
+                    }
                     self.items.append(item)
                 }
-            } else {
-                print("Page.\(self.id) has no item")
             }
         }
     }
     
     func save() {
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        
-        //必要??
-        userDefaults.removeObjectForKey("Page.\(id).title")
-        userDefaults.removeObjectForKey("Page.\(id).color")
-        //
         
         userDefaults.setBool(true, forKey: "Page.\(id).exist")
         userDefaults.setObject(title, forKey: "Page.\(id).title")
@@ -72,27 +74,25 @@ class Page {
         let colorData = NSKeyedArchiver.archivedDataWithRootObject(color)
         userDefaults.setObject(colorData, forKey: "Page.\(id).color")
         
-        
         //itemを保存
-        var memoIdArray: [Int] = []
+        var itemIdArray: [Int] = []
         for item in items {
-            memoIdArray.append(item.id)
+            itemIdArray.append(item.id)
             item.save()
         }
-        print("Page.\(self.id) has \(memoIdArray)")
-        userDefaults.setObject(memoIdArray, forKey: "Page.\(self.id).memoIdArray")
+        
+        userDefaults.setObject(itemIdArray, forKey: "Page.\(self.id).itemIdArray")
         
         userDefaults.synchronize()
     }
     
     func removeObject() {
-        print("Page.\(id) Remove")
         //NSUserDefaultsのオブジェクトを削除する
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.removeObjectForKey("Page.\(id).exist")
         userDefaults.removeObjectForKey("Page.\(id).title")
         userDefaults.removeObjectForKey("Page.\(id).color")
-        userDefaults.removeObjectForKey("Page.\(self.id).memoIdArray")
+        userDefaults.removeObjectForKey("Page.\(self.id).itemIdArray")
         
     }
     
