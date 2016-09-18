@@ -95,11 +95,13 @@ class ColorController {
     
     class var colorList: [UIColor] {
         var colorArray: [UIColor] = []
+        
         colorArray.append(ColorController.redColor())
         colorArray.append(ColorController.orangeColor())
         colorArray.append(ColorController.greenColor())
         colorArray.append(ColorController.blueColor())
         colorArray.append(ColorController.purpleColor())
+        
         return colorArray
     }
 }

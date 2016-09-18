@@ -62,7 +62,7 @@ class ScheduleItem {
                             let toDo = ToDo(itemId: itemIdArray[index])
                             widgets.append(toDo)
                         case .Counter:
-                            let counter = Counter(itemId: itemIdArray[index])
+                            let counter = Counter_old(itemId: itemIdArray[index])
                             widgets.append(counter)
                         default:
                             break

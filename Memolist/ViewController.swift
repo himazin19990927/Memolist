@@ -89,7 +89,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
     //Addボタンが押された時呼ばれる
     func addButtonClicked(sender: AnyObject) {
         let listTableViewController = controllerArray[(pageMenu?.currentPageIndex)!] as? ListTableViewController
-        listTableViewController?.addItem()
+        listTableViewController?.addItemAlert()
     }
     
     //Listボタンが押された時呼ばれる

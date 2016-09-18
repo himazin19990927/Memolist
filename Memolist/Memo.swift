@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Memo: Item {
     override var cellName: String {

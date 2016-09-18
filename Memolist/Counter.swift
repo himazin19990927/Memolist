@@ -1,49 +1,63 @@
 //
 //  Counter.swift
-//  To Do List
+//  Memolist
 //
-//  Created by 原田大樹 on 2016/08/17.
+//  Created by 原田大樹 on 2016/09/17.
 //  Copyright © 2016年 原田大樹. All rights reserved.
 //
 
 import Foundation
+import UIKit
 
-class Counter: Widget {
-    var count: Int = 0
+class Counter: Item {
+    var count: Int
     
-    override init() {
-        super.init()
-        super.cellName = "カウンター"
-        super.widgetType = WidgetType.Counter
-        super.height = 55
-        
+    override var cellName: String {
+        get {
+            return "カウンター"
+        }
     }
     
-    convenience init(itemId: Int) {
-        self.init()
-        self.id = itemId
+    override var height: Float {
+        get {
+            return 100
+        }
+    }
+    
+    override init() {
+        self.count = 0
         
+        super.init()
+        
+        self.itemType = .Counter
+    }
+    
+    override init(id: Int) {
+        self.count = 0
+        
+        super.init(id: id)
         let userDefaults = NSUserDefaults.standardUserDefaults()
+        
         if userDefaults.boolForKey("Item.\(self.id).exist") {
             self.count = userDefaults.integerForKey("Item.\(self.id).count")
+        } else {
+            self.count = 0
         }
     }
     
     override func save() {
+        super.save()
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setInteger(count, forKey: "Item.\(self.id).count")
         
-        //必要??
-        userDefaults.removeObjectForKey("Item.\(self.id).count")
-        //
-        
-        userDefaults.setBool(true, forKey: "Item.\(self.id).exist")
-        userDefaults.setObject(count, forKey: "Item.\(self.id).count")
+        userDefaults.synchronize()
     }
     
-    override func removeObject() {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
+    override func removeItem() {
+        super.removeItem()
         
-        userDefaults.removeObjectForKey("Item.\(self.id).exist")
+        let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.removeObjectForKey("Item.\(self.id).count")
     }
 }

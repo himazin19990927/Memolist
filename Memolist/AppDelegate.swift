@@ -69,6 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let memo1 = Memo()
         memo1.text = "hoge"
+        memo1.color = ColorController.greenColor()
         page1.items.append(memo1)
         pageArray.append(page1)
     }

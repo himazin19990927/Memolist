@@ -37,6 +37,7 @@ class ListTableViewController: UITableViewController {
         //セルの初期化
         //Check
         self.tableView.registerNib(UINib(nibName: "MemoCell", bundle: nil), forCellReuseIdentifier: "MemoCell")
+        self.tableView.registerNib(UINib(nibName: "CounterCell", bundle: nil), forCellReuseIdentifier: "CounterCell")
         
         initCell()
         
@@ -80,10 +81,7 @@ class ListTableViewController: UITableViewController {
     
     //セルが削除できるかどうか設定
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        if indexPath.row == 0 {
-            return true
-        }
-        return false
+        return true
     }
     
     //セルが削除されるときに呼ばれる
@@ -111,14 +109,9 @@ class ListTableViewController: UITableViewController {
         let targetItem = page.items[sourceIndexPath.row]
         page.items.removeAtIndex(sourceIndexPath.row)
         page.items.insert(targetItem, atIndex: destinationIndexPath.row)
-//        //appDelegate側にも反映
-//        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//        let pageIndex = ItemController.instance.viewController?.pageMenu?.currentPageIndex
-//        let targetItem = appDelegate.pageArray[pageIndex!].items[sourceIndexPath.section]
-//        appDelegate.pageArray[pageIndex!].items.removeAtIndex(sourceIndexPath.section)
-//        appDelegate.pageArray[pageIndex!].items.insert(targetItem, atIndex: destinationIndexPath.section)
         
-        initCell()
+        
+        //initCell()
         tableView.reloadData()
 
     }
@@ -146,18 +139,12 @@ class ListTableViewController: UITableViewController {
         }
     }
     
-    func initCell() {
+    private func initCell() {
         cellArray.removeAll()
+        
         for item in page.items {
-            //Check
-            switch item.itemType {
-            case .Memo:
-                let memoCell = tableView.dequeueReusableCellWithIdentifier("MemoCell") as! MemoCell
-                memoCell.item = item
-                cellArray.append(memoCell)
-            default:
-                break
-            }
+            let cell = createCell(item)
+            cellArray.append(cell)
         }
     }
     
@@ -178,11 +165,66 @@ class ListTableViewController: UITableViewController {
         self.presentViewController(viewControllerToPresent, animated: true, completion: nil)
     }
     
-    func addItem() {
+    func createCell(item: Item) -> UITableViewCell {
+        //Check
+        switch item.itemType {
+        case .Memo:
+            let memoCell = tableView.dequeueReusableCellWithIdentifier("MemoCell") as! MemoCell
+            memoCell.item = item
+            
+            return memoCell
+        case .Counter:
+            let counterCell = tableView.dequeueReusableCellWithIdentifier("CounterCell") as! CounterCell
+            counterCell.item = item
+            
+            return counterCell
+        default:
+            break
+        }
+        
+        return UITableViewCell()
+    }
+    
+    func addItemCell(item: Item) {
+        tableView.beginUpdates()
+        
+        page.items.append(item)
+        
+        
+        let cell = createCell(item)
+        cellArray.append(cell)
+        
+        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cellArray.count - 1, inSection: 0)], withRowAnimation: .Left)
+        
+        tableView.endUpdates()
+        
+    }
+    
+    func addItemAlert() {
         //check
         let alert = UIAlertController(title: "アイテムの追加", message: nil, preferredStyle: .ActionSheet)
         
-        let addMemo = UIAlertAction(title: "メモ", style: <#T##UIAlertActionStyle#>, handler: <#T##((UIAlertAction) -> Void)?##((UIAlertAction) -> Void)?##(UIAlertAction) -> Void#>)
+        let cancel = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        let addMemo = UIAlertAction(title: "メモ", style: .Default, handler: {
+            action in
+            let memo = Memo()
+            memo.color = self.page.color
+            self.addItemCell(memo)
+        })
+        
+        let addCounter = UIAlertAction(title: "カウンター", style: .Default, handler: {
+            action in
+            let counter = Counter()
+            counter.color = self.page.color
+            self.addItemCell(counter)
+        })
+        
+        alert.addAction(cancel)
+        alert.addAction(addMemo)
+        alert.addAction(addCounter)
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
 }
 

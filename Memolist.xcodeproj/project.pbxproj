@@ -12,6 +12,12 @@
 		DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */; };
 		DE2EBAAD1D83F4C8006CD0D5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */; };
 		DE339A731D745A41004E7932 /* Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A721D745A41004E7932 /* Add.pdf */; };
+		DE6301E01D8CD4F400314C3B /* Detail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301DF1D8CD4F400314C3B /* Detail.pdf */; };
+		DE6301E61D8CD97100314C3B /* Check_NO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301E51D8CD97100314C3B /* Check_NO.pdf */; };
+		DE6301E81D8D01CE00314C3B /* Check_YES.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301E71D8D01CE00314C3B /* Check_YES.pdf */; };
+		DE6301EA1D8D142B00314C3B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6301E91D8D142B00314C3B /* Counter.swift */; };
+		DE6301ED1D8D161000314C3B /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6301EB1D8D161000314C3B /* CounterCell.swift */; };
+		DE6301EE1D8D161000314C3B /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE6301EC1D8D161000314C3B /* CounterCell.xib */; };
 		DE692D1F1D71AA540070B45E /* Memolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DE692D1D1D71AA540070B45E /* Memolist.xcdatamodeld */; };
 		DE692D211D71AA540070B45E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE692D201D71AA540070B45E /* Assets.xcassets */; };
 		DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692D221D71AA540070B45E /* LaunchScreen.storyboard */; };
@@ -29,7 +35,7 @@
 		DE692D791D71AE600070B45E /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D741D71AE600070B45E /* ItemController.swift */; };
 		DE692D7A1D71AE600070B45E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D751D71AE600070B45E /* Page.swift */; };
 		DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D761D71AE600070B45E /* ScheduleItem.swift */; };
-		DE692D801D71AE9B0070B45E /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7D1D71AE9B0070B45E /* Counter.swift */; };
+		DE692D801D71AE9B0070B45E /* Counter_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7D1D71AE9B0070B45E /* Counter_old.swift */; };
 		DE692D811D71AE9B0070B45E /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7E1D71AE9B0070B45E /* Label.swift */; };
 		DE692D821D71AE9B0070B45E /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7F1D71AE9B0070B45E /* Widget.swift */; };
 		DE692D861D71AEEE0070B45E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D841D71AEEE0070B45E /* LabelCell.swift */; };
@@ -53,15 +59,13 @@
 		DE692DAD1D71AFBD0070B45E /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAC1D71AFBD0070B45E /* Icon */; };
 		DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAE1D71AFCF0070B45E /* Main.storyboard */; };
 		DE692E311D7319030070B45E /* LabelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E301D7319030070B45E /* LabelEditor.swift */; };
-		DE692E391D73EA9F0070B45E /* CounterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E371D73EA9F0070B45E /* CounterCell.swift */; };
-		DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692E381D73EA9F0070B45E /* CounterCell.xib */; };
+		DEC2AE251D8E40100079976D /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE241D8E40100079976D /* Minus.pdf */; };
+		DEC2AE271D8E40850079976D /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE261D8E40850079976D /* Plus.pdf */; };
 		DEC5AD581D7487DA0063517D /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD571D7487DA0063517D /* ToDo.swift */; };
 		DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD591D74889F0063517D /* ToDoCell.swift */; };
 		DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5A1D74889F0063517D /* ToDoCell.xib */; };
 		DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */; };
 		DEC5AD601D752AB10063517D /* CheckBox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5F1D752AB10063517D /* CheckBox.pdf */; };
-		DEC5AD621D7535980063517D /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD611D7535980063517D /* Minus.pdf */; };
-		DEC5AD641D7535B10063517D /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD631D7535B10063517D /* Plus.pdf */; };
 		DEFA88771D840378001DA233 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA88761D840378001DA233 /* PageController.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +92,12 @@
 		DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DE339A721D745A41004E7932 /* Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Add.pdf; sourceTree = "<group>"; };
+		DE6301DF1D8CD4F400314C3B /* Detail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Detail.pdf; sourceTree = "<group>"; };
+		DE6301E51D8CD97100314C3B /* Check_NO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check_NO.pdf; sourceTree = "<group>"; };
+		DE6301E71D8D01CE00314C3B /* Check_YES.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check_YES.pdf; sourceTree = "<group>"; };
+		DE6301E91D8D142B00314C3B /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DE6301EB1D8D161000314C3B /* CounterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
+		DE6301EC1D8D161000314C3B /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
 		DE692D131D71AA540070B45E /* Memolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE692D1E1D71AA540070B45E /* Memolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Memolist.xcdatamodel; sourceTree = "<group>"; };
 		DE692D201D71AA540070B45E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,7 +122,7 @@
 		DE692D741D71AE600070B45E /* ItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		DE692D751D71AE600070B45E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		DE692D761D71AE600070B45E /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
-		DE692D7D1D71AE9B0070B45E /* Counter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
+		DE692D7D1D71AE9B0070B45E /* Counter_old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter_old.swift; sourceTree = "<group>"; };
 		DE692D7E1D71AE9B0070B45E /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		DE692D7F1D71AE9B0070B45E /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
 		DE692D841D71AEEE0070B45E /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
@@ -137,15 +147,13 @@
 		DE692DAE1D71AFCF0070B45E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE692DB11D71B4950070B45E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		DE692E301D7319030070B45E /* LabelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEditor.swift; sourceTree = "<group>"; };
-		DE692E371D73EA9F0070B45E /* CounterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterCell.swift; sourceTree = "<group>"; };
-		DE692E381D73EA9F0070B45E /* CounterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CounterCell.xib; sourceTree = "<group>"; };
+		DEC2AE241D8E40100079976D /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
+		DEC2AE261D8E40850079976D /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
 		DEC5AD571D7487DA0063517D /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		DEC5AD591D74889F0063517D /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
 		DEC5AD5A1D74889F0063517D /* ToDoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
 		DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEditor.swift; sourceTree = "<group>"; };
 		DEC5AD5F1D752AB10063517D /* CheckBox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CheckBox.pdf; sourceTree = "<group>"; };
-		DEC5AD611D7535980063517D /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
-		DEC5AD631D7535B10063517D /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
 		DEFA88761D840378001DA233 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -179,6 +187,7 @@
 			children = (
 				DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */,
 				DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */,
+				DE6301E91D8D142B00314C3B /* Counter.swift */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -188,6 +197,8 @@
 			children = (
 				DE2EBAA31D83E717006CD0D5 /* MemoCell.swift */,
 				DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */,
+				DE6301EB1D8D161000314C3B /* CounterCell.swift */,
+				DE6301EC1D8D161000314C3B /* CounterCell.xib */,
 			);
 			name = ItemCell;
 			sourceTree = "<group>";
@@ -295,7 +306,7 @@
 				DE692E301D7319030070B45E /* LabelEditor.swift */,
 				DEC5AD571D7487DA0063517D /* ToDo.swift */,
 				DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */,
-				DE692D7D1D71AE9B0070B45E /* Counter.swift */,
+				DE692D7D1D71AE9B0070B45E /* Counter_old.swift */,
 			);
 			name = WidgetClasses;
 			sourceTree = "<group>";
@@ -307,8 +318,6 @@
 				DE692D851D71AEEE0070B45E /* LabelCell.xib */,
 				DEC5AD591D74889F0063517D /* ToDoCell.swift */,
 				DEC5AD5A1D74889F0063517D /* ToDoCell.xib */,
-				DE692E371D73EA9F0070B45E /* CounterCell.swift */,
-				DE692E381D73EA9F0070B45E /* CounterCell.xib */,
 			);
 			name = WidgetCells;
 			sourceTree = "<group>";
@@ -335,8 +344,11 @@
 		DE692DA11D71AF8E0070B45E /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				DEC5AD631D7535B10063517D /* Plus.pdf */,
-				DEC5AD611D7535980063517D /* Minus.pdf */,
+				DEC2AE261D8E40850079976D /* Plus.pdf */,
+				DEC2AE241D8E40100079976D /* Minus.pdf */,
+				DE6301E71D8D01CE00314C3B /* Check_YES.pdf */,
+				DE6301E51D8CD97100314C3B /* Check_NO.pdf */,
+				DE6301DF1D8CD4F400314C3B /* Detail.pdf */,
 				DEC5AD5F1D752AB10063517D /* CheckBox.pdf */,
 				DE339A721D745A41004E7932 /* Add.pdf */,
 				DE692DA31D71AFA70070B45E /* Check.pdf */,
@@ -454,18 +466,21 @@
 				DE692D9A1D71AF390070B45E /* DatePickerCell.xib in Resources */,
 				DEC5AD601D752AB10063517D /* CheckBox.pdf in Resources */,
 				DE692DA81D71AFA70070B45E /* Check.pdf in Resources */,
+				DE6301E01D8CD4F400314C3B /* Detail.pdf in Resources */,
+				DEC2AE271D8E40850079976D /* Plus.pdf in Resources */,
+				DE6301E81D8D01CE00314C3B /* Check_YES.pdf in Resources */,
 				DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */,
 				DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */,
 				DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */,
-				DEC5AD641D7535B10063517D /* Plus.pdf in Resources */,
 				DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */,
 				DE692DA91D71AFA70070B45E /* Close.pdf in Resources */,
-				DE692E3A1D73EA9F0070B45E /* CounterCell.xib in Resources */,
 				DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */,
+				DE6301E61D8CD97100314C3B /* Check_NO.pdf in Resources */,
+				DEC2AE251D8E40100079976D /* Minus.pdf in Resources */,
 				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
+				DE6301EE1D8D161000314C3B /* CounterCell.xib in Resources */,
 				DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
-				DEC5AD621D7535980063517D /* Minus.pdf in Resources */,
 				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
 				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
 				DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */,
@@ -506,19 +521,20 @@
 				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
 				DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */,
 				DE2EBAAD1D83F4C8006CD0D5 /* Item.swift in Sources */,
+				DE6301EA1D8D142B00314C3B /* Counter.swift in Sources */,
 				DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */,
 				DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */,
 				DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */,
+				DE6301ED1D8D161000314C3B /* CounterCell.swift in Sources */,
 				DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */,
 				DE692D7A1D71AE600070B45E /* Page.swift in Sources */,
 				DE692D571D71ACBA0070B45E /* ViewController.swift in Sources */,
-				DE692E391D73EA9F0070B45E /* CounterCell.swift in Sources */,
 				DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */,
 				DE692D6F1D71ADFB0070B45E /* ListTableViewController.swift in Sources */,
 				DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */,
 				DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */,
 				DE2EBA9F1D83DEB3006CD0D5 /* Memo.swift in Sources */,
-				DE692D801D71AE9B0070B45E /* Counter.swift in Sources */,
+				DE692D801D71AE9B0070B45E /* Counter_old.swift in Sources */,
 				DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */,
 				DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */,
 				DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */,

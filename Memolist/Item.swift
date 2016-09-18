@@ -15,12 +15,19 @@ public enum ItemType: Int {
     case Counter
 }
 
+class CheckImage {
+    static let check_YES = UIImage(named: "Check_YES")
+    static let check_NO = UIImage(named: "Check_NO")
+}
+
 class Item {
     var id: Int
     var itemType: ItemType
     
     var text: String
     var check: Bool
+    
+    var color: UIColor
     
     var cellName: String {
         get {
@@ -46,6 +53,8 @@ class Item {
         
         self.text = ""
         self.check = false
+        
+        self.color = UIColor.blackColor()
     }
     
     init(id: Int) {
@@ -56,10 +65,22 @@ class Item {
             self.itemType = ItemType(rawValue: userDefaults.integerForKey("Item.\(self.id).itemType"))!
             self.text = userDefaults.stringForKey("Item.\(self.id).text")!
             self.check = userDefaults.boolForKey("Item.\(self.id).check")
+            
+            //UIColorはデシリアライズしてから保存
+            if let colorData = userDefaults.objectForKey("Item.\(self.id).color") as? NSData {
+                if let color = NSKeyedUnarchiver.unarchiveObjectWithData(colorData) as? UIColor {
+                    self.color = color
+                } else {
+                    self.color = UIColor.blackColor()
+                }
+            } else {
+                self.color = UIColor.blackColor()
+            }
         } else {
             self.itemType = .None
             self.text = ""
             self.check = false
+            self.color = UIColor.blackColor()
         }
     }
     
@@ -70,6 +91,12 @@ class Item {
         userDefaults.setBool(true, forKey: "Item.\(self.id).exist")
         userDefaults.setObject(self.text, forKey: "Item.\(self.id).text")
         userDefaults.setBool(self.check, forKey: "Item.\(self.id).check")
+        
+        
+        let colorData = NSKeyedArchiver.archivedDataWithRootObject(self.color)
+        userDefaults.setObject(colorData, forKey: "Item.\(self.id).color")
+        
+        userDefaults.synchronize()
     }
     
     func removeItem() {
@@ -80,6 +107,7 @@ class Item {
         userDefaults.removeObjectForKey("Item.\(self.id).itemType")
         userDefaults.removeObjectForKey("Item.\(self.id).text")
         userDefaults.removeObjectForKey("Item.\(self.id).check")
+        userDefaults.removeObjectForKey("Item.\(self.id).color")
     }
     
     func createItemCell() -> UITableViewCell {
