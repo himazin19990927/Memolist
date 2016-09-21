@@ -37,7 +37,7 @@ class Item {
     
     var height: Float {
         get {
-            return 55
+            return 80
         }
     }
     

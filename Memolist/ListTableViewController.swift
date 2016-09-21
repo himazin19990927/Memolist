@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol ListTableViewDelegate {
-    func editWidget(widgetType: WidgetType)
-    func editMemo(memo: ScheduleItem)
-}
-
 class ListTableViewController: UITableViewController {
-    var delegate: ListTableViewDelegate!
     
     var cellArray: [UITableViewCell] = []
     
@@ -31,6 +25,7 @@ class ListTableViewController: UITableViewController {
         clearView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView = clearView
         tableView.tableHeaderView = clearView
+        tableView.separatorColor = ColorController.blueGrayColor()
         
         scrollEnabled()
         
@@ -100,22 +95,14 @@ class ListTableViewController: UITableViewController {
     
     //セルが移動された時に呼ばれる
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let target = cellArray[sourceIndexPath.row]
-        cellArray.removeAtIndex(sourceIndexPath.row)
-        cellArray.insert(target, atIndex: destinationIndexPath.row)
-        
-        
-        //appDelegate側にも反映
+        //アイテムを移動
         let targetItem = page.items[sourceIndexPath.row]
         page.items.removeAtIndex(sourceIndexPath.row)
         page.items.insert(targetItem, atIndex: destinationIndexPath.row)
         
-        
-        //initCell()
-        tableView.reloadData()
-
+        //セルを更新
+        initCell()
     }
-
     
     //セルが選択された時に呼ばれる
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -123,11 +110,8 @@ class ListTableViewController: UITableViewController {
     }
     
     override func setEditing(editing: Bool, animated: Bool) {
-        if cellArray.count > 0 {
-            super.setEditing(editing, animated: animated)
-            tableView.editing = editing
-        }
-        
+        super.setEditing(editing, animated: animated)
+        tableView.editing = editing        
     }
     
     //セルが存在しない場合スクロールを禁止する
@@ -151,11 +135,7 @@ class ListTableViewController: UITableViewController {
     func saveWidget() {
         
     }
-    
-    func editMemo(item: ScheduleItem) {
-        delegate.editMemo(item)
-    }
-    
+ 
     func reloadCell() {
         initCell()
         tableView.reloadData()
@@ -171,11 +151,13 @@ class ListTableViewController: UITableViewController {
         case .Memo:
             let memoCell = tableView.dequeueReusableCellWithIdentifier("MemoCell") as! MemoCell
             memoCell.item = item
+            memoCell.delegate = AppController.instance.viewController
             
             return memoCell
         case .Counter:
             let counterCell = tableView.dequeueReusableCellWithIdentifier("CounterCell") as! CounterCell
             counterCell.item = item
+            counterCell.delegate = AppController.instance.viewController
             
             return counterCell
         default:
@@ -183,48 +165,6 @@ class ListTableViewController: UITableViewController {
         }
         
         return UITableViewCell()
-    }
-    
-    func addItemCell(item: Item) {
-        tableView.beginUpdates()
-        
-        page.items.append(item)
-        
-        
-        let cell = createCell(item)
-        cellArray.append(cell)
-        
-        tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: cellArray.count - 1, inSection: 0)], withRowAnimation: .Left)
-        
-        tableView.endUpdates()
-        
-    }
-    
-    func addItemAlert() {
-        //check
-        let alert = UIAlertController(title: "アイテムの追加", message: nil, preferredStyle: .ActionSheet)
-        
-        let cancel = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
-        
-        let addMemo = UIAlertAction(title: "メモ", style: .Default, handler: {
-            action in
-            let memo = Memo()
-            memo.color = self.page.color
-            self.addItemCell(memo)
-        })
-        
-        let addCounter = UIAlertAction(title: "カウンター", style: .Default, handler: {
-            action in
-            let counter = Counter()
-            counter.color = self.page.color
-            self.addItemCell(counter)
-        })
-        
-        alert.addAction(cancel)
-        alert.addAction(addMemo)
-        alert.addAction(addCounter)
-        
-        presentViewController(alert, animated: true, completion: nil)
     }
 }
 

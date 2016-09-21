@@ -1,15 +1,15 @@
 //
-//  ColorSelectorViewController.swift
-//  To Do List
+//  ItemColorController.swift
+//  Memolist
 //
-//  Created by 原田大樹 on 2016/08/24.
+//  Created by 原田大樹 on 2016/09/20.
 //  Copyright © 2016年 原田大樹. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class ColorSelectorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ItemColorSelectorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
     var colorCellArray: [UITableViewCell] = []
@@ -67,7 +67,7 @@ class ColorSelectorViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let colorCell = colorCellArray[indexPath.row] as! ColorSelectTableViewCell
-        PageController.instance.pageBuf?.color = colorCell.color
+        ItemController.instance.color = colorCell.color
         navigationController?.popViewControllerAnimated(true)
     }
     
@@ -97,7 +97,7 @@ class ColorSelectorViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 50
     }
-
+    
     
     func initCell() {
         colorCellArray.removeAll()

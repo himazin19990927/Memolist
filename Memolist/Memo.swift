@@ -30,6 +30,18 @@ class Memo: Item {
     
     override init(id: Int) {
         super.init(id: id)
+        
+        itemType = .Memo
+    }
+    
+    init(memo: Memo) {
+        super.init()
+        
+        id = memo.id
+        itemType = memo.itemType
+        text = memo.text
+        check = memo.check
+        color = memo.color
     }
     
     override func save() {

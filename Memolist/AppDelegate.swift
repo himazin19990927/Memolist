@@ -63,15 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func initPageArray() {
         pageArray.removeAll()
-        let page1 = Page()
-        page1.title = "リスト1"
-        page1.color = ColorController.blueColor()
+        let page = Page()
+        page.title = "リスト1"
+        page.color = ColorController.blueColor()
         
-        let memo1 = Memo()
-        memo1.text = "hoge"
-        memo1.color = ColorController.greenColor()
-        page1.items.append(memo1)
-        pageArray.append(page1)
+        pageArray.append(page)
     }
     
     func saveAllPage() {
@@ -80,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             pageIdArray.append(page.id)
             page.save()
         }
-        print("(save)PageIdArray:\(pageIdArray)")
+        
         let userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setObject(pageIdArray, forKey: "pageIdArray")
     }
@@ -89,7 +85,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
         if let pageIdArray: [Int] = userDefaults.objectForKey("pageIdArray") as? [Int] {
-            print("(load)\(pageIdArray)")
             for pageId in pageIdArray {
                 
                 let page = Page(pageId: pageId)

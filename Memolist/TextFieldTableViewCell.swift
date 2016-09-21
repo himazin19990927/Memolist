@@ -14,7 +14,6 @@ protocol TextFieldCellDelegate {
 
 class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     var delegate: TextFieldCellDelegate!
-    var maxLength: Int = 10
     @IBOutlet var inputTextField: UITextField!
     
     var placeholder: String = "" {

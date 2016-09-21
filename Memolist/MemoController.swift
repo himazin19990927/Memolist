@@ -1,5 +1,5 @@
 //
-//  ItemController.swift
+//  MemoController.swift
 //  Memolist
 //
 //  Created by 原田大樹 on 2016/09/20.
@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-class ItemController {
-    static let instance = ItemController()
+class MemoController {
+    static let instance = MemoController()
     
     private init() {}
     
-    var page: Page?
-    
-    var color: UIColor?
-    var itemType: ItemType?
+    var memo: Memo?
+    var memoBuf: Memo?
 }

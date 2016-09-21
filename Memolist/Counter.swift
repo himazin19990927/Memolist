@@ -32,6 +32,19 @@ class Counter: Item {
         self.itemType = .Counter
     }
     
+    init(counter: Counter) {
+        count = 0
+        
+        super.init()
+        
+        id = counter.id
+        itemType = counter.itemType
+        text = counter.text
+        check = counter.check
+        color = counter.color
+        count = counter.count
+    }
+    
     override init(id: Int) {
         self.count = 0
         
@@ -40,8 +53,6 @@ class Counter: Item {
         
         if userDefaults.boolForKey("Item.\(self.id).exist") {
             self.count = userDefaults.integerForKey("Item.\(self.id).count")
-        } else {
-            self.count = 0
         }
     }
     

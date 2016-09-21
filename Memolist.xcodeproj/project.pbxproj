@@ -32,14 +32,8 @@
 		DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D6B1D71ADFB0070B45E /* ListTableViewController.xib */; };
 		DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D721D71AE600070B45E /* CAPSPageMenu.swift */; };
 		DE692D781D71AE600070B45E /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D731D71AE600070B45E /* ColorController.swift */; };
-		DE692D791D71AE600070B45E /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D741D71AE600070B45E /* ItemController.swift */; };
 		DE692D7A1D71AE600070B45E /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D751D71AE600070B45E /* Page.swift */; };
 		DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D761D71AE600070B45E /* ScheduleItem.swift */; };
-		DE692D801D71AE9B0070B45E /* Counter_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7D1D71AE9B0070B45E /* Counter_old.swift */; };
-		DE692D811D71AE9B0070B45E /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7E1D71AE9B0070B45E /* Label.swift */; };
-		DE692D821D71AE9B0070B45E /* Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D7F1D71AE9B0070B45E /* Widget.swift */; };
-		DE692D861D71AEEE0070B45E /* LabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D841D71AEEE0070B45E /* LabelCell.swift */; };
-		DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D851D71AEEE0070B45E /* LabelCell.xib */; };
 		DE692D951D71AF390070B45E /* ColorLabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */; };
 		DE692D961D71AF390070B45E /* ColorLabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */; };
 		DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D8B1D71AF390070B45E /* ColorSelectTableViewCell.swift */; };
@@ -58,15 +52,21 @@
 		DE692DAB1D71AFA70070B45E /* List.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA61D71AFA70070B45E /* List.pdf */; };
 		DE692DAD1D71AFBD0070B45E /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAC1D71AFBD0070B45E /* Icon */; };
 		DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAE1D71AFCF0070B45E /* Main.storyboard */; };
-		DE692E311D7319030070B45E /* LabelEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692E301D7319030070B45E /* LabelEditor.swift */; };
+		DE9A9C671D900FA9002A9F88 /* ItemCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C661D900FA9002A9F88 /* ItemCreatorViewController.swift */; };
+		DE9A9C691D90379A002A9F88 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C681D90379A002A9F88 /* AppController.swift */; };
+		DE9A9C6B1D90CD2A002A9F88 /* ItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C6A1D90CD2A002A9F88 /* ItemController.swift */; };
+		DE9A9C6E1D90CF68002A9F88 /* ItemColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C6D1D90CF68002A9F88 /* ItemColorSelectorViewController.swift */; };
+		DE9A9C731D911B94002A9F88 /* MemoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C721D911B94002A9F88 /* MemoController.swift */; };
+		DE9A9C751D911C0D002A9F88 /* MemoEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C741D911C0D002A9F88 /* MemoEditorViewController.swift */; };
+		DE9A9C771D921C73002A9F88 /* ItemEditorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE9A9C761D921C73002A9F88 /* ItemEditorDelegate.swift */; };
 		DEC2AE251D8E40100079976D /* Minus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE241D8E40100079976D /* Minus.pdf */; };
 		DEC2AE271D8E40850079976D /* Plus.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC2AE261D8E40850079976D /* Plus.pdf */; };
-		DEC5AD581D7487DA0063517D /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD571D7487DA0063517D /* ToDo.swift */; };
-		DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD591D74889F0063517D /* ToDoCell.swift */; };
-		DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5A1D74889F0063517D /* ToDoCell.xib */; };
-		DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */; };
 		DEC5AD601D752AB10063517D /* CheckBox.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEC5AD5F1D752AB10063517D /* CheckBox.pdf */; };
 		DEFA88771D840378001DA233 /* PageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFA88761D840378001DA233 /* PageController.swift */; };
+		DEFB77C51D926CE200B00E16 /* MemoColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77C41D926CE200B00E16 /* MemoColorSelectorViewController.swift */; };
+		DEFB77C81D926F3E00B00E16 /* CounterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77C71D926F3E00B00E16 /* CounterEditorViewController.swift */; };
+		DEFB77CA1D926F5800B00E16 /* CounterColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77C91D926F5800B00E16 /* CounterColorSelectorViewController.swift */; };
+		DEFB77CC1D926F6300B00E16 /* CounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77CB1D926F6300B00E16 /* CounterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,14 +119,8 @@
 		DE692D6B1D71ADFB0070B45E /* ListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListTableViewController.xib; sourceTree = "<group>"; };
 		DE692D721D71AE600070B45E /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAPSPageMenu.swift; sourceTree = "<group>"; };
 		DE692D731D71AE600070B45E /* ColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
-		DE692D741D71AE600070B45E /* ItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
 		DE692D751D71AE600070B45E /* Page.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		DE692D761D71AE600070B45E /* ScheduleItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleItem.swift; sourceTree = "<group>"; };
-		DE692D7D1D71AE9B0070B45E /* Counter_old.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Counter_old.swift; sourceTree = "<group>"; };
-		DE692D7E1D71AE9B0070B45E /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
-		DE692D7F1D71AE9B0070B45E /* Widget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Widget.swift; sourceTree = "<group>"; };
-		DE692D841D71AEEE0070B45E /* LabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCell.swift; sourceTree = "<group>"; };
-		DE692D851D71AEEE0070B45E /* LabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelCell.xib; sourceTree = "<group>"; };
 		DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorLabelTableViewCell.swift; sourceTree = "<group>"; };
 		DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorLabelTableViewCell.xib; sourceTree = "<group>"; };
 		DE692D8B1D71AF390070B45E /* ColorSelectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,15 +140,21 @@
 		DE692DAC1D71AFBD0070B45E /* Icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icon; sourceTree = "<group>"; };
 		DE692DAE1D71AFCF0070B45E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DE692DB11D71B4950070B45E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		DE692E301D7319030070B45E /* LabelEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelEditor.swift; sourceTree = "<group>"; };
+		DE9A9C661D900FA9002A9F88 /* ItemCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCreatorViewController.swift; sourceTree = "<group>"; };
+		DE9A9C681D90379A002A9F88 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		DE9A9C6A1D90CD2A002A9F88 /* ItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemController.swift; sourceTree = "<group>"; };
+		DE9A9C6D1D90CF68002A9F88 /* ItemColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemColorSelectorViewController.swift; sourceTree = "<group>"; };
+		DE9A9C721D911B94002A9F88 /* MemoController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoController.swift; sourceTree = "<group>"; };
+		DE9A9C741D911C0D002A9F88 /* MemoEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoEditorViewController.swift; sourceTree = "<group>"; };
+		DE9A9C761D921C73002A9F88 /* ItemEditorDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemEditorDelegate.swift; sourceTree = "<group>"; };
 		DEC2AE241D8E40100079976D /* Minus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Minus.pdf; sourceTree = "<group>"; };
 		DEC2AE261D8E40850079976D /* Plus.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Plus.pdf; sourceTree = "<group>"; };
-		DEC5AD571D7487DA0063517D /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		DEC5AD591D74889F0063517D /* ToDoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoCell.swift; sourceTree = "<group>"; };
-		DEC5AD5A1D74889F0063517D /* ToDoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoCell.xib; sourceTree = "<group>"; };
-		DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoEditor.swift; sourceTree = "<group>"; };
 		DEC5AD5F1D752AB10063517D /* CheckBox.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CheckBox.pdf; sourceTree = "<group>"; };
 		DEFA88761D840378001DA233 /* PageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageController.swift; sourceTree = "<group>"; };
+		DEFB77C41D926CE200B00E16 /* MemoColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoColorSelectorViewController.swift; sourceTree = "<group>"; };
+		DEFB77C71D926F3E00B00E16 /* CounterEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterEditorViewController.swift; sourceTree = "<group>"; };
+		DEFB77C91D926F5800B00E16 /* CounterColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterColorSelectorViewController.swift; sourceTree = "<group>"; };
+		DEFB77CB1D926F6300B00E16 /* CounterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,13 +229,15 @@
 				DE692D541D71ACBA0070B45E /* AppDelegate.swift */,
 				DE692D551D71ACBA0070B45E /* ViewController.swift */,
 				DE692DAE1D71AFCF0070B45E /* Main.storyboard */,
-				DE692D4C1D71AB3C0070B45E /* PageEditorControllers */,
+				DE9A9C761D921C73002A9F88 /* ItemEditorDelegate.swift */,
+				DE9A9C6C1D90CD38002A9F88 /* ItemCreator */,
+				DE9A9C6F1D911ACD002A9F88 /* MemoEditor */,
+				DEFB77C61D926F1B00B00E16 /* CounterEditor */,
+				DE692D4C1D71AB3C0070B45E /* PageControllers */,
 				DE692D661D71ADC00070B45E /* ListTableViewController */,
 				DE2EBA9B1D83DAB3006CD0D5 /* Item */,
 				DE2EBAA01D83E6C6006CD0D5 /* ItemCell */,
 				DE692D711D71AE180070B45E /* Classes */,
-				DE692D7C1D71AE800070B45E /* WidgetClasses */,
-				DE692D831D71AEAD0070B45E /* WidgetCells */,
 				DE692D881D71AF010070B45E /* CustomCells */,
 				DE692DA11D71AF8E0070B45E /* Image */,
 				DE692DAC1D71AFBD0070B45E /* Icon */,
@@ -266,7 +268,7 @@
 			path = MemolistUITests;
 			sourceTree = "<group>";
 		};
-		DE692D4C1D71AB3C0070B45E /* PageEditorControllers */ = {
+		DE692D4C1D71AB3C0070B45E /* PageControllers */ = {
 			isa = PBXGroup;
 			children = (
 				DE692D581D71AD180070B45E /* AllPageEditorViewController.swift */,
@@ -274,7 +276,7 @@
 				DE692D591D71AD180070B45E /* ColorSelectorViewController.swift */,
 				DEFA88761D840378001DA233 /* PageController.swift */,
 			);
-			name = PageEditorControllers;
+			name = PageControllers;
 			sourceTree = "<group>";
 		};
 		DE692D661D71ADC00070B45E /* ListTableViewController */ = {
@@ -293,33 +295,9 @@
 				DE692D761D71AE600070B45E /* ScheduleItem.swift */,
 				DE692D751D71AE600070B45E /* Page.swift */,
 				DE692D731D71AE600070B45E /* ColorController.swift */,
-				DE692D741D71AE600070B45E /* ItemController.swift */,
+				DE9A9C681D90379A002A9F88 /* AppController.swift */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		DE692D7C1D71AE800070B45E /* WidgetClasses */ = {
-			isa = PBXGroup;
-			children = (
-				DE692D7F1D71AE9B0070B45E /* Widget.swift */,
-				DE692D7E1D71AE9B0070B45E /* Label.swift */,
-				DE692E301D7319030070B45E /* LabelEditor.swift */,
-				DEC5AD571D7487DA0063517D /* ToDo.swift */,
-				DEC5AD5D1D74908A0063517D /* ToDoEditor.swift */,
-				DE692D7D1D71AE9B0070B45E /* Counter_old.swift */,
-			);
-			name = WidgetClasses;
-			sourceTree = "<group>";
-		};
-		DE692D831D71AEAD0070B45E /* WidgetCells */ = {
-			isa = PBXGroup;
-			children = (
-				DE692D841D71AEEE0070B45E /* LabelCell.swift */,
-				DE692D851D71AEEE0070B45E /* LabelCell.xib */,
-				DEC5AD591D74889F0063517D /* ToDoCell.swift */,
-				DEC5AD5A1D74889F0063517D /* ToDoCell.xib */,
-			);
-			name = WidgetCells;
 			sourceTree = "<group>";
 		};
 		DE692D881D71AF010070B45E /* CustomCells */ = {
@@ -357,6 +335,36 @@
 				DE692DA61D71AFA70070B45E /* List.pdf */,
 			);
 			name = Image;
+			sourceTree = "<group>";
+		};
+		DE9A9C6C1D90CD38002A9F88 /* ItemCreator */ = {
+			isa = PBXGroup;
+			children = (
+				DE9A9C661D900FA9002A9F88 /* ItemCreatorViewController.swift */,
+				DE9A9C6D1D90CF68002A9F88 /* ItemColorSelectorViewController.swift */,
+				DE9A9C6A1D90CD2A002A9F88 /* ItemController.swift */,
+			);
+			name = ItemCreator;
+			sourceTree = "<group>";
+		};
+		DE9A9C6F1D911ACD002A9F88 /* MemoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				DE9A9C741D911C0D002A9F88 /* MemoEditorViewController.swift */,
+				DEFB77C41D926CE200B00E16 /* MemoColorSelectorViewController.swift */,
+				DE9A9C721D911B94002A9F88 /* MemoController.swift */,
+			);
+			name = MemoEditor;
+			sourceTree = "<group>";
+		};
+		DEFB77C61D926F1B00B00E16 /* CounterEditor */ = {
+			isa = PBXGroup;
+			children = (
+				DEFB77C71D926F3E00B00E16 /* CounterEditorViewController.swift */,
+				DEFB77C91D926F5800B00E16 /* CounterColorSelectorViewController.swift */,
+				DEFB77CB1D926F6300B00E16 /* CounterController.swift */,
+			);
+			name = CounterEditor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -469,7 +477,6 @@
 				DE6301E01D8CD4F400314C3B /* Detail.pdf in Resources */,
 				DEC2AE271D8E40850079976D /* Plus.pdf in Resources */,
 				DE6301E81D8D01CE00314C3B /* Check_YES.pdf in Resources */,
-				DE692D871D71AEEE0070B45E /* LabelCell.xib in Resources */,
 				DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */,
 				DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */,
 				DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */,
@@ -479,7 +486,6 @@
 				DEC2AE251D8E40100079976D /* Minus.pdf in Resources */,
 				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
 				DE6301EE1D8D161000314C3B /* CounterCell.xib in Resources */,
-				DEC5AD5C1D74889F0063517D /* ToDoCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
 				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
 				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
@@ -516,35 +522,37 @@
 				DE692D5B1D71AD180070B45E /* AllPageEditorViewController.swift in Sources */,
 				DE692D781D71AE600070B45E /* ColorController.swift in Sources */,
 				DEFA88771D840378001DA233 /* PageController.swift in Sources */,
-				DEC5AD581D7487DA0063517D /* ToDo.swift in Sources */,
-				DE692D791D71AE600070B45E /* ItemController.swift in Sources */,
 				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
+				DEFB77C51D926CE200B00E16 /* MemoColorSelectorViewController.swift in Sources */,
 				DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */,
+				DEFB77C81D926F3E00B00E16 /* CounterEditorViewController.swift in Sources */,
+				DEFB77CA1D926F5800B00E16 /* CounterColorSelectorViewController.swift in Sources */,
 				DE2EBAAD1D83F4C8006CD0D5 /* Item.swift in Sources */,
 				DE6301EA1D8D142B00314C3B /* Counter.swift in Sources */,
 				DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */,
+				DE9A9C6B1D90CD2A002A9F88 /* ItemController.swift in Sources */,
 				DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */,
+				DE9A9C731D911B94002A9F88 /* MemoController.swift in Sources */,
+				DE9A9C691D90379A002A9F88 /* AppController.swift in Sources */,
 				DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */,
 				DE6301ED1D8D161000314C3B /* CounterCell.swift in Sources */,
+				DE9A9C751D911C0D002A9F88 /* MemoEditorViewController.swift in Sources */,
 				DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */,
 				DE692D7A1D71AE600070B45E /* Page.swift in Sources */,
 				DE692D571D71ACBA0070B45E /* ViewController.swift in Sources */,
 				DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */,
 				DE692D6F1D71ADFB0070B45E /* ListTableViewController.swift in Sources */,
-				DEC5AD5E1D74908A0063517D /* ToDoEditor.swift in Sources */,
+				DE9A9C6E1D90CF68002A9F88 /* ItemColorSelectorViewController.swift in Sources */,
 				DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */,
 				DE2EBA9F1D83DEB3006CD0D5 /* Memo.swift in Sources */,
-				DE692D801D71AE9B0070B45E /* Counter_old.swift in Sources */,
-				DEC5AD5B1D74889F0063517D /* ToDoCell.swift in Sources */,
 				DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */,
 				DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */,
-				DE692D861D71AEEE0070B45E /* LabelCell.swift in Sources */,
+				DE9A9C671D900FA9002A9F88 /* ItemCreatorViewController.swift in Sources */,
 				DE692D1F1D71AA540070B45E /* Memolist.xcdatamodeld in Sources */,
-				DE692E311D7319030070B45E /* LabelEditor.swift in Sources */,
 				DE692D9F1D71AF390070B45E /* TextFieldTableViewCell.swift in Sources */,
-				DE692D811D71AE9B0070B45E /* Label.swift in Sources */,
+				DE9A9C771D921C73002A9F88 /* ItemEditorDelegate.swift in Sources */,
+				DEFB77CC1D926F6300B00E16 /* CounterController.swift in Sources */,
 				DE692D951D71AF390070B45E /* ColorLabelTableViewCell.swift in Sources */,
-				DE692D821D71AE9B0070B45E /* Widget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

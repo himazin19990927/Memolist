@@ -19,12 +19,20 @@ class CounterCell: UITableViewCell {
     
     @IBOutlet var countLabel: UILabel!
     
-    var item: Item? {
-        willSet {
-            label.text = newValue?.text
+    var delegate: ItemEditorDelegate?
+    
+    var item: Item? {        
+        didSet {
+            label.text = item?.text
             
-            checkImage.tintColor = newValue?.color
-            detailImage.tintColor = newValue?.color
+            checkImage.tintColor = item?.color
+            detailImage.tintColor = item?.color
+            
+            if let counter = item as? Counter {
+                countLabel.text = "\(counter.count)"
+            }
+            
+            changeImage()
         }
     }
     
@@ -33,7 +41,6 @@ class CounterCell: UITableViewCell {
         // Initialization code
         selectionStyle = .None
         
-        changeImage()
         detailImage.image = detailImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         checkImage.image = checkImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         
@@ -42,6 +49,13 @@ class CounterCell: UITableViewCell {
         
         plusImage.image = plusImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         plusImage.tintColor = ColorController.blueGrayColor()
+        
+        changeImage()
+        
+        if let item = self.item as? Counter {
+            countLabel.text = "\(item.count)"
+        }
+
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -57,6 +71,13 @@ class CounterCell: UITableViewCell {
                 item.check = true
             }
             changeImage()
+        }
+    }
+    
+    @IBAction func editButton() {
+        if let item = self.item {
+            delegate?.editItem(item)
+            
         }
     }
     
@@ -79,7 +100,6 @@ class CounterCell: UITableViewCell {
             if item.check == true {
                 checkImage.image = CheckImage.check_YES
                 lineView.backgroundColor = ColorController.blueGrayColor()
-                
             } else {
                 checkImage.image = CheckImage.check_NO
                 lineView.backgroundColor = UIColor.clearColor()

@@ -24,9 +24,10 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = ColorController.lightGrayColor()
+        tableView.separatorColor = ColorController.blueGrayColor()
         
         //NavigationBarの設定
-        self.title = "ページ設定"
+        self.title = "リストの設定"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -96,11 +97,11 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if let viewController = ItemController.instance.viewController {
+        if let viewController = AppController.instance.viewController {
             let listTableViewController = viewController.controllerArray[indexPath.row] as? ListTableViewController
             let page = listTableViewController?.page
             PageController.instance.page = page
-            PageController.instance.page = Page(page: page!)
+            PageController.instance.pageBuf = Page(page: page!)
             performSegueWithIdentifier("MoveToPageEditor", sender: nil)
         }        
     }
@@ -140,7 +141,7 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
             appDelegate.pageArray.removeAtIndex(index)
             appDelegate.pageArray.insert(targetPage, atIndex: destinationIndexPath.row)
             
-            if let viewController = ItemController.instance.viewController {
+            if let viewController = AppController.instance.viewController {
                 viewController.initPageMenu()
             }
         }
@@ -160,35 +161,46 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
-        if appDelegate.pageArray.count - 1  == 0 {
-            //セルを消去した時合計ページ数が0個になる時アラートを表示
-            let alert = UIAlertController(title: "ページを消せません", message: "すべてのページを消すことはできません", preferredStyle: .Alert)
+        if appDelegate.pageArray.count <= 1 {
+            //ページが一つの場合は消せない
+            let alert = UIAlertController(title: "すべてのリストを消すことはできません", message: nil, preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
             
             alert.addAction(action)
             
             presentViewController(alert, animated: true, completion: nil)
         } else {
-            let alert = UIAlertController(title: "ページを消してもいいですか?", message: "ページ内のアイテムはすべて消去されます", preferredStyle: .Alert)
-            
-            let cancelAction = UIAlertAction(title: "キャンセル", style: .Default, handler: nil)
-            let okAction = UIAlertAction(title: "OK", style: .Default) { action in
-                appDelegate.pageArray[indexPath.row].removeObject()
-                appDelegate.pageArray.removeAtIndex(indexPath.row)
+            let page = appDelegate.pageArray[indexPath.row]
+            if page.items.count == 0 {
+                removePage(indexPath)
+            } else {
+                let alert = UIAlertController(title: "リストを消しますか?", message: "リスト内のアイテムはすべて消去されます", preferredStyle: .Alert)
                 
-                tableView.deleteRowsAtIndexPaths([NSIndexPath(forItem: indexPath.row, inSection: indexPath.section)], withRowAnimation: UITableViewRowAnimation.Fade)
-                
-                if let viewController = ItemController.instance.viewController {
-                    viewController.initPageMenu()
+                let cancelAction = UIAlertAction(title: "キャンセル", style: .Default, handler: nil)
+                let okAction = UIAlertAction(title: "OK", style: .Default) { action in
+                    self.removePage(indexPath)
                 }
-            }
-            
-            alert.addAction(cancelAction)
-            alert.addAction(okAction)
-            
-            presentViewController(alert, animated: true, completion: nil)
+                
+                alert.addAction(cancelAction)
+                alert.addAction(okAction)
+                
+                presentViewController(alert, animated: true, completion: nil)
 
+            }
         }
+    }
+    
+    func removePage(indexPath: NSIndexPath) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.pageArray[indexPath.row].removeObject()
+        appDelegate.pageArray.removeAtIndex(indexPath.row)
+        
+        tableView.deleteRowsAtIndexPaths([NSIndexPath(forItem: indexPath.row, inSection: indexPath.section)], withRowAnimation: UITableViewRowAnimation.Fade)
+        
+        if let viewController = AppController.instance.viewController {
+            viewController.initPageMenu()
+        }
+
     }
     
     func initCell() {
@@ -229,7 +241,7 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.pageArray.append(page)
         
-        if let viewController = ItemController.instance.viewController {
+        if let viewController = AppController.instance.viewController {
             viewController.initPageMenu()
         }
         

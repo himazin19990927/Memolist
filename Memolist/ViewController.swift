@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class ViewController: UIViewController, ListTableViewDelegate {
+class ViewController: UIViewController, ItemEditorDelegate {
     var pageMenu: CAPSPageMenu?
     var controllerArray: [UIViewController] = []
     
@@ -18,7 +18,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+                
         //NavigationBarの設定
         self.title = "Memolist"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
@@ -42,7 +42,7 @@ class ViewController: UIViewController, ListTableViewDelegate {
         //PageMenuの初期化
         initPageMenu()
         
-        ItemController.instance.viewController = self
+        AppController.instance.viewController = self
                 
     }
 
@@ -87,9 +87,15 @@ class ViewController: UIViewController, ListTableViewDelegate {
     
     
     //Addボタンが押された時呼ばれる
-    func addButtonClicked(sender: AnyObject) {
-        let listTableViewController = controllerArray[(pageMenu?.currentPageIndex)!] as? ListTableViewController
-        listTableViewController?.addItemAlert()
+    func addButtonClicked(sender: AnyObject) {        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let page = appDelegate.pageArray[(pageMenu?.currentPageIndex)!]
+        
+        ItemController.instance.page = page
+        ItemController.instance.color = page.color
+        ItemController.instance.itemType = ItemType.Memo
+        
+        performSegueWithIdentifier("MoveToItemCreator", sender: nil)
     }
     
     //Listボタンが押された時呼ばれる
@@ -109,7 +115,6 @@ class ViewController: UIViewController, ListTableViewDelegate {
     
     //PageMenuを初期化する
     func initPageMenu() {
-        
         //現在表示されているpageMenuを消去
         if pageMenu != nil {
             pageMenu?.removeFromParentViewController()
@@ -126,7 +131,6 @@ class ViewController: UIViewController, ListTableViewDelegate {
             let viewController = ListTableViewController()
             
             viewController.page = page
-            viewController.delegate = self
             controllerArray.append(viewController)
             
             colorArray.append(page.color)
@@ -146,6 +150,8 @@ class ViewController: UIViewController, ListTableViewDelegate {
         
         pageMenu = CAPSPageMenu(viewControllers: controllerArray, frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height), pageMenuOptions: parameters, pageColorOptions: colorArray)
         
+        pageMenu?.controllerScrollView.backgroundColor = UIColor.whiteColor()
+        
         self.addChildViewController(pageMenu!)
         
         self.view.addSubview(pageMenu!.view)
@@ -153,42 +159,27 @@ class ViewController: UIViewController, ListTableViewDelegate {
         
     }
     
-    func editWidget(widgetType: WidgetType) {
-        //データの保存
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveAllPage()
-        
-        //Check
-        switch widgetType {
-        case .Label:
-            performSegueWithIdentifier("MoveToLabelEditor", sender: nil)
-        case .ToDo:
+    func editItem(item: Item) {
+        switch item.itemType {
+        case .Memo:
+            let memoController = MemoController.instance
+            let memo = item as! Memo
             
-            performSegueWithIdentifier("MoveToToDoEditor", sender: nil)
+            memoController.memo = memo
+            memoController.memoBuf = Memo(memo: memo)
+            
+            performSegueWithIdentifier("MoveToMemoEditor", sender: nil)
         case .Counter:
-            break
+            let counterController = CounterController.instance
+            let counter = item as! Counter
+            
+            counterController.counter = counter
+            counterController.counterBuf = Counter(counter: counter)
+            
+            performSegueWithIdentifier("MoveToCounterEditor", sender: nil)
         default:
             break
         }
-    }
-    
-    func editMemo(memo: ScheduleItem) {
-        //データの保存
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.saveAllPage()
-        
-        //ウィジェットの中身を保存
-        for view in controllerArray {
-            let viewController = view as! ListTableViewController
-            viewController.saveWidget()
-        }
-        
-        ItemController.instance.listTableView = controllerArray[(pageMenu?.currentPageIndex)!] as? ListTableViewController
-        ItemController.instance.scheduleItem = ScheduleItem(memo: memo)
-        ItemController.instance.memo = memo
-        ItemController.instance.string = memo.title
-        ItemController.instance.color = memo.color.copy() as? UIColor
-        performSegueWithIdentifier("MoveToMemoEditor", sender: nil)
     }
 }
 

@@ -51,10 +51,10 @@ class Page {
                     //check
                     let item: Item!
                     switch itemType {
-                    case .None:
-                        item = Item(id: itemId)
                     case .Memo:
                         item = Memo(id: itemId)
+                    case .Counter:
+                        item = Counter(id: itemId)
                     default:
                         item = Item(id: itemId)
                     }

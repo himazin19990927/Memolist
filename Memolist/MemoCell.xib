@@ -51,16 +51,28 @@
                             <constraint firstAttribute="height" constant="1" id="GR9-bE-MqG"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gR4-UW-Cs3">
+                        <rect key="frame" x="232" y="8" width="80" height="33.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="VxA-lH-FgV"/>
+                        </constraints>
+                        <connections>
+                            <action selector="editButton" destination="KGk-i7-Jjw" eventType="touchUpInside" id="h9O-YM-Di4"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="MGn-Mo-hwh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="11O-lU-6C2"/>
+                    <constraint firstItem="gR4-UW-Cs3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="1Rr-uK-mEh"/>
                     <constraint firstItem="MGn-Mo-hwh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="22y-12-stq"/>
                     <constraint firstItem="Ppz-fL-8B5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="7r3-Ym-e6B"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="gR4-UW-Cs3" secondAttribute="trailing" id="8L5-FA-47J"/>
                     <constraint firstItem="bFf-VN-XS4" firstAttribute="leading" secondItem="lLc-c3-CYM" secondAttribute="trailing" constant="5" id="BSB-id-Nbk"/>
                     <constraint firstItem="KkR-uW-dC6" firstAttribute="leading" secondItem="Ppz-fL-8B5" secondAttribute="trailing" constant="10" id="EsF-Gk-Srf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ppz-fL-8B5" secondAttribute="bottom" id="FQn-SX-ebI"/>
                     <constraint firstItem="lLc-c3-CYM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="R1x-cU-JRp"/>
                     <constraint firstItem="KkR-uW-dC6" firstAttribute="leading" secondItem="bFf-VN-XS4" secondAttribute="trailing" constant="5" id="Tyi-3X-004"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="gR4-UW-Cs3" secondAttribute="bottom" id="Wyp-EW-AAV"/>
                     <constraint firstAttribute="bottomMargin" secondItem="MGn-Mo-hwh" secondAttribute="bottom" id="YkS-Kw-GKJ"/>
                     <constraint firstItem="Ppz-fL-8B5" firstAttribute="leading" secondItem="lLc-c3-CYM" secondAttribute="trailing" constant="10" id="d4Q-B1-Seb"/>
                     <constraint firstItem="bFf-VN-XS4" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="gUl-R0-bfJ"/>
@@ -76,7 +88,7 @@
                 <outlet property="label" destination="Ppz-fL-8B5" id="H02-Qq-qcr"/>
                 <outlet property="lineView" destination="bFf-VN-XS4" id="jas-XJ-PiE"/>
             </connections>
-            <point key="canvasLocation" x="262" y="339.5"/>
+            <point key="canvasLocation" x="262" y="339"/>
         </tableViewCell>
     </objects>
     <resources>

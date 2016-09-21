@@ -14,12 +14,16 @@ class MemoCell: UITableViewCell {
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var lineView: UIView!
     
+    var delegate: ItemEditorDelegate?
+    
     var item: Item? {
-        willSet {
-            label.text = newValue?.text
+        didSet {
+            label.text = item?.text
             
-            checkImage.tintColor = newValue?.color
-            detailImage.tintColor = newValue?.color
+            checkImage.tintColor = item?.color
+            detailImage.tintColor = item?.color
+            
+            changeImage()
         }
     }
     
@@ -32,7 +36,6 @@ class MemoCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
-        changeImage()
         
         detailImage.image = detailImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         checkImage.image = checkImage.image?.imageWithRenderingMode(.AlwaysTemplate)
@@ -49,12 +52,18 @@ class MemoCell: UITableViewCell {
         }
     }
     
+    @IBAction func editButton() {
+        if let item = self.item {
+            delegate?.editItem(item)
+
+        }
+    }
+    
     private func changeImage() {
         if let item = self.item {
             if item.check == true {
                 checkImage.image = CheckImage.check_YES
                 lineView.backgroundColor = ColorController.blueGrayColor()
-                
             } else {
                 checkImage.image = CheckImage.check_NO
                 lineView.backgroundColor = UIColor.clearColor()

@@ -1,31 +1,26 @@
 //
-//  WidgetEditorViewController.swift
-//  To Do List
+//  MemoEditorViewController.swift
+//  Memolist
 //
-//  Created by 原田大樹 on 2016/08/11.
+//  Created by 原田大樹 on 2016/09/20.
 //  Copyright © 2016年 原田大樹. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class PageEditorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextFieldCellDelegate{
+class MemoEditorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
     var titleCells: [UITableViewCell] = []
-    var colorCells: [UITableViewCell] = []
+    var colorSelectorCells: [UITableViewCell] = []
     
+    
+    var closeBarButton: UIBarButtonItem!
     var addBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //セルの初期化
-        self.tableView.registerNib(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
-        self.tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
-        self.tableView.registerNib(UINib(nibName: "ColorLabelTableViewCell", bundle: nil), forCellReuseIdentifier: "ColorLabelTableViewCell")
-        initCell()
-        
         
         //tableviewの設定
         tableView.dataSource = self
@@ -34,7 +29,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         tableView.separatorColor = ColorController.blueGrayColor()
         
         //NavigationBarの設定
-        self.title = PageController.instance.page?.title
+        self.title = "メモの編集"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -45,9 +40,11 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
         
-        addBarButton = UIBarButtonItem(image: UIImage(named: "Check"), style: .Done, target: self, action: #selector(PageEditorViewController.addButtonClicked(_:)))
-        addBarButton.enabled = true
-        self.navigationItem.rightBarButtonItem = addBarButton
+        closeBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(ItemCreatorViewController.closeButtonClicked(_:)))
+        navigationItem.leftBarButtonItem = closeBarButton
+        
+        addBarButton = UIBarButtonItem(image: UIImage(named: "Check"), style: .Done, target: self, action: #selector(ItemCreatorViewController.addButtonClicked(_:)))
+        navigationItem.rightBarButtonItem = addBarButton
         
         //NavigationBarに線を表示する
         let hairlineView = UIView()
@@ -64,6 +61,14 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         clearView.backgroundColor = UIColor.clearColor()
         tableView.tableFooterView = clearView
         tableView.tableHeaderView = clearView
+        
+        //テスト:セルの初期化
+        self.tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "ColorLabelTableViewCell", bundle: nil), forCellReuseIdentifier: "ColorLabelTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
+        
+        //セルの設定
+        initCell()
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,18 +76,21 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     override func viewWillAppear(animated: Bool) {
-        if let color = PageController.instance.pageBuf?.color {
-            let colorCell = colorCells[0] as! ColorLabelTableViewCell
-            colorCell.color = color
+        //viewが表示される前にcellの色を替える
+        let colorLabelCell = colorSelectorCells[0] as! ColorLabelTableViewCell
+        if let color = MemoController.instance.memoBuf?.color {
+            colorLabelCell.color = color
         }
     }
     
     override func viewDidAppear(animated: Bool) {
+        //viewが表示されるときキーボードを開く
         let titleCell = titleCells[0] as! TextFieldTableViewCell
         titleCell.inputTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
+        //viewが閉じられるときキーボードを閉じる
         let titleCell = titleCells[0] as! TextFieldTableViewCell
         titleCell.inputTextField.endEditing(true)
     }
@@ -97,10 +105,12 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch indexPath.section {
         case 0:
+            //titleCells
             break
         case 1:
-            
-            performSegueWithIdentifier("MoveToColorSelector", sender: nil)
+            //colorSelectorCells
+            performSegueWithIdentifier("MoveToMemoColorSelector", sender: nil)
+            break
         default:
             break
         }
@@ -110,12 +120,15 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
+            //titleCells
             return titleCells.count
         case 1:
-            return colorCells.count
+            //colorSelectorCells
+            return colorSelectorCells.count
         default:
             break
         }
+        
         return 0
     }
     
@@ -123,9 +136,11 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
+            //titleCells
             return titleCells[indexPath.row]
         case 1:
-            return colorCells[indexPath.row]
+            //colorSelectorCells
+            return colorSelectorCells[indexPath.row]
         default:
             break
         }
@@ -144,67 +159,70 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         return 35
     }
     
-    func upDate(canEnable: Bool) {
-        //addBarButton.enabled = canEnable
+    //cellの高さを設定
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
     }
+    
+    
     func initCell() {
         titleCells.removeAll()
-        colorCells.removeAll()
+        colorSelectorCells.removeAll()
         
         //section == 0 (titleCells)
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = PageController.instance.pageBuf?.title
+        titleCell.inputTextField.text = MemoController.instance.memoBuf!.text
         titleCell.placeholder = "タイトル"
-        titleCell.delegate = self
         titleCells.append(titleCell)
         
-        //section == 1
-        let colorCell = tableView.dequeueReusableCellWithIdentifier("ColorLabelTableViewCell") as! ColorLabelTableViewCell
-        colorCell.label!.text = "色"
-        colorCell.accessoryType = .DisclosureIndicator
-        if let color = PageController.instance.pageBuf?.color {
-            colorCell.color = color
-        }
-        colorCells.append(colorCell)
+        //section == 1 (colorSelectorCells)
+        //indexPath == 0
+        //色を設定するセル
+        let colorLabelCell = tableView.dequeueReusableCellWithIdentifier("ColorLabelTableViewCell") as! ColorLabelTableViewCell
+        colorLabelCell.label.text = "色"
+        colorLabelCell.accessoryType = .DisclosureIndicator
         
+        colorSelectorCells.append(colorLabelCell)
     }
     
-    //右のボタンが押された時に呼ばれる
-    func addButtonClicked(sender:AnyObject) {
-        let titleCell = titleCells[0] as! TextFieldTableViewCell
-        if let text = titleCell.inputTextField.text {
-            if text.characters.count >= 15 {
-                //タイトルが15文字以上だった場合アラートを表示
-                let alert = UIAlertController(title: "タイトルが長過ぎます", message: nil, preferredStyle: .Alert)
-                let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
-                
-                alert.addAction(action)
-                
-                presentViewController(alert, animated: true, completion: nil)
-            } else {
-                //タイトルが正しく入力されていれば画面を遷移
-                
-                //textを設定
-                PageController.instance.page?.title = text
-                
-                //色を設定
-                if let color = PageController.instance.pageBuf?.color {
-                    PageController.instance.page?.color = color
-                }
-                
-                PageController.instance.page = nil
-                PageController.instance.pageBuf = nil
-                
-                if let viewController = AppController.instance.viewController {
-                    viewController.initPageMenu()
-                }
-                
-                navigationController?.popViewControllerAnimated(true)
-            }
-        }
+    func closeButtonClicked(sender: AnyObject) {
+        MemoController.instance.memo = nil
+        MemoController.instance.memoBuf = nil
         
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addButtonClicked(sender: AnyObject) {
+        let memo = MemoController.instance.memo!
+        
+        let titleCell = titleCells[0] as! TextFieldTableViewCell
+        memo.text = titleCell.inputTextField.text!
+        
+        let memoBuf = MemoController.instance.memoBuf!
+        memo.color = memoBuf.color
+        
+        MemoController.instance.memo = nil
+        MemoController.instance.memoBuf = nil
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
