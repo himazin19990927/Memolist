@@ -33,9 +33,9 @@ class ViewController: UIViewController, ItemEditorDelegate {
         
         navigationItem.leftBarButtonItem = editButtonItem()
         
-        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(ViewController.addButtonClicked(_:)))
+        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(ViewController.addButton(_:)))
         
-        listBarButton = UIBarButtonItem(image: UIImage(named: "List"), style: .Done, target: self, action: #selector(ViewController.listButtonClicked(_:)))
+        listBarButton = UIBarButtonItem(image: UIImage(named: "List"), style: .Done, target: self, action: #selector(ViewController.listButton(_:)))
         
         self.navigationItem.setRightBarButtonItems([addBarButton, listBarButton], animated: true)
         
@@ -87,7 +87,7 @@ class ViewController: UIViewController, ItemEditorDelegate {
     
     
     //Addボタンが押された時呼ばれる
-    func addButtonClicked(sender: AnyObject) {        
+    func addButton(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let page = appDelegate.pageArray[(pageMenu?.currentPageIndex)!]
         
@@ -99,7 +99,7 @@ class ViewController: UIViewController, ItemEditorDelegate {
     }
     
     //Listボタンが押された時呼ばれる
-    func listButtonClicked(sender: AnyObject) {
+    func listButton(sender: AnyObject) {
         //データの保存
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         appDelegate.saveAllPage()

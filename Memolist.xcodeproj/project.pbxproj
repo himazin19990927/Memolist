@@ -47,7 +47,6 @@
 		DE692D9F1D71AF390070B45E /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */; };
 		DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */; };
 		DE692DA81D71AFA70070B45E /* Check.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA31D71AFA70070B45E /* Check.pdf */; };
-		DE692DA91D71AFA70070B45E /* Close.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA41D71AFA70070B45E /* Close.pdf */; };
 		DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA51D71AFA70070B45E /* Edit.pdf */; };
 		DE692DAB1D71AFA70070B45E /* List.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA61D71AFA70070B45E /* List.pdf */; };
 		DE692DAD1D71AFBD0070B45E /* Icon in Resources */ = {isa = PBXBuildFile; fileRef = DE692DAC1D71AFBD0070B45E /* Icon */; };
@@ -67,6 +66,8 @@
 		DEFB77C81D926F3E00B00E16 /* CounterEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77C71D926F3E00B00E16 /* CounterEditorViewController.swift */; };
 		DEFB77CA1D926F5800B00E16 /* CounterColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77C91D926F5800B00E16 /* CounterColorSelectorViewController.swift */; };
 		DEFB77CC1D926F6300B00E16 /* CounterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77CB1D926F6300B00E16 /* CounterController.swift */; };
+		DEFB77CE1D93B34B00B00E16 /* PageCreatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFB77CD1D93B34B00B00E16 /* PageCreatorViewController.swift */; };
+		DEFB77D01D93DAB300B00E16 /* Close.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DEFB77CF1D93DAB300B00E16 /* Close.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +135,6 @@
 		DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		DE692DA31D71AFA70070B45E /* Check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check.pdf; sourceTree = "<group>"; };
-		DE692DA41D71AFA70070B45E /* Close.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Close.pdf; sourceTree = "<group>"; };
 		DE692DA51D71AFA70070B45E /* Edit.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Edit.pdf; sourceTree = "<group>"; };
 		DE692DA61D71AFA70070B45E /* List.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = List.pdf; sourceTree = "<group>"; };
 		DE692DAC1D71AFBD0070B45E /* Icon */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icon; sourceTree = "<group>"; };
@@ -155,6 +155,8 @@
 		DEFB77C71D926F3E00B00E16 /* CounterEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterEditorViewController.swift; sourceTree = "<group>"; };
 		DEFB77C91D926F5800B00E16 /* CounterColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterColorSelectorViewController.swift; sourceTree = "<group>"; };
 		DEFB77CB1D926F6300B00E16 /* CounterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CounterController.swift; sourceTree = "<group>"; };
+		DEFB77CD1D93B34B00B00E16 /* PageCreatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCreatorViewController.swift; sourceTree = "<group>"; };
+		DEFB77CF1D93DAB300B00E16 /* Close.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Close.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				DE692D581D71AD180070B45E /* AllPageEditorViewController.swift */,
 				DE692D5A1D71AD180070B45E /* PageEditorViewController.swift */,
 				DE692D591D71AD180070B45E /* ColorSelectorViewController.swift */,
+				DEFB77CD1D93B34B00B00E16 /* PageCreatorViewController.swift */,
 				DEFA88761D840378001DA233 /* PageController.swift */,
 			);
 			name = PageControllers;
@@ -322,6 +325,7 @@
 		DE692DA11D71AF8E0070B45E /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				DEFB77CF1D93DAB300B00E16 /* Close.pdf */,
 				DEC2AE261D8E40850079976D /* Plus.pdf */,
 				DEC2AE241D8E40100079976D /* Minus.pdf */,
 				DE6301E71D8D01CE00314C3B /* Check_YES.pdf */,
@@ -330,7 +334,6 @@
 				DEC5AD5F1D752AB10063517D /* CheckBox.pdf */,
 				DE339A721D745A41004E7932 /* Add.pdf */,
 				DE692DA31D71AFA70070B45E /* Check.pdf */,
-				DE692DA41D71AFA70070B45E /* Close.pdf */,
 				DE692DA51D71AFA70070B45E /* Edit.pdf */,
 				DE692DA61D71AFA70070B45E /* List.pdf */,
 			);
@@ -478,9 +481,9 @@
 				DEC2AE271D8E40850079976D /* Plus.pdf in Resources */,
 				DE6301E81D8D01CE00314C3B /* Check_YES.pdf in Resources */,
 				DE692D701D71ADFB0070B45E /* ListTableViewController.xib in Resources */,
+				DEFB77D01D93DAB300B00E16 /* Close.pdf in Resources */,
 				DE692D241D71AA540070B45E /* LaunchScreen.storyboard in Resources */,
 				DE692DAA1D71AFA70070B45E /* Edit.pdf in Resources */,
-				DE692DA91D71AFA70070B45E /* Close.pdf in Resources */,
 				DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */,
 				DE6301E61D8CD97100314C3B /* Check_NO.pdf in Resources */,
 				DEC2AE251D8E40100079976D /* Minus.pdf in Resources */,
@@ -521,6 +524,7 @@
 			files = (
 				DE692D5B1D71AD180070B45E /* AllPageEditorViewController.swift in Sources */,
 				DE692D781D71AE600070B45E /* ColorController.swift in Sources */,
+				DEFB77CE1D93B34B00B00E16 /* PageCreatorViewController.swift in Sources */,
 				DEFA88771D840378001DA233 /* PageController.swift in Sources */,
 				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
 				DEFB77C51D926CE200B00E16 /* MemoColorSelectorViewController.swift in Sources */,

@@ -38,9 +38,9 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
         
-        doneBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(PageListEditorViewController.doneButtonClicked(_:)))
+        doneBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(PageListEditorViewController.doneButton(_:)))
         
-        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(PageListEditorViewController.addButtonClicked(_:)))
+        addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(PageListEditorViewController.addButton(_:)))
         
         self.navigationItem.rightBarButtonItem = doneBarButton
         self.navigationItem.setLeftBarButtonItems([editButtonItem(), addBarButton], animated: true)
@@ -218,11 +218,11 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
         }
     }
     
-    func doneButtonClicked(sender: AnyObject) {
+    func doneButton(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func addButtonClicked(sender: AnyObject) {
+    func addButton(sender: AnyObject) {
         let page = Page()
         let colorArray = [
             ColorController.redColor(),
@@ -236,17 +236,12 @@ class PageListEditorViewController: UIViewController ,UITableViewDataSource, UIT
         let index = arc4random() % UInt32(colorArray.count)
         
         page.color = colorArray[Int(index)]
-        page.title = "新しいリスト"
+        page.title = ""
         
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        appDelegate.pageArray.append(page)
         
-        if let viewController = AppController.instance.viewController {
-            viewController.initPageMenu()
-        }
+        PageController.instance.pageBuf = page
         
-        initCell()
-        tableView.reloadData()
+        performSegueWithIdentifier("MoveToPageCreator", sender: nil)
     }
     
     

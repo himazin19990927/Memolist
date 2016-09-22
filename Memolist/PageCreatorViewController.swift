@@ -1,21 +1,22 @@
 //
-//  WidgetEditorViewController.swift
-//  To Do List
+//  PageCreatorViewController.swift
+//  Memolist
 //
-//  Created by 原田大樹 on 2016/08/11.
+//  Created by 原田大樹 on 2016/09/22.
 //  Copyright © 2016年 原田大樹. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class PageEditorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextFieldCellDelegate{
+class PageCreatorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextFieldCellDelegate{
     @IBOutlet var tableView: UITableView!
     
     var titleCells: [UITableViewCell] = []
     var colorCells: [UITableViewCell] = []
     
     var addBarButton: UIBarButtonItem!
+    var closeBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         tableView.separatorColor = ColorController.blueGrayColor()
         
         //NavigationBarの設定
-        self.title = "リストの編集"
+        self.title = "リストの追加"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
@@ -45,7 +46,12 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = backButtonItem
         
-        addBarButton = UIBarButtonItem(image: UIImage(named: "Check"), style: .Done, target: self, action: #selector(PageEditorViewController.addButtonClicked(_:)))
+        closeBarButton = UIBarButtonItem(image: UIImage(named: "Close"), style: .Done, target: self, action: #selector(PageCreatorViewController.closeButton(_:)))
+        closeBarButton.enabled = true
+        self.navigationItem.leftBarButtonItem = closeBarButton
+
+        
+        addBarButton = UIBarButtonItem(image: UIImage(named: "Check"), style: .Done, target: self, action: #selector(PageCreatorViewController.addButton(_:)))
         addBarButton.enabled = true
         self.navigationItem.rightBarButtonItem = addBarButton
         
@@ -172,7 +178,13 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     //右のボタンが押された時に呼ばれる
-    func addButtonClicked(sender:AnyObject) {
+    func closeButton(sender: AnyObject) {
+        PageController.instance.pageBuf = nil
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func addButton(sender:AnyObject) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
         if let text = titleCell.inputTextField.text {
             if text.characters.count >= 15 {
@@ -191,28 +203,28 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
                 alert.addAction(action)
                 
                 presentViewController(alert, animated: true, completion: nil)
-
+                
             } else {
                 //タイトルが正しく入力されていれば画面を遷移
+                let page = PageController.instance.pageBuf!
+                
                 
                 //textを設定
-                PageController.instance.page?.title = text
+                page.title = text
                 
-                //色を設定
-                if let color = PageController.instance.pageBuf?.color {
-                    PageController.instance.page?.color = color
-                }
-                
-                PageController.instance.page = nil
                 PageController.instance.pageBuf = nil
+                
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.pageArray.append(page)
                 
                 if let viewController = AppController.instance.viewController {
                     viewController.initPageMenu()
                 }
                 
-                navigationController?.popViewControllerAnimated(true)
+                dismissViewControllerAnimated(true, completion: nil)
+                
             }
         }
     }
-}
 
+}
