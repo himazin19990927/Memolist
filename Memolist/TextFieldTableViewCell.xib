@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CTL-0Y-J4H">
-                        <rect key="frame" x="20" y="8" width="282" height="27.5"/>
+                        <rect key="frame" x="20" y="8" width="272" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -25,11 +25,11 @@
                     <constraint firstAttribute="bottomMargin" secondItem="CTL-0Y-J4H" secondAttribute="bottom" id="KGo-dI-7we"/>
                     <constraint firstItem="CTL-0Y-J4H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="VII-wN-o3R"/>
                     <constraint firstItem="CTL-0Y-J4H" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="XHO-S2-Yfe"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="CTL-0Y-J4H" secondAttribute="trailing" constant="10" id="rn8-Tx-DHL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CTL-0Y-J4H" secondAttribute="trailing" constant="20" id="rn8-Tx-DHL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="inputTextField" destination="CTL-0Y-J4H" id="7CL-gH-yAO"/>
+                <outlet property="textField" destination="CTL-0Y-J4H" id="maG-CD-y27"/>
             </connections>
         </tableViewCell>
     </objects>

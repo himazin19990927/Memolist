@@ -86,16 +86,16 @@ class CounterEditorViewController: UIViewController, UITableViewDataSource, UITa
     override func viewDidAppear(animated: Bool) {
         //viewが表示されるときキーボードを開く
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.becomeFirstResponder()
+        titleCell.textField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         //viewが閉じられるときキーボードを閉じる
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.endEditing(true)
+        titleCell.textField.endEditing(true)
         
         let countCell = countCells[0] as! TextFieldTableViewCell
-        countCell.inputTextField.endEditing(true)
+        countCell.textField.endEditing(true)
     }
     
     //セクションの数を設定
@@ -184,7 +184,7 @@ class CounterEditorViewController: UIViewController, UITableViewDataSource, UITa
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = CounterController.instance.counterBuf!.text
+        titleCell.textField.text = CounterController.instance.counterBuf!.text
         titleCell.placeholder = "タイトル"
         
         titleCells.append(titleCell)
@@ -200,8 +200,8 @@ class CounterEditorViewController: UIViewController, UITableViewDataSource, UITa
         
         //section == 2 (countCells)
         let countCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        countCell.inputTextField.text = "\(CounterController.instance.counterBuf!.count)"
-        countCell.inputTextField.keyboardType = .NumberPad
+        countCell.textField.text = "\(CounterController.instance.counterBuf!.count)"
+        countCell.textField.keyboardType = .NumberPad
         countCell.placeholder = "カウント"
         
         countCells.append(countCell)
@@ -216,14 +216,14 @@ class CounterEditorViewController: UIViewController, UITableViewDataSource, UITa
     
     func addButtonClicked(sender: AnyObject) {
         let countCell = countCells[0] as! TextFieldTableViewCell
-        let countString = countCell.inputTextField.text!
+        let countString = countCell.textField.text!
         if let count = Int(countString) {
             //数字が正しく入力されていれば処理
             
             let counter = CounterController.instance.counter!
             
             let titleCell = titleCells[0] as! TextFieldTableViewCell
-            counter.text = titleCell.inputTextField.text!
+            counter.text = titleCell.textField.text!
             
             let counterBuf = CounterController.instance.counterBuf!
             counter.color = counterBuf.color
@@ -240,7 +240,7 @@ class CounterEditorViewController: UIViewController, UITableViewDataSource, UITa
                 let counter = CounterController.instance.counter!
                 
                 let titleCell = titleCells[0] as! TextFieldTableViewCell
-                counter.text = titleCell.inputTextField.text!
+                counter.text = titleCell.textField.text!
                 
                 let counterBuf = CounterController.instance.counterBuf!
                 counter.color = counterBuf.color

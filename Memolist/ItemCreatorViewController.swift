@@ -78,6 +78,7 @@ class ItemCreatorViewController: UIViewController, UITableViewDataSource, UITabl
         
         //セルの設定
         initCell()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,15 +96,15 @@ class ItemCreatorViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(animated: Bool) {
         //viewが表示されるときキーボードを開く
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.becomeFirstResponder()
+        titleCell.textField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         //viewが閉じられるときキーボードを閉じる
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.endEditing(true)
+        titleCell.textField.endEditing(true)
     }
-    
+        
     //セクションの数を設定
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 3
@@ -203,7 +204,9 @@ class ItemCreatorViewController: UIViewController, UITableViewDataSource, UITabl
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = ""
+        
+        titleCell.textField.text = ""
+        
         titleCell.placeholder = "タイトル"
         titleCells.append(titleCell)
         
@@ -251,14 +254,14 @@ class ItemCreatorViewController: UIViewController, UITableViewDataSource, UITabl
             switch itemType {
             case .Memo:
                 let memo = Memo()
-                memo.text = titleCell.inputTextField.text!
+                memo.text = titleCell.textField.text!
                 memo.color = itemController.color!
                 
                 itemController.page?.items.append(memo)
             
             case .Counter:
                 let counter = Counter()
-                counter.text = titleCell.inputTextField.text!
+                counter.text = titleCell.textField.text!
                 counter.color = itemController.color!
                 
                 itemController.page?.items.append(counter)
@@ -289,7 +292,6 @@ class ItemCreatorViewController: UIViewController, UITableViewDataSource, UITabl
                 break
             }
         }
-        
     }
 
 }

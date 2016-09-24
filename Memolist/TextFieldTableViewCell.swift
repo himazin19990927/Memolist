@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol TextFieldCellDelegate {
-    func upDate(canEnable: Bool)
-}
-
 class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
-    var delegate: TextFieldCellDelegate!
-    @IBOutlet var inputTextField: UITextField!
+    @IBOutlet var textField: UITextField!
     
     var placeholder: String = "" {
         willSet {
-            inputTextField.placeholder = newValue
+            textField.placeholder = newValue
         }
     }
     override func awakeFromNib() {
@@ -26,8 +21,8 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         self.selectionStyle = .None
         
-        inputTextField.delegate = self
-        inputTextField.clearButtonMode = .Always
+        textField.delegate = self
+        textField.clearButtonMode = .Always
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
@@ -37,33 +32,14 @@ class TextFieldTableViewCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        inputTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
     func textFieldShouldClear(textField: UITextField) -> Bool {
-        delegate?.upDate(false)
-        inputTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
-    
-//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-//        let textFieldCount = textField.text!.characters.count
-//        let stringCount = string.characters.count
-//        
-//        //textFieldの文字が1文字の時に消去されればボタンを押せなくする
-//        if textFieldCount == 1 && stringCount == 0 {
-//            delegate?.upDate(false)
-//            return true
-//        }
-//        
-//        if textFieldCount + stringCount <= maxLength {
-//            delegate?.upDate(true)
-//            return true
-//        }
-//        delegate?.upDate(true)
-//        return false
-//    }
 }
 
 

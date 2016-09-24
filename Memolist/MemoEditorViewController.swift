@@ -14,7 +14,7 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
     
     var titleCells: [UITableViewCell] = []
     var colorSelectorCells: [UITableViewCell] = []
-    
+    var textCells: [UITableViewCell] = []
     
     var closeBarButton: UIBarButtonItem!
     var addBarButton: UIBarButtonItem!
@@ -66,9 +66,11 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         self.tableView.registerNib(UINib(nibName: "TextFieldTableViewCell", bundle: nil), forCellReuseIdentifier: "TextFieldTableViewCell")
         self.tableView.registerNib(UINib(nibName: "ColorLabelTableViewCell", bundle: nil), forCellReuseIdentifier: "ColorLabelTableViewCell")
         self.tableView.registerNib(UINib(nibName: "LabelTableViewCell", bundle: nil), forCellReuseIdentifier: "LabelTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "TextViewTableViewCell", bundle: nil), forCellReuseIdentifier: "TextViewTableViewCell")
         
         //セルの設定
         initCell()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,18 +88,21 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidAppear(animated: Bool) {
         //viewが表示されるときキーボードを開く
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.becomeFirstResponder()
+        titleCell.textField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         //viewが閉じられるときキーボードを閉じる
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.endEditing(true)
+        titleCell.textField.endEditing(true)
+        
+        let textCell = textCells[0] as! TextViewTableViewCell
+        textCell.textView.endEditing(true)
     }
     
     //セクションの数を設定
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     //セルが選択された時に呼ばれる
@@ -110,6 +115,9 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         case 1:
             //colorSelectorCells
             performSegueWithIdentifier("MoveToMemoColorSelector", sender: nil)
+            break
+        case 2:
+            //textCells
             break
         default:
             break
@@ -125,6 +133,9 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         case 1:
             //colorSelectorCells
             return colorSelectorCells.count
+        case 2:
+            //textCells
+            return textCells.count
         default:
             break
         }
@@ -141,6 +152,9 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         case 1:
             //colorSelectorCells
             return colorSelectorCells[indexPath.row]
+        case 2:
+            //textCells
+            return textCells[indexPath.row]
         default:
             break
         }
@@ -159,8 +173,28 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         return 35
     }
     
+    //footerのUIViewを設定
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor.clearColor()
+        return view
+    }
+    
+    //footerの高さを設定
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return 300
+        }
+        
+        return 0
+    }
+    
     //cellの高さを設定
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.section == 2 {
+            return 170
+        }
+        
         return 50
     }
     
@@ -173,7 +207,7 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = MemoController.instance.memoBuf!.text
+        titleCell.textField.text = MemoController.instance.memoBuf!.text
         titleCell.placeholder = "タイトル"
         titleCells.append(titleCell)
         
@@ -185,6 +219,12 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         colorLabelCell.accessoryType = .DisclosureIndicator
         
         colorSelectorCells.append(colorLabelCell)
+        
+        //section == 2 (textCells)
+        let textCell = tableView.dequeueReusableCellWithIdentifier("TextViewTableViewCell") as! TextViewTableViewCell
+        textCell.textView.text = MemoController.instance.memoBuf!.memo
+        textCells.append(textCell)
+        
     }
     
     func closeButtonClicked(sender: AnyObject) {
@@ -198,10 +238,13 @@ class MemoEditorViewController: UIViewController, UITableViewDataSource, UITable
         let memo = MemoController.instance.memo!
         
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        memo.text = titleCell.inputTextField.text!
+        memo.text = titleCell.textField.text!
         
         let memoBuf = MemoController.instance.memoBuf!
         memo.color = memoBuf.color
+        
+        let textCell = textCells[0] as! TextViewTableViewCell
+        memo.memo = textCell.textView.text
         
         MemoController.instance.memo = nil
         MemoController.instance.memoBuf = nil

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ListTableViewController: UITableViewController {
+class ListTableViewController: UITableViewController, OpenCellDelegate {
     
     var cellArray: [UITableViewCell] = []
     
@@ -71,6 +71,19 @@ class ListTableViewController: UITableViewController {
     //セルの高さを設定
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let item = page.items[indexPath.row]
+        if item.open {
+            switch item.itemType {
+            case .Memo:
+                let memoCell = cellArray[indexPath.row] as! MemoCell
+                memoCell.memoTextView.sizeToFit()
+                let size = memoCell.memoTextView.contentSize
+                return CGFloat(item.height) + size.height
+            case .Counter:
+                return CGFloat(item.height) * 2
+            default:
+                break
+            }
+        }
         return CGFloat(item.height)
     }
     
@@ -152,19 +165,25 @@ class ListTableViewController: UITableViewController {
             let memoCell = tableView.dequeueReusableCellWithIdentifier("MemoCell") as! MemoCell
             memoCell.item = item
             memoCell.delegate = AppController.instance.viewController
+            memoCell.openCellDelegate = self
             
             return memoCell
         case .Counter:
             let counterCell = tableView.dequeueReusableCellWithIdentifier("CounterCell") as! CounterCell
             counterCell.item = item
             counterCell.delegate = AppController.instance.viewController
-            
+            counterCell.openCellDelegate = self
             return counterCell
         default:
             break
         }
         
         return UITableViewCell()
+    }
+    
+    func changeOpenCell() {
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
 }
 

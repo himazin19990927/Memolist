@@ -20,7 +20,7 @@ class Counter: Item {
     
     override var height: Float {
         get {
-            return 100
+            return 55
         }
     }
     
@@ -42,6 +42,8 @@ class Counter: Item {
         text = counter.text
         check = counter.check
         color = counter.color
+        open = counter.open
+        
         count = counter.count
     }
     

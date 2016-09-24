@@ -29,6 +29,8 @@ class Item {
     
     var color: UIColor
     
+    var open: Bool
+    
     var cellName: String {
         get {
             return "No Name"
@@ -40,7 +42,7 @@ class Item {
             return 80
         }
     }
-    
+        
     init() {
         //使われていないIDを設定し保持する
         let userDefaults = NSUserDefaults.standardUserDefaults()
@@ -55,6 +57,8 @@ class Item {
         self.check = false
         
         self.color = UIColor.blackColor()
+        
+        self.open = false
     }
     
     init(id: Int) {
@@ -76,11 +80,14 @@ class Item {
             } else {
                 self.color = UIColor.blackColor()
             }
+            
+            self.open = userDefaults.boolForKey("Item.\(self.id).open")
         } else {
             self.itemType = .None
             self.text = ""
             self.check = false
             self.color = UIColor.blackColor()
+            self.open = false
         }
     }
     
@@ -91,7 +98,7 @@ class Item {
         userDefaults.setBool(true, forKey: "Item.\(self.id).exist")
         userDefaults.setObject(self.text, forKey: "Item.\(self.id).text")
         userDefaults.setBool(self.check, forKey: "Item.\(self.id).check")
-        
+        userDefaults.setBool(self.open, forKey: "Item.\(self.id).open")
         
         let colorData = NSKeyedArchiver.archivedDataWithRootObject(self.color)
         userDefaults.setObject(colorData, forKey: "Item.\(self.id).color")
@@ -108,6 +115,7 @@ class Item {
         userDefaults.removeObjectForKey("Item.\(self.id).text")
         userDefaults.removeObjectForKey("Item.\(self.id).check")
         userDefaults.removeObjectForKey("Item.\(self.id).color")
+        userDefaults.removeObjectForKey("Item.\(self.id).open")
     }
     
     func createItemCell() -> UITableViewCell {

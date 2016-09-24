@@ -14,15 +14,24 @@ class MemoCell: UITableViewCell {
     @IBOutlet var detailImage: UIImageView!
     @IBOutlet var lineView: UIView!
     
+    @IBOutlet var openView: UIView!
+    @IBOutlet var memoTextView: UITextView!
+    
     var delegate: ItemEditorDelegate?
+    var openCellDelegate: OpenCellDelegate?
     
     var item: Item? {
         didSet {
-            label.text = item?.text
-            
-            checkImage.tintColor = item?.color
-            detailImage.tintColor = item?.color
-            
+            if let item = item as? Memo{
+                label.text = item.text
+                
+                memoTextView.text = item.memo
+                
+                checkImage.tintColor = item.color
+                detailImage.tintColor = item.color
+                
+                openView.hidden = !item.open
+            }
             changeImage()
         }
     }
@@ -55,7 +64,25 @@ class MemoCell: UITableViewCell {
     @IBAction func editButton() {
         if let item = self.item {
             delegate?.editItem(item)
-
+        }
+    }
+    
+    @IBAction func openButton() {
+        if let item = self.item, let openCellDelegate = self.openCellDelegate {
+            item.open = !item.open
+            
+            if item.open {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    self.openView.hidden = false
+                }
+            } else {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    self.openView.hidden = true
+                }
+            }
+            openCellDelegate.changeOpenCell()
         }
     }
     
@@ -71,7 +98,6 @@ class MemoCell: UITableViewCell {
             checkImage.image = checkImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         }
     }
-    
 }
 
 

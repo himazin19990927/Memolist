@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PageCreatorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextFieldCellDelegate{
+class PageCreatorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
     var titleCells: [UITableViewCell] = []
@@ -85,12 +85,12 @@ class PageCreatorViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidAppear(animated: Bool) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.becomeFirstResponder()
+        titleCell.textField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.endEditing(true)
+        titleCell.textField.endEditing(true)
     }
     
     //セクションの数を設定
@@ -161,9 +161,8 @@ class PageCreatorViewController: UIViewController, UITableViewDataSource, UITabl
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = PageController.instance.pageBuf?.title
+        titleCell.textField.text = PageController.instance.pageBuf?.title
         titleCell.placeholder = "タイトル"
-        titleCell.delegate = self
         titleCells.append(titleCell)
         
         //section == 1
@@ -186,7 +185,7 @@ class PageCreatorViewController: UIViewController, UITableViewDataSource, UITabl
     
     func addButton(sender:AnyObject) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        if let text = titleCell.inputTextField.text {
+        if let text = titleCell.textField.text {
             if text.characters.count >= 15 {
                 //タイトルが15文字以上だった場合アラートを表示
                 let alert = UIAlertController(title: "タイトルが長過ぎます", message: nil, preferredStyle: .Alert)

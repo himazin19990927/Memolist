@@ -57,6 +57,7 @@ class ViewController: UIViewController, ItemEditorDelegate {
         appDelegate.saveAllPage()
         
         pageMenu?.reloadData()
+        
     }
     
     override func viewDidAppear(animated: Bool) {

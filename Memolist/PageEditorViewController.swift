@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class PageEditorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TextFieldCellDelegate{
+class PageEditorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet var tableView: UITableView!
     
     var titleCells: [UITableViewCell] = []
@@ -79,12 +79,12 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(animated: Bool) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.becomeFirstResponder()
+        titleCell.textField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(animated: Bool) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        titleCell.inputTextField.endEditing(true)
+        titleCell.textField.endEditing(true)
     }
     
     //セクションの数を設定
@@ -155,9 +155,8 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
         //indexPath == 0
         //タイトルを設定するセル
         let titleCell = tableView.dequeueReusableCellWithIdentifier("TextFieldTableViewCell") as! TextFieldTableViewCell
-        titleCell.inputTextField.text = PageController.instance.pageBuf?.title
+        titleCell.textField.text = PageController.instance.pageBuf?.title
         titleCell.placeholder = "タイトル"
-        titleCell.delegate = self
         titleCells.append(titleCell)
         
         //section == 1
@@ -174,7 +173,7 @@ class PageEditorViewController: UIViewController, UITableViewDataSource, UITable
     //右のボタンが押された時に呼ばれる
     func addButtonClicked(sender:AnyObject) {
         let titleCell = titleCells[0] as! TextFieldTableViewCell
-        if let text = titleCell.inputTextField.text {
+        if let text = titleCell.textField.text {
             if text.characters.count >= 15 {
                 //タイトルが15文字以上だった場合アラートを表示
                 let alert = UIAlertController(title: "タイトルが長過ぎます", message: nil, preferredStyle: .Alert)

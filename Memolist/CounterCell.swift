@@ -19,19 +19,22 @@ class CounterCell: UITableViewCell {
     
     @IBOutlet var countLabel: UILabel!
     
+    @IBOutlet var openView: UIView!
+    
     var delegate: ItemEditorDelegate?
+    var openCellDelegate: OpenCellDelegate?
     
     var item: Item? {        
         didSet {
-            label.text = item?.text
-            
-            checkImage.tintColor = item?.color
-            detailImage.tintColor = item?.color
-            
-            if let counter = item as? Counter {
-                countLabel.text = "\(counter.count)"
+            if let item = item as? Counter{
+                label.text = item.text
+                
+                countLabel.text = "\(item.count)"
+                openView.hidden = !item.open
+                
+                checkImage.tintColor = item.color
+                detailImage.tintColor = item.color
             }
-            
             changeImage()
         }
     }
@@ -78,6 +81,25 @@ class CounterCell: UITableViewCell {
         if let item = self.item {
             delegate?.editItem(item)
             
+        }
+    }
+    
+    @IBAction func openButton() {
+        if let item = self.item, let openCellDelegate = self.openCellDelegate {
+            item.open = !item.open
+            
+            if item.open {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    self.openView.hidden = false
+                }
+            } else {
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.2 * Double(NSEC_PER_SEC)))
+                dispatch_after(delayTime, dispatch_get_main_queue()) {
+                    self.openView.hidden = true
+                }
+            }
+            openCellDelegate.changeOpenCell()
         }
     }
     

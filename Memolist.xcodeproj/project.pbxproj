@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1ADE631D964E2E006A70AA /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */; };
+		DE1ADE641D964E2E006A70AA /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */; };
+		DE1ADE6A1D966246006A70AA /* OpenCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */; };
 		DE2EBA9F1D83DEB3006CD0D5 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */; };
 		DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBAA31D83E717006CD0D5 /* MemoCell.swift */; };
 		DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */; };
@@ -88,6 +91,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
+		DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
+		DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCellDelegate.swift; sourceTree = "<group>"; };
 		DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		DE2EBAA31D83E717006CD0D5 /* MemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
@@ -201,6 +207,7 @@
 				DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */,
 				DE6301EB1D8D161000314C3B /* CounterCell.swift */,
 				DE6301EC1D8D161000314C3B /* CounterCell.xib */,
+				DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */,
 			);
 			name = ItemCell;
 			sourceTree = "<group>";
@@ -308,6 +315,8 @@
 			children = (
 				DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */,
 				DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */,
+				DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */,
+				DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */,
 				DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */,
 				DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */,
 				DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */,
@@ -490,6 +499,7 @@
 				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
 				DE6301EE1D8D161000314C3B /* CounterCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
+				DE1ADE641D964E2E006A70AA /* TextViewTableViewCell.xib in Resources */,
 				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
 				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
 				DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */,
@@ -536,9 +546,11 @@
 				DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */,
 				DE9A9C6B1D90CD2A002A9F88 /* ItemController.swift in Sources */,
 				DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */,
+				DE1ADE6A1D966246006A70AA /* OpenCellDelegate.swift in Sources */,
 				DE9A9C731D911B94002A9F88 /* MemoController.swift in Sources */,
 				DE9A9C691D90379A002A9F88 /* AppController.swift in Sources */,
 				DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */,
+				DE1ADE631D964E2E006A70AA /* TextViewTableViewCell.swift in Sources */,
 				DE6301ED1D8D161000314C3B /* CounterCell.swift in Sources */,
 				DE9A9C751D911C0D002A9F88 /* MemoEditorViewController.swift in Sources */,
 				DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */,
