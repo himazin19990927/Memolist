@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,20 +15,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="215.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="YT6-cK-t8u">
-                        <rect key="frame" x="0.0" y="-0.5" width="320" height="216.5"/>
-                        <date key="date" timeIntervalSinceReferenceDate="491753321.65766102">
-                            <!--2016-08-01 14:08:41 +0000-->
+                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="unl-Ne-w3Z">
+                        <rect key="frame" x="8" y="0.0" width="304" height="216"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="216" id="xq6-tO-lL9"/>
+                        </constraints>
+                        <date key="date" timeIntervalSinceReferenceDate="496484501.94119298">
+                            <!--2016-09-25 08:21:41 +0000-->
                         </date>
                     </datePicker>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="YT6-cK-t8u" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Rx6-yb-XOA"/>
-                    <constraint firstItem="YT6-cK-t8u" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cf3-pt-ceC"/>
+                    <constraint firstItem="unl-Ne-w3Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="2uw-A8-ZOD"/>
+                    <constraint firstItem="unl-Ne-w3Z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cy1-U7-xPg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="unl-Ne-w3Z" secondAttribute="trailing" id="d93-HI-T42"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="datePicker" destination="YT6-cK-t8u" id="qSy-Hr-87h"/>
+                <outlet property="datePicker" destination="unl-Ne-w3Z" id="ptK-rf-80d"/>
             </connections>
             <point key="canvasLocation" x="408" y="429"/>
         </tableViewCell>

@@ -18,11 +18,11 @@ class Counter: Item {
         }
     }
     
-    override var height: Float {
-        get {
-            return 55
-        }
-    }
+//    override var height: Float {
+//        get {
+//            return 55
+//        }
+//    }
     
     override init() {
         self.count = 0

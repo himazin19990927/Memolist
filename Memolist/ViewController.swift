@@ -11,14 +11,14 @@ class ViewController: UIViewController, ItemEditorDelegate {
     var pageMenu: CAPSPageMenu?
     var controllerArray: [UIViewController] = []
     
-    var leftBarButton: UIBarButtonItem!
+    var configBarButton: UIBarButtonItem!
     var addBarButton: UIBarButtonItem!
     var listBarButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-                
+        
         //NavigationBarの設定
         self.title = "Memolist"
         self.navigationController?.navigationBar.barTintColor = ColorController.whiteColor()
@@ -29,9 +29,13 @@ class ViewController: UIViewController, ItemEditorDelegate {
         
         //NavigationBarのボタンの設定
         let backButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        
         navigationItem.backBarButtonItem = backButtonItem
         
+        configBarButton = UIBarButtonItem(image: UIImage(named: "Edit"), style: .Done, target: self, action: #selector(ViewController.configButton(_:)))
+        navigationItem.leftBarButtonItems = [editButtonItem(), configBarButton]
         navigationItem.leftBarButtonItem = editButtonItem()
+        
         
         addBarButton = UIBarButtonItem(image: UIImage(named: "Add"), style: .Done, target: self, action: #selector(ViewController.addButton(_:)))
         
@@ -86,8 +90,37 @@ class ViewController: UIViewController, ItemEditorDelegate {
         
     }
     
+    //Configボタンが押されたときに呼ばれる
+    func configButton(sender :AnyObject) {
+        let configAlert = UIAlertController(title: "その他", message: nil, preferredStyle: .ActionSheet)
+        
+        let deleteCheckedItem = UIAlertAction(title: "チェック済みを削除", style: .Default, handler: { action in
+            let alert = UIAlertController(title: "チェック済みのアイテムを\n消しますか", message: nil, preferredStyle: .Alert)
+            
+            let okAction = UIAlertAction(title: "OK", style: .Default, handler: { action in
+                let listTableViewController = self.controllerArray[(self.pageMenu?.currentPageIndex)!] as! ListTableViewController
+                listTableViewController.deleteCheckedItem()
+            })
+            alert.addAction(okAction)
+            
+            let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+            alert.addAction(cancelAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        })
+        configAlert.addAction(deleteCheckedItem)
+        
+        let cancel = UIAlertAction(title: "キャンセル", style: .Cancel, handler: {
+            (action: UIAlertAction) in
+            print("cancel")
+        })
+        configAlert.addAction(cancel)
+        
+        self.presentViewController(configAlert, animated: true, completion: nil)
+        
+    }
     
-    //Addボタンが押された時呼ばれる
+    //Addボタンが押された時に呼ばれる
     func addButton(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let page = appDelegate.pageArray[(pageMenu?.currentPageIndex)!]
@@ -99,7 +132,7 @@ class ViewController: UIViewController, ItemEditorDelegate {
         performSegueWithIdentifier("MoveToItemCreator", sender: nil)
     }
     
-    //Listボタンが押された時呼ばれる
+    //Listボタンが押された時に呼ばれる
     func listButton(sender: AnyObject) {
         //データの保存
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -178,6 +211,13 @@ class ViewController: UIViewController, ItemEditorDelegate {
             counterController.counterBuf = Counter(counter: counter)
             
             performSegueWithIdentifier("MoveToCounterEditor", sender: nil)
+        case .Schedule:
+            let scheduleController = ScheduleController.instance
+            let schedule = item as! Schedule
+            
+            scheduleController.schedule = schedule
+            scheduleController.scheduleBuf = Schedule(schedule: schedule)
+            performSegueWithIdentifier("MoveToScheduleEditor", sender: nil)
         default:
             break
         }

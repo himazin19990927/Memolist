@@ -33,6 +33,7 @@ class ListTableViewController: UITableViewController, OpenCellDelegate {
         //Check
         self.tableView.registerNib(UINib(nibName: "MemoCell", bundle: nil), forCellReuseIdentifier: "MemoCell")
         self.tableView.registerNib(UINib(nibName: "CounterCell", bundle: nil), forCellReuseIdentifier: "CounterCell")
+        self.tableView.registerNib(UINib(nibName: "ScheduleCell", bundle: nil), forCellReuseIdentifier: "ScheduleCell")
         
         initCell()
         
@@ -71,20 +72,24 @@ class ListTableViewController: UITableViewController, OpenCellDelegate {
     //セルの高さを設定
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let item = page.items[indexPath.row]
+        
+        let cellHeight:CGFloat = 55
         if item.open {
             switch item.itemType {
             case .Memo:
                 let memoCell = cellArray[indexPath.row] as! MemoCell
                 memoCell.memoTextView.sizeToFit()
                 let size = memoCell.memoTextView.contentSize
-                return CGFloat(item.height) + size.height
+                return cellHeight + size.height
             case .Counter:
-                return CGFloat(item.height) * 2
+                return cellHeight + 40
+            case .Schedule:
+                return cellHeight + 20
             default:
                 break
             }
         }
-        return CGFloat(item.height)
+        return cellHeight
     }
     
     //セルが削除できるかどうか設定
@@ -174,6 +179,12 @@ class ListTableViewController: UITableViewController, OpenCellDelegate {
             counterCell.delegate = AppController.instance.viewController
             counterCell.openCellDelegate = self
             return counterCell
+        case .Schedule:
+            let scheduleCell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell") as! ScheduleCell
+            scheduleCell.item = item
+            scheduleCell.delegate = AppController.instance.viewController
+            scheduleCell.openCellDelegate = self
+            return scheduleCell
         default:
             break
         }
@@ -184,6 +195,30 @@ class ListTableViewController: UITableViewController, OpenCellDelegate {
     func changeOpenCell() {
         tableView.beginUpdates()
         tableView.endUpdates()
+    }
+    
+    func deleteCheckedItem() {
+        var removeItemIndexPath: [NSIndexPath] = []
+        for i in 0 ..< page.items.count {
+            
+            if page.items[i].check {
+                removeItemIndexPath.append(NSIndexPath(forRow: i, inSection: 0))
+            }
+        }
+        
+        for i in 0 ..< removeItemIndexPath.count {
+            
+            print("i:\(i) removeItemIndexPath:\(removeItemIndexPath.count) items:\(page.items.count)")
+            
+            let index = removeItemIndexPath.count - i - 1
+            let row = removeItemIndexPath[index].row
+            page.items[row].removeItem()
+            page.items.removeAtIndex(row)
+            
+            cellArray.removeAtIndex(row)
+        }
+        
+        tableView.deleteRowsAtIndexPaths(removeItemIndexPath, withRowAnimation: .Fade)
     }
 }
 

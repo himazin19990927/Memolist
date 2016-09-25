@@ -13,6 +13,7 @@ public enum ItemType: Int {
     case None
     case Memo
     case Counter
+    case Schedule
 }
 
 class CheckImage {
@@ -37,12 +38,12 @@ class Item {
         }
     }
     
-    var height: Float {
-        get {
-            return 80
-        }
-    }
-        
+//    var height: Float {
+//        get {
+//            return 80
+//        }
+//    }
+    
     init() {
         //使われていないIDを設定し保持する
         let userDefaults = NSUserDefaults.standardUserDefaults()

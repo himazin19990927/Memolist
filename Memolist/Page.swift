@@ -55,6 +55,8 @@ class Page {
                         item = Memo(id: itemId)
                     case .Counter:
                         item = Counter(id: itemId)
+                    case .Schedule:
+                        item = Schedule(id: itemId)
                     default:
                         item = Item(id: itemId)
                     }
@@ -93,6 +95,10 @@ class Page {
         userDefaults.removeObjectForKey("Page.\(id).title")
         userDefaults.removeObjectForKey("Page.\(id).color")
         userDefaults.removeObjectForKey("Page.\(self.id).itemIdArray")
+        
+        for item in items {
+            item.removeItem()
+        }
         
     }
     

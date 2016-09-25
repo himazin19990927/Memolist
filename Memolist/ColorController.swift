@@ -58,15 +58,24 @@ class ColorController {
     }
     
     //VOEZ Color
+//    class func blackColor() -> UIColor {
+//        return UIColor(red: 80 / 255.0, green: 86 / 255.0, blue: 93 / 255.0, alpha: 1.0)
+//    }
+    
     class func blackColor() -> UIColor {
-        return UIColor(red: 80 / 255.0, green: 86 / 255.0, blue: 93 / 255.0, alpha: 1.0)
+        return UIColor(red: 64 / 255.0, green: 68 / 255.0, blue: 74 / 255.0, alpha: 1.0)
     }
+    
     class func whiteColor() -> UIColor {
         return UIColor(red: 255 / 255.0, green: 255 / 255.0, blue: 255 / 255.0, alpha: 1.0)
     }
     
     class func grayColor() -> UIColor {
         return UIColor(red: 247 / 255.0, green: 247 / 255.0, blue: 247 / 255.0, alpha: 1.0)
+    }
+    
+    class func darkGrayColor() -> UIColor {
+        return UIColor(red: 104 / 255.0, green: 112 / 255.0, blue: 120 / 255.0, alpha: 1.0)
     }
     
     class func blueGrayColor() -> UIColor {
@@ -96,6 +105,7 @@ class ColorController {
     class var colorList: [UIColor] {
         var colorArray: [UIColor] = []
         
+        colorArray.append(ColorController.darkGrayColor())
         colorArray.append(ColorController.redColor())
         colorArray.append(ColorController.orangeColor())
         colorArray.append(ColorController.greenColor())

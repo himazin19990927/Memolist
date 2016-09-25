@@ -9,13 +9,13 @@
 import UIKit
 
 protocol DatePickerCellDelegate {
-    func didChangeDate(date: NSDate, tag: Int)
+    func changedDate(date: NSDate, tag: Int)
 }
 
 class DatePickerCell: UITableViewCell, UIPickerViewDelegate {
     @IBOutlet var datePicker: UIDatePicker!
     var delegate: DatePickerCellDelegate?
-    
+        
     var enabled: Bool = true {
         didSet {
             datePicker.enabled = enabled
@@ -38,9 +38,7 @@ class DatePickerCell: UITableViewCell, UIPickerViewDelegate {
     }
     
     func onDidChangeDate(sender: UIDatePicker) {
-        if delegate != nil {
-            delegate?.didChangeDate(sender.date, tag: tag)
-        }
+        delegate?.changedDate(sender.date, tag: tag)
     }
     
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,31 +15,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRK-D1-lYP">
-                        <rect key="frame" x="18" y="8" width="245" height="27.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X9F-b8-Koh">
+                        <rect key="frame" x="18" y="8" width="225" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oap-Xn-zcV">
-                        <rect key="frame" x="263" y="6" width="51" height="31"/>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JZA-Td-htr">
+                        <rect key="frame" x="253" y="6" width="51" height="31"/>
                         <connections>
-                            <action selector="changedSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="ucb-ex-kfF"/>
+                            <action selector="changedSwitch:" destination="KGk-i7-Jjw" eventType="valueChanged" id="kaA-Zu-6B3"/>
                         </connections>
                     </switch>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oap-Xn-zcV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8Ay-yA-qzH"/>
-                    <constraint firstItem="oap-Xn-zcV" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="GxO-TI-Tvq"/>
-                    <constraint firstItem="qRK-D1-lYP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="QFq-pR-Xhp"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="qRK-D1-lYP" secondAttribute="bottom" id="XvG-5m-aJA"/>
-                    <constraint firstItem="qRK-D1-lYP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Zc0-8x-Scc"/>
-                    <constraint firstItem="oap-Xn-zcV" firstAttribute="leading" secondItem="qRK-D1-lYP" secondAttribute="trailing" id="uj0-mf-ZhS"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="X9F-b8-Koh" secondAttribute="bottom" id="5qp-cf-hZk"/>
+                    <constraint firstItem="X9F-b8-Koh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="GQt-dK-pua"/>
+                    <constraint firstItem="JZA-Td-htr" firstAttribute="leading" secondItem="X9F-b8-Koh" secondAttribute="trailing" constant="10" id="IB3-qY-M3S"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JZA-Td-htr" secondAttribute="trailing" constant="10" id="Osz-9l-Aku"/>
+                    <constraint firstItem="JZA-Td-htr" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UzS-JV-0Mh"/>
+                    <constraint firstItem="X9F-b8-Koh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jac-dj-Wpg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="inputSwitch" destination="oap-Xn-zcV" id="MYU-ZL-08C"/>
-                <outlet property="titleLabel" destination="qRK-D1-lYP" id="kTq-ub-OVL"/>
+                <outlet property="titleLabel" destination="X9F-b8-Koh" id="Lry-BV-QpW"/>
+                <outlet property="uiSwitch" destination="JZA-Td-htr" id="ULH-Iu-Qfb"/>
             </connections>
         </tableViewCell>
     </objects>

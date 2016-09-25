@@ -53,6 +53,9 @@ class CounterCell: UITableViewCell {
         plusImage.image = plusImage.image?.imageWithRenderingMode(.AlwaysTemplate)
         plusImage.tintColor = ColorController.blueGrayColor()
         
+        label.textColor = ColorController.blackColor()
+        countLabel.textColor = ColorController.blackColor()
+        
         changeImage()
         
         if let item = self.item as? Counter {
@@ -94,7 +97,7 @@ class CounterCell: UITableViewCell {
                     self.openView.hidden = false
                 }
             } else {
-                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.2 * Double(NSEC_PER_SEC)))
+                let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(0.1 * Double(NSEC_PER_SEC)))
                 dispatch_after(delayTime, dispatch_get_main_queue()) {
                     self.openView.hidden = true
                 }

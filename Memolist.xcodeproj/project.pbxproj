@@ -10,11 +10,19 @@
 		DE1ADE631D964E2E006A70AA /* TextViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */; };
 		DE1ADE641D964E2E006A70AA /* TextViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */; };
 		DE1ADE6A1D966246006A70AA /* OpenCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */; };
+		DE1ADE6C1D97840C006A70AA /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE6B1D97840C006A70AA /* Schedule.swift */; };
+		DE1ADE6F1D978D85006A70AA /* ScheduleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE6D1D978D85006A70AA /* ScheduleCell.swift */; };
+		DE1ADE701D978D85006A70AA /* ScheduleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1ADE6E1D978D85006A70AA /* ScheduleCell.xib */; };
+		DE1ADE731D97B7ED006A70AA /* ScheduleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE721D97B7ED006A70AA /* ScheduleController.swift */; };
+		DE1ADE751D97B856006A70AA /* ScheduleEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE741D97B856006A70AA /* ScheduleEditorViewController.swift */; };
+		DE1ADE771D97B869006A70AA /* ScheduleColorSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1ADE761D97B869006A70AA /* ScheduleColorSelectorViewController.swift */; };
 		DE2EBA9F1D83DEB3006CD0D5 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */; };
 		DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBAA31D83E717006CD0D5 /* MemoCell.swift */; };
 		DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */; };
 		DE2EBAAD1D83F4C8006CD0D5 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */; };
 		DE339A731D745A41004E7932 /* Add.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE339A721D745A41004E7932 /* Add.pdf */; };
+		DE33AC601D97CB3D0082DFB2 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE33AC5E1D97CB3D0082DFB2 /* SwitchTableViewCell.swift */; };
+		DE33AC611D97CB3D0082DFB2 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE33AC5F1D97CB3D0082DFB2 /* SwitchTableViewCell.xib */; };
 		DE6301E01D8CD4F400314C3B /* Detail.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301DF1D8CD4F400314C3B /* Detail.pdf */; };
 		DE6301E61D8CD97100314C3B /* Check_NO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301E51D8CD97100314C3B /* Check_NO.pdf */; };
 		DE6301E81D8D01CE00314C3B /* Check_YES.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE6301E71D8D01CE00314C3B /* Check_YES.pdf */; };
@@ -45,8 +53,6 @@
 		DE692D9A1D71AF390070B45E /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D8E1D71AF390070B45E /* DatePickerCell.xib */; };
 		DE692D9B1D71AF390070B45E /* LabelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */; };
 		DE692D9C1D71AF390070B45E /* LabelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D901D71AF390070B45E /* LabelTableViewCell.xib */; };
-		DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */; };
-		DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */; };
 		DE692D9F1D71AF390070B45E /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */; };
 		DE692DA01D71AF390070B45E /* TextFieldTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */; };
 		DE692DA81D71AFA70070B45E /* Check.pdf in Resources */ = {isa = PBXBuildFile; fileRef = DE692DA31D71AFA70070B45E /* Check.pdf */; };
@@ -94,11 +100,19 @@
 		DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextViewTableViewCell.swift; sourceTree = "<group>"; };
 		DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewTableViewCell.xib; sourceTree = "<group>"; };
 		DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenCellDelegate.swift; sourceTree = "<group>"; };
+		DE1ADE6B1D97840C006A70AA /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		DE1ADE6D1D978D85006A70AA /* ScheduleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
+		DE1ADE6E1D978D85006A70AA /* ScheduleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScheduleCell.xib; sourceTree = "<group>"; };
+		DE1ADE721D97B7ED006A70AA /* ScheduleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleController.swift; sourceTree = "<group>"; };
+		DE1ADE741D97B856006A70AA /* ScheduleEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleEditorViewController.swift; sourceTree = "<group>"; };
+		DE1ADE761D97B869006A70AA /* ScheduleColorSelectorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleColorSelectorViewController.swift; sourceTree = "<group>"; };
 		DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		DE2EBAA31D83E717006CD0D5 /* MemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		DE339A721D745A41004E7932 /* Add.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Add.pdf; sourceTree = "<group>"; };
+		DE33AC5E1D97CB3D0082DFB2 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		DE33AC5F1D97CB3D0082DFB2 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		DE6301DF1D8CD4F400314C3B /* Detail.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Detail.pdf; sourceTree = "<group>"; };
 		DE6301E51D8CD97100314C3B /* Check_NO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check_NO.pdf; sourceTree = "<group>"; };
 		DE6301E71D8D01CE00314C3B /* Check_YES.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check_YES.pdf; sourceTree = "<group>"; };
@@ -136,8 +150,6 @@
 		DE692D8E1D71AF390070B45E /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelTableViewCell.swift; sourceTree = "<group>"; };
 		DE692D901D71AF390070B45E /* LabelTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabelTableViewCell.xib; sourceTree = "<group>"; };
-		DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		DE692D931D71AF390070B45E /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldTableViewCell.xib; sourceTree = "<group>"; };
 		DE692DA31D71AFA70070B45E /* Check.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = Check.pdf; sourceTree = "<group>"; };
@@ -190,12 +202,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE1ADE711D97B7CF006A70AA /* ScheduleEditor */ = {
+			isa = PBXGroup;
+			children = (
+				DE1ADE741D97B856006A70AA /* ScheduleEditorViewController.swift */,
+				DE1ADE761D97B869006A70AA /* ScheduleColorSelectorViewController.swift */,
+				DE1ADE721D97B7ED006A70AA /* ScheduleController.swift */,
+			);
+			name = ScheduleEditor;
+			sourceTree = "<group>";
+		};
 		DE2EBA9B1D83DAB3006CD0D5 /* Item */ = {
 			isa = PBXGroup;
 			children = (
 				DE2EBAAC1D83F4C8006CD0D5 /* Item.swift */,
 				DE2EBA9E1D83DEB3006CD0D5 /* Memo.swift */,
 				DE6301E91D8D142B00314C3B /* Counter.swift */,
+				DE1ADE6B1D97840C006A70AA /* Schedule.swift */,
 			);
 			name = Item;
 			sourceTree = "<group>";
@@ -207,6 +230,8 @@
 				DE2EBAA41D83E717006CD0D5 /* MemoCell.xib */,
 				DE6301EB1D8D161000314C3B /* CounterCell.swift */,
 				DE6301EC1D8D161000314C3B /* CounterCell.xib */,
+				DE1ADE6D1D978D85006A70AA /* ScheduleCell.swift */,
+				DE1ADE6E1D978D85006A70AA /* ScheduleCell.xib */,
 				DE1ADE691D966246006A70AA /* OpenCellDelegate.swift */,
 			);
 			name = ItemCell;
@@ -242,6 +267,7 @@
 				DE9A9C6C1D90CD38002A9F88 /* ItemCreator */,
 				DE9A9C6F1D911ACD002A9F88 /* MemoEditor */,
 				DEFB77C61D926F1B00B00E16 /* CounterEditor */,
+				DE1ADE711D97B7CF006A70AA /* ScheduleEditor */,
 				DE692D4C1D71AB3C0070B45E /* PageControllers */,
 				DE692D661D71ADC00070B45E /* ListTableViewController */,
 				DE2EBA9B1D83DAB3006CD0D5 /* Item */,
@@ -317,8 +343,6 @@
 				DE692D941D71AF390070B45E /* TextFieldTableViewCell.xib */,
 				DE1ADE611D964E2E006A70AA /* TextViewTableViewCell.swift */,
 				DE1ADE621D964E2E006A70AA /* TextViewTableViewCell.xib */,
-				DE692D911D71AF390070B45E /* SwitchTableViewCell.swift */,
-				DE692D921D71AF390070B45E /* SwitchTableViewCell.xib */,
 				DE692D8F1D71AF390070B45E /* LabelTableViewCell.swift */,
 				DE692D901D71AF390070B45E /* LabelTableViewCell.xib */,
 				DE692D8D1D71AF390070B45E /* DatePickerCell.swift */,
@@ -327,6 +351,8 @@
 				DE692D8C1D71AF390070B45E /* ColorSelectTableViewCell.xib */,
 				DE692D891D71AF390070B45E /* ColorLabelTableViewCell.swift */,
 				DE692D8A1D71AF390070B45E /* ColorLabelTableViewCell.xib */,
+				DE33AC5E1D97CB3D0082DFB2 /* SwitchTableViewCell.swift */,
+				DE33AC5F1D97CB3D0082DFB2 /* SwitchTableViewCell.xib */,
 			);
 			name = CustomCells;
 			sourceTree = "<group>";
@@ -496,9 +522,9 @@
 				DE2EBAA61D83E717006CD0D5 /* MemoCell.xib in Resources */,
 				DE6301E61D8CD97100314C3B /* Check_NO.pdf in Resources */,
 				DEC2AE251D8E40100079976D /* Minus.pdf in Resources */,
-				DE692D9E1D71AF390070B45E /* SwitchTableViewCell.xib in Resources */,
 				DE6301EE1D8D161000314C3B /* CounterCell.xib in Resources */,
 				DE692D211D71AA540070B45E /* Assets.xcassets in Resources */,
+				DE1ADE701D978D85006A70AA /* ScheduleCell.xib in Resources */,
 				DE1ADE641D964E2E006A70AA /* TextViewTableViewCell.xib in Resources */,
 				DE692DAD1D71AFBD0070B45E /* Icon in Resources */,
 				DE339A731D745A41004E7932 /* Add.pdf in Resources */,
@@ -508,6 +534,7 @@
 				DE692DAF1D71AFCF0070B45E /* Main.storyboard in Resources */,
 				DE692D981D71AF390070B45E /* ColorSelectTableViewCell.xib in Resources */,
 				DE692DAB1D71AFA70070B45E /* List.pdf in Resources */,
+				DE33AC611D97CB3D0082DFB2 /* SwitchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +563,7 @@
 				DE692D781D71AE600070B45E /* ColorController.swift in Sources */,
 				DEFB77CE1D93B34B00B00E16 /* PageCreatorViewController.swift in Sources */,
 				DEFA88771D840378001DA233 /* PageController.swift in Sources */,
+				DE1ADE771D97B869006A70AA /* ScheduleColorSelectorViewController.swift in Sources */,
 				DE692D7B1D71AE600070B45E /* ScheduleItem.swift in Sources */,
 				DEFB77C51D926CE200B00E16 /* MemoColorSelectorViewController.swift in Sources */,
 				DE692D991D71AF390070B45E /* DatePickerCell.swift in Sources */,
@@ -543,15 +571,18 @@
 				DEFB77CA1D926F5800B00E16 /* CounterColorSelectorViewController.swift in Sources */,
 				DE2EBAAD1D83F4C8006CD0D5 /* Item.swift in Sources */,
 				DE6301EA1D8D142B00314C3B /* Counter.swift in Sources */,
-				DE692D9D1D71AF390070B45E /* SwitchTableViewCell.swift in Sources */,
+				DE1ADE731D97B7ED006A70AA /* ScheduleController.swift in Sources */,
 				DE9A9C6B1D90CD2A002A9F88 /* ItemController.swift in Sources */,
 				DE2EBAA51D83E717006CD0D5 /* MemoCell.swift in Sources */,
 				DE1ADE6A1D966246006A70AA /* OpenCellDelegate.swift in Sources */,
 				DE9A9C731D911B94002A9F88 /* MemoController.swift in Sources */,
+				DE1ADE6F1D978D85006A70AA /* ScheduleCell.swift in Sources */,
+				DE1ADE6C1D97840C006A70AA /* Schedule.swift in Sources */,
 				DE9A9C691D90379A002A9F88 /* AppController.swift in Sources */,
 				DE692D5C1D71AD180070B45E /* ColorSelectorViewController.swift in Sources */,
 				DE1ADE631D964E2E006A70AA /* TextViewTableViewCell.swift in Sources */,
 				DE6301ED1D8D161000314C3B /* CounterCell.swift in Sources */,
+				DE33AC601D97CB3D0082DFB2 /* SwitchTableViewCell.swift in Sources */,
 				DE9A9C751D911C0D002A9F88 /* MemoEditorViewController.swift in Sources */,
 				DE692D771D71AE600070B45E /* CAPSPageMenu.swift in Sources */,
 				DE692D7A1D71AE600070B45E /* Page.swift in Sources */,
@@ -561,6 +592,7 @@
 				DE9A9C6E1D90CF68002A9F88 /* ItemColorSelectorViewController.swift in Sources */,
 				DE692D971D71AF390070B45E /* ColorSelectTableViewCell.swift in Sources */,
 				DE2EBA9F1D83DEB3006CD0D5 /* Memo.swift in Sources */,
+				DE1ADE751D97B856006A70AA /* ScheduleEditorViewController.swift in Sources */,
 				DE692D561D71ACBA0070B45E /* AppDelegate.swift in Sources */,
 				DE692D5D1D71AD180070B45E /* PageEditorViewController.swift in Sources */,
 				DE9A9C671D900FA9002A9F88 /* ItemCreatorViewController.swift in Sources */,
