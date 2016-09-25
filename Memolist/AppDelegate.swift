@@ -23,18 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let userDefaults = NSUserDefaults.standardUserDefaults()
         
-//        if !userDefaults.boolForKey("firstLunch") {
-//            print("初回起動")
-//            
-//            userDefaults.setBool(true, forKey: "firstLunch")
-//            userDefaults.setInteger(0, forKey: "pageId")
-//            userDefaults.setInteger(0, forKey: "memoId")
-//            userDefaults.setInteger(0, forKey: "itemId")
-//            initPageArray()
-//        } else {
-//            loadAllPage()
-//        }
-        initPageArray()
+        if !userDefaults.boolForKey("firstLunch") {
+            print("初回起動")
+            
+            userDefaults.setBool(true, forKey: "firstLunch")
+            userDefaults.setInteger(0, forKey: "pageId")
+            userDefaults.setInteger(0, forKey: "memoId")
+            userDefaults.setInteger(0, forKey: "itemId")
+            initPageArray()
+        } else {
+            loadAllPage()
+        }
         
         //戻るボタンの色を変更
         UINavigationBar.appearance().tintColor = ColorController.blackColor()
@@ -104,17 +103,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let item5 = Memo()
         item5.text = "追加ボタンでアイテムの追加"
         item5.color = ColorController.redColor()
+        item5.open = true
         page2.items.append(item5)
         
         let item6 = Memo()
         item6.text = "リストボタンでリストの編集"
         item6.color = ColorController.redColor()
+        item6.open = true
         page2.items.append(item6)
         
         let item7 = Memo()
         item7.text = "編集ボタンでアイテムの削除"
         item7.color = ColorController.redColor()
+        item7.open = true
         page2.items.append(item7)
+        
+        pageArray.append(page2)
     }
     
     func saveAllPage() {
